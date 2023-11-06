@@ -1,17 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Provider } from "react-redux";
+import store from "./redux/store";
+import CalcContainer from "./components/CalcContainer";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Allo
-        </p>
-       
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <CalcContainer />
+      </div>
+    </Provider>
   );
 }
 
