@@ -1,1 +1,1 @@
-export { addNum } from "./add/addActions";
+export { addNumber } from "./add/addActions"

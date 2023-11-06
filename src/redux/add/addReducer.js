@@ -1,20 +1,20 @@
-import { ADD_NUM } from "./addTypes";
+import { ADD_NUMBER } from "./addTypes";
 
 const initalState = {
-    num: 0 
+    initalNumber: 0 
 }
 
-const addNumReducer = (state = initalState, action) => {
+const addReducer = (state = initalState, action) => {
     switch (action.type) {
-      case ADD_NUM:
+      case ADD_NUMBER:
         return {
           ...state,
-          num: state.num - action.payload,
+          initalNumber: state.initalNumber - action.payload,
         };
       default:
         return state;
     }
   };
   
-  export default addNumReducer
+  export default addReducer
   

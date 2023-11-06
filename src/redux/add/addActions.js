@@ -1,8 +1,8 @@
-import { ADD_NUM } from "./addTypes";
+import { ADD_NUMBER } from "./addTypes";
 
-export const addNum =( number = 1) => {
+export const addNumber = ( number = 1) => {
   return {
-    type: ADD_NUM,
+    type: ADD_NUMBER,
     payload: number
   };
 };
