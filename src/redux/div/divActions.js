@@ -1,4 +1,4 @@
-import { ADD_NUMBER } from "./addTypes";
+import { ADD_NUMBER } from "./divTypes";
 
 export const addNumber = inputNum => {
   return {

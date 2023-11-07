@@ -1,13 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from "react-redux";
 import { addNumber } from '../redux';
 
 
 function CalcContainer(props) {
+
+  const [inputNum, setInputNum] = useState()
+
+function setInputBox(e) {
+setInputNum(e.target.value)
+}
+
+function handleAddClick() {
+  if (inputNum != null)
+  props.addNumber(inputNum)
+}
+
   return (
     <div>
-        <h1>adsdasads {props.initalNumber}</h1>
-        <button onClick={props.addNumber}>+</button>
+        <h1> New number {props.initalNumber}</h1>
+        <input placeholder={0} type="number" onChange={setInputBox}></input>
+        <button onClick={handleAddClick}>+</button>
     </div>
   )
 }
@@ -19,7 +32,7 @@ const mapStateToProps = (state) => {
 
   const mapDispathToProps = (dispatch) => {
     return {
-      addNumber: () => dispatch(addNumber()),
+      addNumber: inputNum => dispatch(addNumber(inputNum)),
     };
   };
 
