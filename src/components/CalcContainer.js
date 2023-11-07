@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from "react-redux";
 import { addNumber } from '../redux';
+import { divNumber } from '../redux';
 
 
 function CalcContainer(props) {
@@ -15,18 +16,23 @@ function handleAddClick() {
   if (inputNum != null)
   props.addNumber(inputNum)
 }
+function handleDivClick() {
+  if (inputNum != null)
+  props.divNumber(inputNum)
+}
 
   return (
     <div>
         <h1> New number {props.initalNumber}</h1>
         <input placeholder={0} type="number" onChange={setInputBox}></input>
         <button onClick={handleAddClick}>+</button>
+        <button onClick={handleDivClick}>/</button>
     </div>
   )
 }
 const mapStateToProps = (state) => {
     return {
-      initalNumber: state.add.initalNumber,
+      initalNumber: state.add.initalNumber
     };
   };
 

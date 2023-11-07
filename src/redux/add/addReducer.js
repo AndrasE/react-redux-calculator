@@ -1,7 +1,7 @@
 import { ADD_NUMBER } from "./addTypes";
 
 const initalState = {
-    initalNumber: "1000"
+    initalNumber: 1000
 }
 
 const addReducer = (state = initalState, action) => {
@@ -9,7 +9,7 @@ const addReducer = (state = initalState, action) => {
       case ADD_NUMBER:
         return {
           ...state,
-          initalNumber: state.initalNumber + action.payload,
+          initalNumber: state.initalNumber / action.payload,
         };
       default:
         return state;

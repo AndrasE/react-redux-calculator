@@ -1,20 +1,20 @@
-import { ADD_NUMBER } from "./divTypes";
+import { DIV_NUMBER } from "./divTypes";
 
 const initalState = {
-    initalNumber: "1000"
+    initalNumber: 1000
 }
 
-const addReducer = (state = initalState, action) => {
+const divReducer = (state = initalState, action) => {
     switch (action.type) {
-      case ADD_NUMBER:
+      case DIV_NUMBER:
         return {
           ...state,
-          initalNumber: state.initalNumber + action.payload,
+          initalNumber: state.initalNumber / action.payload,
         };
       default:
         return state;
     }
   };
   
-  export default addReducer
+  export default divReducer
   

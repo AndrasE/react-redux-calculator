@@ -1,8 +1,8 @@
-import { ADD_NUMBER } from "./divTypes";
+import { DIV_NUMBER } from "./divTypes";
 
-export const addNumber = inputNum => {
+export const divNumber = inputNum => {
   return {
-    type: ADD_NUMBER,
+    type: DIV_NUMBER,
     payload: inputNum
   };
 };
