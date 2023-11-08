@@ -9,7 +9,7 @@ const divReducer = (state = initalState, action) => {
       case DIV_NUMBER:
         return {
           ...state,
-          initalNumber: state.initalNumber / action.payload,
+          initalNumber: state.initalNumber - action.payload,
         };
       default:
         return state;

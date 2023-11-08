@@ -7,14 +7,15 @@ import { divNumber } from '../redux';
 function CalcContainer(props) {
 
   const [inputNum, setInputNum] = useState()
+  
 
 function setInputBox(e) {
 setInputNum(e.target.value)
 }
-
 function handleAddClick() {
   if (inputNum != null)
   props.addNumber(inputNum)
+
 }
 function handleDivClick() {
   if (inputNum != null)
@@ -38,7 +39,8 @@ const mapStateToProps = (state) => {
 
   const mapDispathToProps = (dispatch) => {
     return {
-      addNumber: inputNum => dispatch(addNumber(inputNum)),
+      divNumber: inputNum => dispatch(divNumber(inputNum)),
+      addNumber: inputNum => dispatch(addNumber(inputNum))
     };
   };
 
