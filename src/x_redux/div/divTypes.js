@@ -1,1 +1,0 @@
-export const DIV_NUMBER = "DIV_NUMBER"
