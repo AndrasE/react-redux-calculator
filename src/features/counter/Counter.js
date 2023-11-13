@@ -17,17 +17,18 @@ export function Counter() {
 
 function add() {
   dispatch(addition(Number(calcAmount)), 
-  console.log(calcAmount),
-  setCalcAmount(0))
-
+  
+  )
+  setCalcAmount(0)
   setCalcArray((prevState) => [prevState, "+"])
- 
+  console.log(calcArray.length)
 }
+
+
   function seven() {
     setCalcAmount((prevState) => prevState * 10 + 7)
     setCalcArray((prevState) => [prevState, 7])
   }
-
   function eight() {
     setCalcAmount((prevState) => prevState * 10 + 8)
     setCalcArray((prevState) => [prevState, 8])
