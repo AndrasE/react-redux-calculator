@@ -16,12 +16,21 @@ export function Counter() {
   const [calcAmount, setCalcAmount] = useState(0);
 
 function add() {
-  dispatch(addition(Number(calcAmount)), setCalcAmount(0))
-  calcArray.push("+")
+  dispatch(addition(Number(calcAmount)), 
+  console.log(calcAmount),
+  setCalcAmount(0))
+
+  setCalcArray((prevState) => [prevState, "+"])
+ 
 }
-  function seven () {
+  function seven() {
     setCalcAmount((prevState) => prevState * 10 + 7)
-    calcArray.push(7)
+    setCalcArray((prevState) => [prevState, 7])
+  }
+
+  function eight() {
+    setCalcAmount((prevState) => prevState * 10 + 8)
+    setCalcArray((prevState) => [prevState, 8])
   }
 
   return (
@@ -32,7 +41,6 @@ function add() {
       <div className={styles.row}>
         <h3>{calcAmount}</h3>
         <h4>{calcArray}</h4>
-
         {/* <button
           aria-label="Addition calc"
           onClick={() => dispatch(addition(Number(calcAmount) || 0))}
@@ -75,12 +83,12 @@ function add() {
             </button>
 
             <button
-              onClick={() => setCalcAmount((prevState) => prevState * 10 + 8)}
+              onClick={eight}
             >
               8
             </button>
             <button
-              onClick={() => setCalcAmount((prevState) => prevState * 10 + 9)}
+              
             >
               9
             </button>
