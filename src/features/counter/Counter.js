@@ -12,27 +12,23 @@ import styles from "./Counter.module.css";
 export function Counter() {
   const count = useSelector(selectCount);
   const dispatch = useDispatch();
-  const [calcArray, setCalcArray] = useState([])
-  const [calcAmount, setCalcAmount] = useState(0);
+  const [calcArray, setCalcArray] = useState([]);
+  const [calcAmount, setCalcAmount] = useState("");
 
-function add() {
-  dispatch(addition(Number(calcAmount)), 
-  
-  )
-  setCalcAmount(0)
-  setCalcArray((prevState) => [prevState, "+"])
-  console.log(calcArray.length)
-}
-
-
-  function seven() {
-    setCalcAmount((prevState) => prevState * 10 + 7)
-    setCalcArray((prevState) => [prevState, 7])
+  function add() {
+    dispatch(addition(Number(calcAmount)));
+    setCalcAmount("");
+    setCalcArray((prevState) => [prevState + "+"]);
+    console.log(calcArray.length);
   }
-  function eight() {
-    setCalcAmount((prevState) => prevState * 10 + 8)
-    setCalcArray((prevState) => [prevState, 8])
+
+  function num(e) {
+    const currentNum = e.target.value
+    setCalcAmount(calcAmount + currentNum);
+    setCalcArray((prevState) => [prevState + currentNum]);
+    console.log(calcArray);
   }
+
 
   return (
     <div>
@@ -40,8 +36,8 @@ function add() {
         <span className={styles.value}>{count}</span>
       </div>
       <div className={styles.row}>
-        <h3>{calcAmount}</h3>
-        <h4>{calcArray}</h4>
+        <h3>{calcAmount || 0}</h3>
+        <h4>{calcArray || 0} </h4>
         {/* <button
           aria-label="Addition calc"
           onClick={() => dispatch(addition(Number(calcAmount) || 0))}
@@ -77,22 +73,14 @@ function add() {
           </div>
           {/* 2nd row  */}
           <div className="row">
-            <button
-              onClick={seven}
-            >
+            <button value="7" onClick={num}>
               7
             </button>
 
-            <button
-              onClick={eight}
-            >
+            <button value="8" onClick={num}>
               8
             </button>
-            <button
-              
-            >
-              9
-            </button>
+            <button>9</button>
             <button
               aria-label="Multiplication calc"
               onClick={() => dispatch(multiplication(Number(calcAmount) || 0))}
@@ -141,10 +129,7 @@ function add() {
             >
               3
             </button>
-            <button
-              aria-label="Addition calc"
-              onClick={add}
-            >
+            <button aria-label="Addition calc" onClick={add}>
               +
             </button>
           </div>
