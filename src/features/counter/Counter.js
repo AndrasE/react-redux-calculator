@@ -7,11 +7,13 @@ import {
   subtraction,
   selectCount,
 } from "./counterSlice";
-import {userInputSlice, operator} from "../userInput/userInputSlice";
+import {operator, selectUserInput} from "../userInput/userInputSlice";
 import styles from "./Counter.module.css";
+
 
 export function Counter() {
   const count = useSelector(selectCount);
+  const userInput = useSelector(selectUserInput)
   const dispatch = useDispatch();
   const [calcArray, setCalcArray] = useState([]);
   const [calcAmount, setCalcAmount] = useState("");

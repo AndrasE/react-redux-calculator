@@ -4,11 +4,10 @@ export const userInputSlice = createSlice({
   name: "userInput",
   initialState: {
     value: 0,
-    history: 0,
   },
   reducers: {
     operator: (state, action) => {
-      state.value += action.payload;
+      state.value *= action.payload;
       state.history = action.payload;
     },
   },
@@ -17,6 +16,6 @@ export const userInputSlice = createSlice({
 export const { operator} =
   userInputSlice.actions;
 
-export const selectUserInput = (state) => state.counter.value;
+export const selectUserInput = (state) => state.userInput.value;
 
 export default userInputSlice.reducer;
