@@ -15,11 +15,12 @@ export function Counter() {
   const count = useSelector(selectCount);
   const userInput = useSelector(selectUserInput)
   const dispatch = useDispatch();
-  const [calcArray, setCalcArray] = useState([]);
+  const [calcArray, setCalcArray] = useState("");
   const [calcAmount, setCalcAmount] = useState("");
 
   function handleAddClick() {
     dispatch(addition(Number(calcAmount)));
+    dispatch(operator(Number(calcAmount)));
     // setCalcAmount("");
     // setCalcArray((prevState) => [prevState + "+"]);
     // console.log(calcArray.length);
@@ -27,16 +28,17 @@ export function Counter() {
 
   function handleNumClick(e) {
     const currentNum = e.target.value
-    setCalcAmount(currentNum);
-    // setCalcArray((prevState) => [prevState + currentNum]);
-    // console.log(calcArray);
+    setCalcAmount((prevState) => [prevState + currentNum]);
+    setCalcArray((prevState) => [prevState + currentNum]);
+    console.log(calcArray);
   }
 
 
   return (
     <div>
       <div className={styles.row}>
-      <h4>{calcArray || 0} </h4>
+      {/* <h4>{calcArray || 0} </h4> */}
+        <h4>{userInput}</h4>
         <span className={styles.value}>{count}</span>
       </div>
       <div className={styles.row}>

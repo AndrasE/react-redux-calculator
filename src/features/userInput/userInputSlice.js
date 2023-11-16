@@ -7,13 +7,12 @@ export const userInputSlice = createSlice({
   },
   reducers: {
     operator: (state, action) => {
-      state.value *= action.payload;
-      state.history = action.payload;
+        state.value -= action.payload;
     },
   },
 });
 
-export const { operator} =
+export const { operator } =
   userInputSlice.actions;
 
 export const selectUserInput = (state) => state.userInput.value;

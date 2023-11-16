@@ -6,6 +6,5 @@ export default configureStore({
   reducer: {
     counter: counterReducer,
     userInput: userInputReducer
-
   },
 });
