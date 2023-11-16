@@ -4,7 +4,6 @@ export const counterSlice = createSlice({
   name: 'counter',
   initialState: {
     value: 0,
-    history: 0
   },
   reducers: {
     addition: (state, action) => {
@@ -31,6 +30,5 @@ export const { addition, decrementation, multiplication, subtraction } = counter
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state) => state.counter.value)`
 export const selectCount = (state) => state.counter.value
-export const selectHistory = (state) => state.counter.history
 
 export default counterSlice.reducer

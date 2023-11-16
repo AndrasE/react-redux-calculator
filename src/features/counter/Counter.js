@@ -6,13 +6,12 @@ import {
   multiplication,
   subtraction,
   selectCount,
-  selectHistory
 } from "./counterSlice";
+import {userInputSlice, operator} from "../userInput/userInputSlice";
 import styles from "./Counter.module.css";
 
 export function Counter() {
   const count = useSelector(selectCount);
-  const history = useSelector(selectHistory);
   const dispatch = useDispatch();
   const [calcArray, setCalcArray] = useState([]);
   const [calcAmount, setCalcAmount] = useState("");
@@ -36,7 +35,6 @@ export function Counter() {
     <div>
       <div className={styles.row}>
       <h4>{calcArray || 0} </h4>
-      <h5>{history}</h5>
         <span className={styles.value}>{count}</span>
       </div>
       <div className={styles.row}>
