@@ -17,18 +17,18 @@ export function Counter() {
   const [calcArray, setCalcArray] = useState([]);
   const [calcAmount, setCalcAmount] = useState("");
 
-  function add() {
+  function handleAddClick() {
     dispatch(addition(Number(calcAmount)));
-    setCalcAmount("");
-    setCalcArray((prevState) => [prevState + "+"]);
-    console.log(calcArray.length);
+    // setCalcAmount("");
+    // setCalcArray((prevState) => [prevState + "+"]);
+    // console.log(calcArray.length);
   }
 
-  function num(e) {
+  function handleNumClick(e) {
     const currentNum = e.target.value
-    setCalcAmount(calcAmount + currentNum);
-    setCalcArray((prevState) => [prevState + currentNum]);
-    console.log(calcArray);
+    setCalcAmount(currentNum);
+    // setCalcArray((prevState) => [prevState + currentNum]);
+    // console.log(calcArray);
   }
 
 
@@ -77,11 +77,11 @@ export function Counter() {
           </div> */}
           {/* 2nd row  */}
           <div className="row">
-            <button value="7" onClick={num}>
+            <button value="7" onClick={handleNumClick}>
               7
             </button>
 
-            <button value="8" onClick={num}>
+            <button value="8" onClick={handleNumClick}>
               8
             </button>
             <button>9</button>
@@ -133,7 +133,7 @@ export function Counter() {
             >
               3
             </button> */}
-            <button aria-label="Addition calc" onClick={add}>
+            <button aria-label="Addition calc" onClick={handleAddClick}>
               +
             </button>
           </div>
