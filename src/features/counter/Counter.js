@@ -15,22 +15,21 @@ export function Counter() {
   const count = useSelector(selectCount);
   const userInput = useSelector(selectUserInput)
   const dispatch = useDispatch();
-  const [calcArray, setCalcArray] = useState("");
+  const [calcArray, setCalcArray] = useState([""]);
   const [calcAmount, setCalcAmount] = useState("");
 
   function handleAddClick() {
     dispatch(addition(Number(calcAmount)));
-    dispatch(operator(Number(calcAmount)));
-    // setCalcAmount("");
+    dispatch(operator(String(calcAmount + "+")));  
+    // setCalcAmount("")
     // setCalcArray((prevState) => [prevState + "+"]);
     // console.log(calcArray.length);
   }
-
+ 
   function handleNumClick(e) {
-    const currentNum = e.target.value
-    setCalcAmount((prevState) => [prevState + currentNum]);
-    setCalcArray((prevState) => [prevState + currentNum]);
-    console.log(calcArray);
+    const currentNum = calcAmount + e.target.value
+    dispatch(operator(String(currentNum)));  
+    setCalcAmount(currentNum);
   }
 
 
