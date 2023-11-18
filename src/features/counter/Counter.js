@@ -7,7 +7,7 @@ import {
   subtraction,
   selectCount,
 } from "./counterSlice";
-import {operator, selectUserInput} from "../userInput/userInputSlice";
+import {currentUserNum, selectUserInput} from "../userInput/userInputSlice";
 import styles from "./Counter.module.css";
 
 
@@ -15,20 +15,24 @@ export function Counter() {
   const count = useSelector(selectCount);
   const userInput = useSelector(selectUserInput)
   const dispatch = useDispatch();
-  const [calcArray, setCalcArray] = useState([""]);
+  const [lastOpterator, setLastOperator] = useState("");
   const [calcAmount, setCalcAmount] = useState("");
 
-  function handleAddClick() {
+  function handleAddClick(e) {
+    if (calcAmount) {
+    const lastOp = calcAmount + e.target.value
+    setLastOperator(lastOp)
     dispatch(addition(Number(calcAmount)));
-    dispatch(operator(String(calcAmount + "+")));  
-    // setCalcAmount("")
+    dispatch(currentUserNum(String(lastOp)));  
+  }
+    setCalcAmount("")
     // setCalcArray((prevState) => [prevState + "+"]);
-    // console.log(calcArray.length);
+    console.log(lastOpterator);
   }
  
   function handleNumClick(e) {
     const currentNum = calcAmount + e.target.value
-    dispatch(operator(String(currentNum)));  
+    dispatch(currentUserNum(String(currentNum)));  
     setCalcAmount(currentNum);
   }
 
@@ -134,7 +138,7 @@ export function Counter() {
             >
               3
             </button> */}
-            <button aria-label="Addition calc" onClick={handleAddClick}>
+            <button aria-label="Addition calc" value= "+" onClick={handleAddClick}>
               +
             </button>
           </div>
