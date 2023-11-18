@@ -21,13 +21,13 @@ export function Counter() {
   function handleAddClick(e) {
     if (calcAmount) {
     const lastOp = calcAmount + e.target.value
-    setLastOperator(lastOp)
     dispatch(addition(Number(calcAmount)));
     dispatch(currentUserNum(String(lastOp)));  
-  }
+    setLastOperator(lastOp)
     setCalcAmount("")
+  }
     // setCalcArray((prevState) => [prevState + "+"]);
-    console.log(lastOpterator);
+   
   }
  
   function handleNumClick(e) {
@@ -123,21 +123,24 @@ export function Counter() {
           </div> */}
           {/* 4th row */}
           <div className="row">
-            {/* <button
-              onClick={() => setCalcAmount((prevState) => prevState * 10 + 1)}
+            <button
+            value="1"
+              onClick={handleNumClick}
             >
               1
             </button>
             <button
-              onClick={() => setCalcAmount((prevState) => prevState * 10 + 2)}
+            value="2"
+              onClick={handleNumClick}
             >
               2
             </button>
             <button
-              onClick={() => setCalcAmount((prevState) => prevState * 10 + 3)}
+              value="3"
+              onClick={handleNumClick}
             >
               3
-            </button> */}
+            </button> 
             <button aria-label="Addition calc" value= "+" onClick={handleAddClick}>
               +
             </button>
