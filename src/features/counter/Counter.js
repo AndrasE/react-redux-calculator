@@ -8,7 +8,7 @@ import {
   decrementation,
   multiplication,
   subtraction,
-  selectCount,
+  // selectCount,
 } from "./counterSlice";
 import { currentUserNum, selectUserInput } from "../userInput/userInputSlice";
 import styles from "./Counter.module.css";
@@ -16,16 +16,13 @@ import styles from "./Counter.module.css";
 
 
 export function Counter() {
-  const count = useSelector(selectCount);
+  // const count = useSelector(selectCount);
   const userInput = useSelector(selectUserInput);
   const dispatch = useDispatch();
   const [lastOpterator, setLastOperator] = useState("");
   const [calcAmount, setCalcAmount] = useState("");
   const [newInput, setNewInput] = useState("")
   const [lastInput, setLastInput] = useState("")
-
-
- 
 
   function handleAddClick(e) {
     if (calcAmount){
@@ -42,42 +39,41 @@ export function Counter() {
   }
 
   function handleNumClick(e) {
+    if (e.target.value != 0 ){
     // setNewInput((prevState) => [prevState + e.target.value]);
     setCalcAmount((prevState) => [prevState + e.target.value]);
     // const currentNum = calcAmount + e.target.value;
     dispatch(currentUserNum(String(calcAmount + e.target.value)))
- }
+ }}
 
-  // function handleDecrClick(e) {
-  //   if (calcAmount) {
-  //     const lastOp = e.target.value;
-  //     dispatch(decrementation(Number(calcAmount)));
-  //     dispatch(currentUserNum(String(calcAmount)));
-  //     setLastOperator(lastOp);
-  //     // setCalcArray((prevState) => [prevState + "+"]);
-  //     setCalcAmount("");
-  //   }
-  // }
+  function handleDecrClick(e) {
+      dispatch(addition(Number(calcAmount)));
+      // dispatch(currentUserNum(calcAmount))
+      const state = store.getState();
+      setLastOperator(e.target.value);
+      setLastInput(state.counter.value)
+      console.log(lastInput);
+      setCalcAmount("");
+      // setNewInput("")
+      dispatch(currentUserNum(String(state.counter.value)))
+  }
 
-  // function handleSubClick(e) {
-  //   const lastOp = calcAmount + e.target.value;
-  //   dispatch(subtraction(Number(calcAmount)));
-  //   dispatch(currentUserNum(String(lastOp)));
-  //   setLastOperator(lastOp);
-  //   // setCalcArray((prevState) => [prevState + "+"]);
-  //   setCalcAmount("");
-  // }
+  function handleSubClick(e) {
+    const lastOp = calcAmount + e.target.value;
+    dispatch(subtraction(Number(calcAmount)));
+    dispatch(currentUserNum(String(lastOp)));
+    setLastOperator(lastOp);
+    // setCalcArray((prevState) => [prevState + "+"]);
+    setCalcAmount("");
+  }
 
 
   return (
-    <div className={styles.row}>
+    <div style={{ "white-space": "pre-wrap" }}>
       {/* <h4>{calcArray || 0} </h4> */}
-      <h2>
-        {lastInput} {lastOpterator} {newInput}
-      </h2>
-  
+        {lastInput} {lastOpterator} {newInput} 
       {/* <h3> {count}  </h3> */}
-      <h4> {userInput}</h4>
+      <h2> {userInput}</h2>
   
       <div className={styles.row}>
         <hr />
@@ -89,7 +85,8 @@ export function Counter() {
             <button>%</button>
             <button
               aria-label="Subtraction calc"
-              value="/"
+              value="÷"
+              onClick={handleSubClick}
             >
               ÷
             </button>
@@ -110,7 +107,7 @@ export function Counter() {
               aria-label="Multiplication calc"
               onClick={() => dispatch(multiplication(Number(calcAmount) || 0))}
             >
-              s
+              x
             </button>
           </div>
           {/* 3rd row */}
@@ -127,7 +124,7 @@ export function Counter() {
             <button
               aria-label="Decrementation calc"
               value="-"
-           
+              onClick={handleDecrClick}
             >
               -
             </button>
