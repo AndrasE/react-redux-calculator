@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import store from "../../app/store";
+
 import { useSelector, useDispatch } from "react-redux";
 import {
   setInitalState,
@@ -11,6 +13,8 @@ import {
 import { currentUserNum, selectUserInput } from "../userInput/userInputSlice";
 import styles from "./Counter.module.css";
 
+
+
 export function Counter() {
   const count = useSelector(selectCount);
   const userInput = useSelector(selectUserInput);
@@ -20,22 +24,31 @@ export function Counter() {
   const [newInput, setNewInput] = useState("")
   const [lastInput, setLastInput] = useState("")
 
+
+ 
+
   function handleAddClick(e) {
+   
+
     if (calcAmount){
       dispatch(addition(Number(calcAmount)));
+      // dispatch(currentUserNum(calcAmount))
       setLastOperator(e.target.value);
-      setLastInput(newInput)
+      setLastInput(calcAmount)
       console.log(lastInput);
       setCalcAmount("");
-      setNewInput("")
+      // setNewInput("")
     }
+    const state = store.getState();
+    console.log(state.counter.value)
+
   }
 
   function handleNumClick(e) {
-    setNewInput((prevState) => [prevState + e.target.value]);
+    // setNewInput((prevState) => [prevState + e.target.value]);
     setCalcAmount((prevState) => [prevState + e.target.value]);
-    setInitalState(calcAmount)
     // const currentNum = calcAmount + e.target.value;
+    dispatch(currentUserNum(String(calcAmount + e.target.value)))
  }
 
   // function handleDecrClick(e) {
@@ -63,11 +76,12 @@ export function Counter() {
     <div className={styles.row}>
       {/* <h4>{calcArray || 0} </h4> */}
       <h2>
-        {lastInput} {lastOpterator} {newInput}
+        {lastInput} {lastOpterator} {newInput} 
       </h2>
+      <h4> {userInput}</h4>
 
-
-      <h4> {count}  </h4>
+      <h3> {count}  </h3>
+  
       <div className={styles.row}>
         <hr />
         <div>
@@ -79,7 +93,6 @@ export function Counter() {
             <button
               aria-label="Subtraction calc"
               value="/"
-        
             >
               ÷
             </button>
