@@ -3,9 +3,12 @@ import { createSlice } from '@reduxjs/toolkit'
 export const counterSlice = createSlice({
   name: 'counter',
   initialState: {
-    value: 0,
+    value: 0
   },
   reducers: {
+    setInitalState: (state, action) => {
+      state.value = action.payload
+    },
     addition: (state, action) => {
       state.value += action.payload
     },
@@ -21,7 +24,7 @@ export const counterSlice = createSlice({
   },
 })
 
-export const { addition, decrementation, multiplication, subtraction } = counterSlice.actions
+export const { setInitalState, addition, decrementation, multiplication, subtraction } = counterSlice.actions
 
 
 
