@@ -28,20 +28,17 @@ export function Counter() {
  
 
   function handleAddClick(e) {
-   
-
     if (calcAmount){
       dispatch(addition(Number(calcAmount)));
       // dispatch(currentUserNum(calcAmount))
+      const state = store.getState();
       setLastOperator(e.target.value);
-      setLastInput(calcAmount)
+      setLastInput(state.counter.value)
       console.log(lastInput);
       setCalcAmount("");
       // setNewInput("")
+      dispatch(currentUserNum(String(state.counter.value)))
     }
-    const state = store.getState();
-    console.log(state.counter.value)
-
   }
 
   function handleNumClick(e) {
@@ -76,11 +73,11 @@ export function Counter() {
     <div className={styles.row}>
       {/* <h4>{calcArray || 0} </h4> */}
       <h2>
-        {lastInput} {lastOpterator} {newInput} 
+        {lastInput} {lastOpterator} {newInput}
       </h2>
+  
+      {/* <h3> {count}  </h3> */}
       <h4> {userInput}</h4>
-
-      <h3> {count}  </h3>
   
       <div className={styles.row}>
         <hr />
