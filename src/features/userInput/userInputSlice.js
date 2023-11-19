@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const userInputSlice = createSlice({
   name: "userInput",
   initialState: {
-    value: "0",
+    value: 0,
   },
   reducers: {
     currentUserNum: (state, action) => {

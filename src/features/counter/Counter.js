@@ -19,67 +19,68 @@ export function Counter() {
   const [calcAmount, setCalcAmount] = useState("");
 
   function handleAddClick(e) {
-    if (calcAmount) {
-    const lastOp = calcAmount + e.target.value
+    const lastOp = e.target.value
     dispatch(addition(Number(calcAmount)));
-    dispatch(currentUserNum(String(lastOp)));  
+    dispatch(currentUserNum(String(calcAmount)));  
     setLastOperator(lastOp)
+    // setCalcArray((prevState) => [prevState + "+"]);
     setCalcAmount("")
   }
-    // setCalcArray((prevState) => [prevState + "+"]);
-   
-  }
- 
+
+  
   function handleNumClick(e) {
     const currentNum = calcAmount + e.target.value
-    dispatch(currentUserNum(String(currentNum)));  
+    dispatch(currentUserNum(Number(currentNum)));  
     setCalcAmount(currentNum);
+    setLastOperator("")
+  }
+
+
+  function handleDecrClick(e) {
+    const lastOp = calcAmount + e.target.value
+    dispatch(decrementation(Number(calcAmount)));
+    dispatch(currentUserNum(String(lastOp)));  
+    setLastOperator(lastOp)
+    // setCalcArray((prevState) => [prevState + "+"]);
+    setCalcAmount("")
+    setLastOperator("")
+  }
+
+  function handleSubClick(e) {
+    const lastOp = calcAmount + e.target.value
+    dispatch(subtraction(Number(calcAmount)));
+    dispatch(currentUserNum(String(lastOp)));  
+    setLastOperator(lastOp)
+    // setCalcArray((prevState) => [prevState + "+"]);
+    setCalcAmount("")
   }
 
 
   return (
     <div>
-      <div className={styles.row}>
+      <div>
       {/* <h4>{calcArray || 0} </h4> */}
-        <h4>{userInput}</h4>
-        <span className={styles.value}>{count}</span>
+      <h2>{userInput} {lastOpterator}</h2>
+      <h4>{count} </h4>
+     
+
       </div>
       <div className={styles.row}>
-        {/* <h3>{calcAmount || 0}</h3> */}
-        
-        {/* <button
-          aria-label="Addition calc"
-          onClick={() => dispatch(addition(Number(calcAmount) || 0))}
-        >
-          +
-        </button> */}
-        {/* <button
-          aria-label="Decrement calc"
-          onClick={() => dispatch(decrementation(Number(calcAmount) || 0))}
-        >
-          -
-        </button> */}
-        {/* <button
-          aria-label="Multiplication calc"
-          onClick={() => dispatch(multiplication(Number(calcAmount) || 0))}
-        >
-          *
-        </button> */}
-
         <hr />
         <div>
           {/* 1st row */}
-          {/* <div className="row">
+          <div className="row">
             <button>S</button>
             <button>AC</button>
             <button>%</button>
             <button
               aria-label="Subtraction calc"
-              onClick={() => dispatch(subtraction(Number(calcAmount) || 0))}
+              value="/"
+              onClick={handleSubClick}
             >
               ÷
             </button>
-          </div> */}
+          </div>
           {/* 2nd row  */}
           <div className="row">
             <button value="7" onClick={handleNumClick}>
@@ -89,7 +90,7 @@ export function Counter() {
             <button value="8" onClick={handleNumClick}>
               8
             </button>
-            <button>9</button>
+            <button value="9" onClick={handleNumClick}>9</button>
             <button
               aria-label="Multiplication calc"
               onClick={() => dispatch(multiplication(Number(calcAmount) || 0))}
@@ -98,29 +99,32 @@ export function Counter() {
             </button>
           </div>
           {/* 3rd row */}
-          {/* <div className="row">
+          <div className="row">
             <button
-              onClick={() => setCalcAmount((prevState) => prevState * 10 + 4)}
+              value="4"
+              onClick={handleNumClick}
             >
               4
             </button>
             <button
-              onClick={() => setCalcAmount((prevState) => prevState * 10 + 5)}
+              value="5"
+              onClick={handleNumClick}
             >
               5
             </button>
             <button
-              onClick={() => setCalcAmount((prevState) => prevState * 10 + 6)}
+              value="6"
+              onClick={handleNumClick}
             >
               6
             </button>
             <button
               aria-label="Decrementation calc"
-              onClick={() => dispatch(decrementation(Number(calcAmount) || 0))}
+              onClick={handleDecrClick}
             >
               -
             </button>
-          </div> */}
+          </div> 
           {/* 4th row */}
           <div className="row">
             <button
@@ -146,14 +150,13 @@ export function Counter() {
             </button>
           </div>
           {/* last row */}
-          {/* <div className="row">
-            <button onClick="dis('0')">0</button>
-
+          <div className="row">
+            <button value="0" onClick={handleNumClick}>0</button>
             <button onClick="dis('.')">.</button>
             <button className={styles.doublebutton} onClick="solve()">
               =
             </button>
-          </div> */}
+          </div>
         </div>
       </div>{" "}
     </div>
