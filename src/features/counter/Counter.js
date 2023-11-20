@@ -3,7 +3,7 @@ import store from "../../app/store";
 
 import { useSelector, useDispatch } from "react-redux";
 import {
-  setInitalState,
+  setInitalNumber,
   addition,
   decrementation,
   multiplication,
@@ -13,68 +13,68 @@ import {
 import { currentUserNum, selectUserInput } from "../userInput/userInputSlice";
 import styles from "./Counter.module.css";
 
-
-
 export function Counter() {
   // const count = useSelector(selectCount);
   const userInput = useSelector(selectUserInput);
   const dispatch = useDispatch();
+
+  const [firstInput, setFirstInput] = useState(true);
+  const [newInput, setNewInput] = useState("");
+  const [lastInput, setLastInput] = useState("");
   const [lastOpterator, setLastOperator] = useState("");
   const [calcAmount, setCalcAmount] = useState("");
-  const [newInput, setNewInput] = useState("")
-  const [lastInput, setLastInput] = useState("")
 
   function handleAddClick(e) {
-    if (calcAmount){
+      console.log(lastInput, newInput, lastOpterator);
+      // if (newInput){
       dispatch(addition(Number(calcAmount)));
-      // dispatch(currentUserNum(calcAmount))
+      dispatch(currentUserNum(calcAmount))
       const state = store.getState();
+      setLastInput(state.counter.value);
       setLastOperator(e.target.value);
-      setLastInput(state.counter.value)
-      console.log(lastInput);
       setCalcAmount("");
-      // setNewInput("")
-      dispatch(currentUserNum(String(state.counter.value)))
-    }
+      setNewInput("")
+      dispatch(currentUserNum(String(state.counter.value)));
+      // console.log(lastInput);
+      // console.log(state)
+    // }
   }
+  
 
   function handleNumClick(e) {
-    if (e.target.value != 0 ){
-    // setNewInput((prevState) => [prevState + e.target.value]);
-    setCalcAmount((prevState) => [prevState + e.target.value]);
-    // const currentNum = calcAmount + e.target.value;
-    dispatch(currentUserNum(String(calcAmount + e.target.value)))
- }}
+      // setNewInput((prevState) => [prevState + e.target.value]);
+      setCalcAmount((prevState) => [prevState + e.target.value]);
+      // const currentNum = calcAmount + e.target.value;
+      dispatch(currentUserNum(String(calcAmount + e.target.value)));
+      // dispatch(setInitalNumber(String(calcAmount + e.target.value)));
+  }
 
   function handleDecrClick(e) {
-      dispatch(addition(Number(calcAmount)));
-      // dispatch(currentUserNum(calcAmount))
-      const state = store.getState();
-      setLastOperator(e.target.value);
-      setLastInput(state.counter.value)
-      console.log(lastInput);
-      setCalcAmount("");
-      // setNewInput("")
-      dispatch(currentUserNum(String(state.counter.value)))
+    dispatch(decrementation(Number(calcAmount)));
+    const state = store.getState();
+    setLastOperator(e.target.value);
+    setLastInput(state.counter.value);
+    console.log(lastInput);
+    setCalcAmount("");
+    dispatch(currentUserNum(String(state.counter.value)));
   }
 
   function handleSubClick(e) {
-    const lastOp = calcAmount + e.target.value;
     dispatch(subtraction(Number(calcAmount)));
-    dispatch(currentUserNum(String(lastOp)));
-    setLastOperator(lastOp);
-    // setCalcArray((prevState) => [prevState + "+"]);
+    const state = store.getState();
+    setLastOperator(e.target.value);
+    setLastInput(state.counter.value);
+    console.log(lastInput);
     setCalcAmount("");
+    dispatch(currentUserNum(String(state.counter.value)));
   }
-
 
   return (
     <div style={{ "white-space": "pre-wrap" }}>
       {/* <h4>{calcArray || 0} </h4> */}
-        {lastInput} {lastOpterator} {newInput} 
+      {lastInput} {lastOpterator} {newInput}
       {/* <h3> {count}  </h3> */}
       <h2> {userInput}</h2>
-  
       <div className={styles.row}>
         <hr />
         <div>
@@ -161,4 +161,5 @@ export function Counter() {
         </div>
       </div>
     </div>
-  )}
+  );
+}
