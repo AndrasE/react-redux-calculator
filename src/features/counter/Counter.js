@@ -21,29 +21,27 @@ export function Counter() {
   // const [firstInput, setFirstInput] = useState(true);
   const [firstInput, setFirstInput] = useState("");
   const [secondInput, setSecondInput] = useState("");
-  const [operator, setOperator] = useState("");
+  const [firstOperator, setFirstOperator] = useState("");
+  const [secondOperator, setSecondOperator] = useState("");
   // const [calcAmount, setCalcAmount] = useState("");
 
   function handleAddClick(e) {
-    if (!operator) {
+    if (!firstOperator) {
       dispatch(setInitalNumber(Number(firstInput)));
-      setOperator(e.target.value);
+      setFirstOperator(e.target.value);
     } else {
-      //   dispatch(setInitalNumber(Number(calcAmount)));
-      setOperator(e.target.value);
-
+      setSecondOperator(e.target.value);
       dispatch(addition(Number(secondInput)));
       const state = store.getState();
       setFirstInput(state.counter.value);
-      setOperator(e.target.value);
       setSecondInput("");
       dispatch(currentUserNum(String(state.counter.value)));
-      // }
+      console.log(firstOperator);
     }
   }
 
   function handleNumClick(e) {
-    if (!operator) {
+    if (!firstOperator) {
       setFirstInput((prevState) => [prevState + e.target.value]);
       dispatch(currentUserNum(String(firstInput + e.target.value)));
     } else {
@@ -52,13 +50,27 @@ export function Counter() {
     }
   }
 
-  function handleDecrClick(e) {}
+  function handleDecrClick(e) {
+    if (!firstOperator) {
+      dispatch(setInitalNumber(Number(firstInput)));
+      setFirstOperator(e.target.value);
+    } else {
+      setSecondOperator(e.target.value);
+      dispatch(decrementation(Number(secondInput)));
+      const state = store.getState();
+      setFirstInput(state.counter.value);
+      setSecondInput("");
+      dispatch(currentUserNum(String(state.counter.value)));
+    }
+  }
+
   function handleSubClick(e) {}
   function handleMultClick(e) {}
 
   return (
     <div style={{ "white-space": "pre-wrap" }}>
-      {firstInput} {operator} {secondInput}
+      {firstInput} {firstOperator} {secondInput} {secondOperator}
+      {/* {secondInput} */}
       <h2> {userInput}</h2>
       <div className={styles.row}>
         <hr />
