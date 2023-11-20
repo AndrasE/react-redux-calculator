@@ -19,39 +19,31 @@ export function Counter() {
   const dispatch = useDispatch();
 
   // const [firstInput, setFirstInput] = useState(true);
-  const [firstInput, setFirstInput] = useState("");
-  const [secondInput, setSecondInput] = useState("");
-  const [operator, setOperator] = useState("");
-  // const [calcAmount, setCalcAmount] = useState("");
+  const [newInput, setNewInput] = useState("");
+  const [lastInput, setLastInput] = useState("");
+  const [lastOpterator, setLastOperator] = useState("");
+  const [calcAmount, setCalcAmount] = useState("");
 
   function handleAddClick(e) {
-    if (!operator) {
-    dispatch(setInitalNumber(Number(firstInput)));
-    setOperator(e.target.value)
+    if (!lastOpterator) {
+      console.log("first");
+      dispatch(setInitalNumber(Number(calcAmount)));
+      setLastOperator(e.target.value);
     } else {
-
-    //   console.log("first");
-    //   dispatch(setInitalNumber(Number(calcAmount)));
-    //   setLastOperator(e.target.value);
-    // } else {
-    //   console.log("asdsdaas");
-    //   dispatch(addition(Number(calcAmount)));
-    //   const state = store.getState();
-    //   setLastInput(state.counter.value);
-    setOperator(e.target.value);
-    //   setCalcAmount("");
-    //   dispatch(currentUserNum(String(state.counter.value)));
-    // }
-  }}
+      console.log("asdsdaas");
+      dispatch(addition(Number(calcAmount)));
+      const state = store.getState();
+      setLastInput(state.counter.value);
+      setLastOperator(e.target.value);
+      setCalcAmount("");
+      dispatch(currentUserNum(String(state.counter.value)));
+    }
+  }
 
   function handleNumClick(e) {
-    if (!operator) {
-      setFirstInput((prevState) => [prevState + e.target.value]);
-      dispatch(currentUserNum(String(firstInput + e.target.value)));
-    } else {
-      setSecondInput((prevState) => [prevState + e.target.value]);
-      dispatch(currentUserNum(String(secondInput + e.target.value)));
-    }
+    setCalcAmount((prevState) => [prevState + e.target.value]);
+    dispatch(currentUserNum(String(calcAmount + e.target.value)));
+    // dispatch(setInitalNumber(String(calcAmount + e.target.value)));
   }
 
   function handleDecrClick(e) {}
@@ -60,7 +52,7 @@ export function Counter() {
 
   return (
     <div style={{ "white-space": "pre-wrap" }}>
-      {firstInput} {operator} {secondInput}
+      {lastInput} {lastOpterator} {newInput}
       <h2> {userInput}</h2>
       <div className={styles.row}>
         <hr />
@@ -90,7 +82,12 @@ export function Counter() {
             <button value="9" onClick={handleNumClick}>
               9
             </button>
-            <button aria-label="Multiplication calc">x</button>
+            <button
+              aria-label="Multiplication calc"
+              onClick={() => dispatch(multiplication(Number(calcAmount) || 0))}
+            >
+              x
+            </button>
           </div>
           {/* 3rd row */}
           <div className="row">
