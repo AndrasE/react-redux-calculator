@@ -26,23 +26,21 @@ export function Counter() {
 
   function handleAddClick(e) {
     if (!operator) {
-    dispatch(setInitalNumber(Number(firstInput)));
-    setOperator(e.target.value)
+      dispatch(setInitalNumber(Number(firstInput)));
+      setOperator(e.target.value);
     } else {
+      //   dispatch(setInitalNumber(Number(calcAmount)));
+      setOperator(e.target.value);
 
-    //   console.log("first");
-    //   dispatch(setInitalNumber(Number(calcAmount)));
-    //   setLastOperator(e.target.value);
-    // } else {
-    //   console.log("asdsdaas");
-    //   dispatch(addition(Number(calcAmount)));
-    //   const state = store.getState();
-    //   setLastInput(state.counter.value);
-    setOperator(e.target.value);
-    //   setCalcAmount("");
-    //   dispatch(currentUserNum(String(state.counter.value)));
-    // }
-  }}
+      dispatch(addition(Number(secondInput)));
+      const state = store.getState();
+      setFirstInput(state.counter.value);
+      setOperator(e.target.value);
+      setSecondInput("");
+      dispatch(currentUserNum(String(state.counter.value)));
+      // }
+    }
+  }
 
   function handleNumClick(e) {
     if (!operator) {
@@ -55,8 +53,8 @@ export function Counter() {
   }
 
   function handleDecrClick(e) {}
-
   function handleSubClick(e) {}
+  function handleMultClick(e) {}
 
   return (
     <div style={{ "white-space": "pre-wrap" }}>
@@ -90,7 +88,9 @@ export function Counter() {
             <button value="9" onClick={handleNumClick}>
               9
             </button>
-            <button aria-label="Multiplication calc">x</button>
+            <button aria-label="Multiplication calc" onClick={handleMultClick}>
+              x
+            </button>
           </div>
           {/* 3rd row */}
           <div className="row">
