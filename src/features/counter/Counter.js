@@ -50,23 +50,24 @@ export function Counter() {
     switch (firstOperator) {
       case "+": {
         console.log("plus");
-
         dispatch(addition(Number(secondInput)));
         const state = store.getState();
         setFirstInput(state.counter.value);
         setSecondInput("");
         dispatch(currentUserNum(String(state.counter.value)));
         setFirstOperator(e.target.value);
+        setSecondOperator("")
         break;
       }
       case "-": {
         console.log("minus");
-        setSecondOperator(e.target.value);
         dispatch(decrementation(Number(secondInput)));
         const state = store.getState();
         setFirstInput(state.counter.value);
         setSecondInput("");
         dispatch(currentUserNum(String(state.counter.value)));
+        setFirstOperator(e.target.value);
+        setSecondOperator("")
         break;
       }
       default:
