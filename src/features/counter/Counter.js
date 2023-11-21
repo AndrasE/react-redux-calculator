@@ -34,6 +34,33 @@ export function Counter() {
     }
   }
 
+  function handleDecrClick(e) {
+    if (!firstOperator) {
+      dispatch(setInitalNumber(Number(firstInput)));
+      setFirstOperator(e.target.value);
+    } else {
+      switchOperator(e);
+    }
+  }
+
+  function handleMultClick(e) {
+    if (!firstOperator) {
+      dispatch(setInitalNumber(Number(firstInput)));
+      setFirstOperator(e.target.value);
+    } else {
+      switchOperator(e);
+    }
+  }
+
+  function handleSubClick(e) {
+    if (!firstOperator) {
+      dispatch(setInitalNumber(Number(firstInput)));
+      setFirstOperator(e.target.value);
+    } else {
+      switchOperator(e);
+    }
+  }
+
   function handleNumClick(e) {
     if (!firstOperator) {
       setFirstInput((prevState) => [prevState + e.target.value]);
@@ -56,7 +83,7 @@ export function Counter() {
         setSecondInput("");
         dispatch(currentUserNum(String(state.counter.value)));
         setFirstOperator(e.target.value);
-        setSecondOperator("")
+        setSecondOperator("");
         break;
       }
       case "-": {
@@ -67,25 +94,35 @@ export function Counter() {
         setSecondInput("");
         dispatch(currentUserNum(String(state.counter.value)));
         setFirstOperator(e.target.value);
-        setSecondOperator("")
+        setSecondOperator("");
+        break;
+      }
+      case "x": {
+        console.log("multiply");
+        dispatch(multiplication(Number(secondInput)));
+        const state = store.getState();
+        setFirstInput(state.counter.value);
+        setSecondInput("");
+        dispatch(currentUserNum(String(state.counter.value)));
+        setFirstOperator(e.target.value);
+        setSecondOperator("");
+        break;
+      }
+      case "÷": {
+        console.log("substract");
+        dispatch(subtraction(Number(secondInput)));
+        const state = store.getState();
+        setFirstInput(state.counter.value);
+        setSecondInput("");
+        dispatch(currentUserNum(String(state.counter.value)));
+        setFirstOperator(e.target.value);
+        setSecondOperator("");
         break;
       }
       default:
         break;
     }
   }
-
-  function handleDecrClick(e) {
-    if (!firstOperator) {
-      dispatch(setInitalNumber(Number(firstInput)));
-      setFirstOperator(e.target.value);
-    } else {
-      switchOperator(e);
-    }
-  }
-
-  function handleSubClick(e) {}
-  function handleMultClick(e) {}
 
   return (
     <div style={{ "white-space": "pre-wrap" }}>
@@ -120,7 +157,11 @@ export function Counter() {
             <button value="9" onClick={handleNumClick}>
               9
             </button>
-            <button aria-label="Multiplication calc" onClick={handleMultClick}>
+            <button
+              aria-label="Multiplication calc"
+              value="x"
+              onClick={handleMultClick}
+            >
               x
             </button>
           </div>
