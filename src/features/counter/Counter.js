@@ -25,8 +25,8 @@ export function Counter() {
   const [secondOperator, setSecondOperator] = useState("");
 
   function handleOpClick(e) {
-    if (e.target.value = "c") {
-      switchOperator(e);
+    if (e.target.value == "c") {
+      handleResetClick();
     } else if (!firstOperator) {
       dispatch(setInitalNumber(Number(firstInput)));
       setFirstOperator(e.target.value);
@@ -45,6 +45,15 @@ export function Counter() {
       setSecondInput((prevState) => [prevState + e.target.value]);
       dispatch(currentUserNum(String(secondInput + e.target.value)));
     }
+  }
+
+  function handleResetClick() {
+    setFirstInput("");
+    setSecondInput("");
+    setFirstOperator("");
+    setSecondOperator("");
+    dispatch(setInitalNumber(Number(0)));
+    dispatch(currentUserNum(String(0)));
   }
 
   function switchOperator(e) {
@@ -93,16 +102,6 @@ export function Counter() {
         setSecondOperator("");
         break;
       }
-      case "c": {
-        console.log("cancelled");
-        setFirstInput("");
-        setSecondInput("");
-        dispatch(setInitalNumber(Number(0)));
-        dispatch(currentUserNum(String(0)));
-        setFirstOperator("");
-        setSecondOperator("");
-        break;
-      }
       case "=": {
         console.log("substract");
         dispatch(subtraction(Number(secondInput)));
@@ -120,7 +119,7 @@ export function Counter() {
   }
 
   return (
-    <div style={{ "white-space": "pre-wrap" }}>
+    <div style={{ whiteSpace: "pre-wrap" }}>
       {firstInput} {firstOperator}
       {/* {secondInput} */}
       <h2> {userInput}</h2>
