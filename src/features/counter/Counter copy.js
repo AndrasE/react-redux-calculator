@@ -142,3 +142,42 @@ export function Counter() {
     </div>
   );
 }
+
+
+// const [calcAmount, setCalcAmount] = useState("");
+
+  // function handleAddClick(e) {
+  //   if (!firstOperator) {
+  //     dispatch(setInitalNumber(Number(firstInput)));
+  //     setFirstOperator(e.target.value);
+  //   } else {
+  //     switchOperator(e);
+  //   }
+  // }
+
+  // function handleDecrClick(e) {
+  //   if (!firstOperator) {
+  //     dispatch(setInitalNumber(Number(firstInput)));
+  //     setFirstOperator(e.target.value);
+  //   } else {
+  //     switchOperator(e);
+  //   }
+  // }
+
+  // function handleMultClick(e) {
+  //   if (!firstOperator) {
+  //     dispatch(setInitalNumber(Number(firstInput)));
+  //     setFirstOperator(e.target.value);
+  //   } else {
+  //     switchOperator(e);
+  //   }
+  // }
+
+  // function handleSubClick(e) {
+  //   if (!firstOperator) {
+  //     dispatch(setInitalNumber(Number(firstInput)));
+  //     setFirstOperator(e.target.value);
+  //   } else {
+  //     switchOperator(e);
+  //   }
+  // }

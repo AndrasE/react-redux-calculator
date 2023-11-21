@@ -23,36 +23,8 @@ export function Counter() {
   const [secondInput, setSecondInput] = useState("");
   const [firstOperator, setFirstOperator] = useState("");
   const [secondOperator, setSecondOperator] = useState("");
-  // const [calcAmount, setCalcAmount] = useState("");
 
-  function handleAddClick(e) {
-    if (!firstOperator) {
-      dispatch(setInitalNumber(Number(firstInput)));
-      setFirstOperator(e.target.value);
-    } else {
-      switchOperator(e);
-    }
-  }
-
-  function handleDecrClick(e) {
-    if (!firstOperator) {
-      dispatch(setInitalNumber(Number(firstInput)));
-      setFirstOperator(e.target.value);
-    } else {
-      switchOperator(e);
-    }
-  }
-
-  function handleMultClick(e) {
-    if (!firstOperator) {
-      dispatch(setInitalNumber(Number(firstInput)));
-      setFirstOperator(e.target.value);
-    } else {
-      switchOperator(e);
-    }
-  }
-
-  function handleSubClick(e) {
+  function handleOpClick(e) {
     if (!firstOperator) {
       dispatch(setInitalNumber(Number(firstInput)));
       setFirstOperator(e.target.value);
@@ -140,7 +112,7 @@ export function Counter() {
             <button
               aria-label="Subtraction calc"
               value="÷"
-              onClick={handleSubClick}
+              onClick={handleOpClick}
             >
               ÷
             </button>
@@ -160,7 +132,7 @@ export function Counter() {
             <button
               aria-label="Multiplication calc"
               value="x"
-              onClick={handleMultClick}
+              onClick={handleOpClick}
             >
               x
             </button>
@@ -179,7 +151,7 @@ export function Counter() {
             <button
               aria-label="Decrementation calc"
               value="-"
-              onClick={handleDecrClick}
+              onClick={handleOpClick}
             >
               -
             </button>
@@ -198,7 +170,7 @@ export function Counter() {
             <button
               aria-label="Addition calc"
               value="+"
-              onClick={handleAddClick}
+              onClick={handleOpClick}
             >
               +
             </button>
