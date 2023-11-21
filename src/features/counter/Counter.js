@@ -25,7 +25,9 @@ export function Counter() {
   const [secondOperator, setSecondOperator] = useState("");
 
   function handleOpClick(e) {
-    if (!firstOperator) {
+    if (e.target.value = "c") {
+      switchOperator(e);
+    } else if (!firstOperator) {
       dispatch(setInitalNumber(Number(firstInput)));
       setFirstOperator(e.target.value);
     } else {
@@ -91,6 +93,27 @@ export function Counter() {
         setSecondOperator("");
         break;
       }
+      case "c": {
+        console.log("cancelled");
+        setFirstInput("");
+        setSecondInput("");
+        dispatch(setInitalNumber(Number(0)));
+        dispatch(currentUserNum(String(0)));
+        setFirstOperator("");
+        setSecondOperator("");
+        break;
+      }
+      case "=": {
+        console.log("substract");
+        dispatch(subtraction(Number(secondInput)));
+        const state = store.getState();
+        setFirstInput(state.counter.value);
+        setSecondInput("");
+        dispatch(currentUserNum(String(state.counter.value)));
+        setFirstOperator(e.target.value);
+        setSecondOperator("");
+        break;
+      }
       default:
         break;
     }
@@ -98,7 +121,7 @@ export function Counter() {
 
   return (
     <div style={{ "white-space": "pre-wrap" }}>
-      {firstInput} {firstOperator} {secondInput} {secondOperator}
+      {firstInput} {firstOperator}
       {/* {secondInput} */}
       <h2> {userInput}</h2>
       <div className={styles.row}>
@@ -107,7 +130,9 @@ export function Counter() {
           {/* 1st row */}
           <div className="row">
             <button>S</button>
-            <button>AC</button>
+            <button value="c" onClick={handleOpClick}>
+              C
+            </button>
             <button>%</button>
             <button
               aria-label="Subtraction calc"
@@ -181,7 +206,7 @@ export function Counter() {
               0
             </button>
             <button onClick="dis('.')">.</button>
-            <button className={styles.doublebutton} onClick="solve()">
+            <button className={styles.doublebutton} onClick={handleOpClick}>
               =
             </button>
           </div>
