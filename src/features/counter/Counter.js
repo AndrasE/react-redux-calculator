@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import store from "../../app/store";
-
 import { useSelector, useDispatch } from "react-redux";
 import {
   setInitalNumber,
@@ -8,17 +7,14 @@ import {
   decrementation,
   multiplication,
   subtraction,
-  // selectCount,
 } from "./counterSlice";
 import { currentUserNum, selectUserInput } from "../userInput/userInputSlice";
 import styles from "./Counter.module.css";
 
 export function Counter() {
-  // const count = useSelector(selectCount);
   const userInput = useSelector(selectUserInput);
   const dispatch = useDispatch();
 
-  // const [firstInput, setFirstInput] = useState(true);
   const [firstInput, setFirstInput] = useState("");
   const [secondInput, setSecondInput] = useState("");
   const [firstOperator, setFirstOperator] = useState("");
@@ -39,8 +35,6 @@ export function Counter() {
     if (!firstOperator) {
       setFirstInput((prevState) => [prevState + e.target.value]);
       dispatch(currentUserNum(String(firstInput + e.target.value)));
-      // }  else if  (firstOperator && !secondInput) {
-      //   console.log("openisasd");
     } else {
       setSecondInput((prevState) => [prevState + e.target.value]);
       dispatch(currentUserNum(String(secondInput + e.target.value)));
