@@ -30,13 +30,7 @@ export function Counter() {
       dispatch(setInitalNumber(Number(firstInput)));
       setFirstOperator(e.target.value);
     } else {
-      setSecondOperator(e.target.value);
-      dispatch(addition(Number(secondInput)));
-      const state = store.getState();
-      setFirstInput(state.counter.value);
-      setSecondInput("");
-      dispatch(currentUserNum(String(state.counter.value)));
-      console.log(firstOperator);
+      switchOperator(e);
     }
   }
 
@@ -44,18 +38,37 @@ export function Counter() {
     if (!firstOperator) {
       setFirstInput((prevState) => [prevState + e.target.value]);
       dispatch(currentUserNum(String(firstInput + e.target.value)));
+      // }  else if  (firstOperator && !secondInput) {
+      //   console.log("openisasd");
     } else {
       setSecondInput((prevState) => [prevState + e.target.value]);
       dispatch(currentUserNum(String(secondInput + e.target.value)));
     }
+  }
 
+  function switchOperator(e) {
     switch (firstOperator) {
-      case "+":
+      case "+": {
         console.log("plus");
+
+        dispatch(addition(Number(secondInput)));
+        const state = store.getState();
+        setFirstInput(state.counter.value);
+        setSecondInput("");
+        dispatch(currentUserNum(String(state.counter.value)));
+        setFirstOperator(e.target.value);
         break;
-        case "-":
+      }
+      case "-": {
         console.log("minus");
+        setSecondOperator(e.target.value);
+        dispatch(decrementation(Number(secondInput)));
+        const state = store.getState();
+        setFirstInput(state.counter.value);
+        setSecondInput("");
+        dispatch(currentUserNum(String(state.counter.value)));
         break;
+      }
       default:
         break;
     }
@@ -66,12 +79,7 @@ export function Counter() {
       dispatch(setInitalNumber(Number(firstInput)));
       setFirstOperator(e.target.value);
     } else {
-      setSecondOperator(e.target.value);
-      dispatch(decrementation(Number(secondInput)));
-      const state = store.getState();
-      setFirstInput(state.counter.value);
-      setSecondInput("");
-      dispatch(currentUserNum(String(state.counter.value)));
+      switchOperator(e);
     }
   }
 
