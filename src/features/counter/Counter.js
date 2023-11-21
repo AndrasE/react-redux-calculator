@@ -14,7 +14,6 @@ import styles from "./Counter.module.css";
 export function Counter() {
   const userInput = useSelector(selectUserInput);
   const dispatch = useDispatch();
-
   const [firstInput, setFirstInput] = useState("");
   const [secondInput, setSecondInput] = useState("");
   const [firstOperator, setFirstOperator] = useState("");
@@ -23,6 +22,8 @@ export function Counter() {
   function handleOpClick(e) {
     if (e.target.value == "c") {
       handleResetClick();
+    } else if (e.target.value == "=") {
+      handleEqualClick();
     } else if (!firstOperator) {
       dispatch(setInitalNumber(Number(firstInput)));
       setFirstOperator(e.target.value);
@@ -48,6 +49,10 @@ export function Counter() {
     setSecondOperator("");
     dispatch(setInitalNumber(Number(0)));
     dispatch(currentUserNum(String(0)));
+  }
+
+  function handleEqualClick() {
+    console.log("aslkaslkaslkaskl")
   }
 
   function switchOperator(e) {
@@ -198,8 +203,12 @@ export function Counter() {
             <button value="0" onClick={handleNumClick}>
               0
             </button>
-            <button onClick="dis('.')">.</button>
-            <button className={styles.doublebutton} onClick={handleOpClick}>
+            <button>.</button>
+            <button
+              className={styles.doublebutton}
+              value="="
+              onClick={handleOpClick}
+            >
               =
             </button>
           </div>
