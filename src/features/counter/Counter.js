@@ -48,6 +48,17 @@ export function Counter() {
       setSecondInput((prevState) => [prevState + e.target.value]);
       dispatch(currentUserNum(String(secondInput + e.target.value)));
     }
+
+    switch (firstOperator) {
+      case "+":
+        console.log("plus");
+        break;
+        case "-":
+        console.log("minus");
+        break;
+      default:
+        break;
+    }
   }
 
   function handleDecrClick(e) {
