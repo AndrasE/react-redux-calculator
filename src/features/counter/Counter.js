@@ -56,6 +56,14 @@ export function Counter() {
     dispatch(setInitalNumber(Number(0)));
     dispatch(currentUserNum(String(0)));
   }
+  function handleBackClick() {
+    const state = store.getState();
+    dispatch(currentUserNum(String((state.userInput.value.slice(0,-1)))))
+ 
+      setSecondInput(state.userInput.value.slice(0,-1))
+      
+   
+  }
 
   function handleEqualClick() {
     console.log("aslkaslkaslkaskl");
@@ -134,7 +142,9 @@ export function Counter() {
           {/* 1st row */}
           <div className="row">
             <button>⇋</button>
-            <button>↤</button>
+            <button
+            value="↤" onClick={handleBackClick}
+            >↤</button>
             <button value="c" onClick={handleOpClick}>
               c
             </button>
