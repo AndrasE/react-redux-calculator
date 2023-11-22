@@ -51,6 +51,10 @@ export function Counter() {
     dispatch(currentUserNum(String(0)));
   }
 
+  function handleDecimalClick() {
+    console.log("aslkaslkaslkaskl")
+  } 
+
   function handleEqualClick() {
     console.log("aslkaslkaslkaskl")
   }
@@ -203,7 +207,10 @@ export function Counter() {
             <button value="0" onClick={handleNumClick}>
               0
             </button>
-            <button>.</button>
+            <button
+            value={"."}
+            onClick={handleDecimalClick}
+            >.</button>
             <button
               className={styles.doublebutton}
               value="="
