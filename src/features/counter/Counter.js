@@ -33,9 +33,15 @@ export function Counter() {
   }
 
   function handleNumClick(e) {
-    if (!firstOperator) {
+    if (!firstOperator && e.target.value == ".") {
+      setFirstInput("0.");
+      dispatch(currentUserNum(String("0."))); 
+    }  else if (!firstOperator) {
       setFirstInput((prevState) => [prevState + e.target.value]);
-      dispatch(currentUserNum(String(firstInput + e.target.value)));
+      dispatch(currentUserNum(String(firstInput + e.target.value))); 
+    }  else if (!secondOperator && e.target.value == ".") {
+      setSecondInput("0.");
+      dispatch(currentUserNum(String("0."))); 
     } else {
       setSecondInput((prevState) => [prevState + e.target.value]);
       dispatch(currentUserNum(String(secondInput + e.target.value)));
@@ -51,10 +57,7 @@ export function Counter() {
     dispatch(currentUserNum(String(0)));
   }
 
-  function handleDecimalClick() {
-    console.log("aslkaslkaslkaskl")
-  } 
-
+  
   function handleEqualClick() {
     console.log("aslkaslkaslkaskl")
   }
@@ -209,7 +212,7 @@ export function Counter() {
             </button>
             <button
             value={"."}
-            onClick={handleDecimalClick}
+            onClick={handleNumClick}
             >.</button>
             <button
               className={styles.doublebutton}
