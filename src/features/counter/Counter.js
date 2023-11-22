@@ -35,13 +35,13 @@ export function Counter() {
   function handleNumClick(e) {
     if (!firstOperator && e.target.value == ".") {
       setFirstInput("0.");
-      dispatch(currentUserNum(String("0."))); 
-    }  else if (!firstOperator) {
+      dispatch(currentUserNum(String("0.")));
+    } else if (!firstOperator) {
       setFirstInput((prevState) => [prevState + e.target.value]);
-      dispatch(currentUserNum(String(firstInput + e.target.value))); 
-    }  else if (!secondOperator && e.target.value == ".") {
+      dispatch(currentUserNum(String(firstInput + e.target.value)));
+    } else if (!secondOperator && e.target.value == ".") {
       setSecondInput("0.");
-      dispatch(currentUserNum(String("0."))); 
+      dispatch(currentUserNum(String("0.")));
     } else {
       setSecondInput((prevState) => [prevState + e.target.value]);
       dispatch(currentUserNum(String(secondInput + e.target.value)));
@@ -57,9 +57,8 @@ export function Counter() {
     dispatch(currentUserNum(String(0)));
   }
 
-  
   function handleEqualClick() {
-    console.log("aslkaslkaslkaskl")
+    console.log("aslkaslkaslkaskl");
   }
 
   function switchOperator(e) {
@@ -134,11 +133,11 @@ export function Counter() {
         <div>
           {/* 1st row */}
           <div className="row">
-            <button>S</button>
+            <button>⇋</button>
+            <button>↤</button>
             <button value="c" onClick={handleOpClick}>
-              C
+              c
             </button>
-            <button>%</button>
             <button
               aria-label="Subtraction calc"
               value="÷"
@@ -210,10 +209,9 @@ export function Counter() {
             <button value="0" onClick={handleNumClick}>
               0
             </button>
-            <button
-            value={"."}
-            onClick={handleNumClick}
-            >.</button>
+            <button value={"."} onClick={handleNumClick}>
+              .
+            </button>
             <button
               className={styles.doublebutton}
               value="="
