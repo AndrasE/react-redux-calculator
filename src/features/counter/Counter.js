@@ -32,7 +32,6 @@ export function Counter() {
     }
   }
 
-  
   function handleNumClick(e) {
     if (!firstOperator) {
       setFirstInput((prevState) => [prevState + e.target.value]);
@@ -57,6 +56,26 @@ export function Counter() {
     const state = store.getState();
     dispatch(currentUserNum(String(state.userInput.value.slice(0, -1))));
     setSecondInput(state.userInput.value.slice(0, -1));
+  }
+
+  function handleDecimalClick(e) {
+    if (!firstInput) {
+      setFirstInput("0.");
+      dispatch(currentUserNum(String(0 + e.target.value)));
+      console.log("first")
+    } else if ( firstOperator == "" && firstInput) {
+      setFirstInput((prevState) => [prevState + e.target.value]);
+      dispatch(currentUserNum(String(firstInput + e.target.value)));
+      console.log("2")
+    } else if ( firstOperator !== "" && !secondInput) {
+      setSecondInput("0.");
+      dispatch(currentUserNum(String(0 + e.target.value)));
+      console.log("th")
+    } else {
+      setSecondInput((prevState) => [prevState + e.target.value]);
+      dispatch(currentUserNum(String(secondInput + e.target.value)));
+      console.log("4")
+    }
   }
 
   function handleEqualClick() {
@@ -212,7 +231,7 @@ export function Counter() {
             <button value="0" onClick={handleNumClick}>
               0
             </button>
-            <button value={"."} onClick={handleNumClick}>
+            <button value={"."} onClick={handleDecimalClick}>
               .
             </button>
             <button
