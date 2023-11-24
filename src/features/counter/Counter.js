@@ -34,15 +34,11 @@ export function Counter() {
 
   
   function handleNumClick(e) {
-    if (!firstOperator && e.target.value == ".") {
-      setFirstInput("0.");
-      dispatch(currentUserNum(String("0.")));
-    } else if (!firstOperator) {
+    if (!firstOperator) {
       setFirstInput((prevState) => [prevState + e.target.value]);
       dispatch(currentUserNum(String(firstInput + e.target.value)));
-    } else if (!secondOperator && e.target.value == ".") {
-      setSecondInput("0.");
-      dispatch(currentUserNum(String("0.")));
+      // }  else if  (firstOperator && !secondInput) {
+      //   console.log("openisasd");
     } else {
       setSecondInput((prevState) => [prevState + e.target.value]);
       dispatch(currentUserNum(String(secondInput + e.target.value)));
