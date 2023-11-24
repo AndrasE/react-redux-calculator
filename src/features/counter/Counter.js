@@ -131,8 +131,7 @@ export function Counter() {
 
   return (
     <div style={{ whiteSpace: "pre-wrap" }}>
-      {firstInput} {firstOperator}
-      {secondInput}
+      {firstInput} {firstOperator} {secondInput}
       <h2> {userInput}</h2>
       <div className={styles.row}>
         <hr />
