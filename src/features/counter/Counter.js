@@ -20,14 +20,18 @@ export function Counter() {
   const [secondOperator, setSecondOperator] = useState("");
 
   function handleOpClick(e) {
-    if (e.target.value == "c") {
+    if (!firstInput) {
+      setFirstInput("0");
+      setFirstOperator(e.target.value);
+    } else if (e.target.value == "c") {
       handleResetClick();
     } else if (e.target.value == "=") {
       handleEqualClick();
     } else if (!firstOperator) {
       dispatch(setInitalNumber(Number(firstInput)));
       setFirstOperator(e.target.value);
-    } else {
+    } else if (secondInput !== 0 || secondInput !== "") {
+      console.log("Asdasd");
       switchOperator(e);
     }
   }
