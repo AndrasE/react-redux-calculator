@@ -24,10 +24,9 @@ export function Counter() {
       setFirstInput("0");
       setFirstOperator(e.target.value);
     } else if (firstInput === "0.") {
-      console.log("pina")
       setFirstInput("0");
       dispatch(setInitalNumber(Number(0)));
-      dispatch(currentUserNum(Number(0)))
+      dispatch(currentUserNum(Number(0)));
       setFirstOperator(e.target.value);
     } else if (!secondInput) {
       setFirstOperator(e.target.value);
@@ -60,18 +59,17 @@ export function Counter() {
 
   function handleBackClick() {
     const state = store.getState();
-    if (firstInput) {
-      if (!secondInput) {
+    if (firstInput && !secondInput) {
         dispatch(currentUserNum(String(state.userInput.value.slice(0, -1))));
         setFirstInput(state.userInput.value.slice(0, -1));
         console.log("first");
-      } else {
+      } else if (secondInput !== ""){
         console.log("sec");
         dispatch(currentUserNum(String(state.userInput.value.slice(0, -1))));
         setSecondInput(state.userInput.value.slice(0, -1));
       }
     }
-  }
+  
 
   function handleDecimalClick(e) {
     if (!firstInput) {
