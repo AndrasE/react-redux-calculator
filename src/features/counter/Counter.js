@@ -23,10 +23,11 @@ export function Counter() {
     if (!firstInput) {
       setFirstInput("0");
       setFirstOperator(e.target.value);
-    } else if (e.target.value === "=") {
-      handleEqualClick();
-    } else if (!firstOperator) {
-      dispatch(setInitalNumber(Number(firstInput)));
+    } else if (firstInput === "0.") {
+      console.log("pina")
+      setFirstInput("0");
+      dispatch(setInitalNumber(Number(0)));
+      dispatch(currentUserNum(Number(0)))
       setFirstOperator(e.target.value);
     } else if (!secondInput) {
       setFirstOperator(e.target.value);
@@ -259,7 +260,7 @@ export function Counter() {
             <button
               className={styles.doublebutton}
               value="="
-              onClick={handleOpClick}
+              onClick={handleEqualClick}
             >
               =
             </button>
