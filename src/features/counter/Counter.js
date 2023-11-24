@@ -60,21 +60,21 @@ export function Counter() {
 
   function handleDecimalClick(e) {
     if (!firstInput) {
-      setFirstInput("0.");
+      setFirstInput(0 + ".");
       dispatch(currentUserNum(String(0 + e.target.value)));
-      console.log("first")
-    } else if ( firstOperator == "" && firstInput) {
+      console.log("first");
+    } else if (firstOperator == "" && firstInput) {
       setFirstInput((prevState) => [prevState + e.target.value]);
       dispatch(currentUserNum(String(firstInput + e.target.value)));
-      console.log("2")
-    } else if ( firstOperator !== "" && !secondInput) {
-      setSecondInput("0.");
+      console.log("2");
+    } else if (firstOperator !== "" && !secondInput) {
+      setSecondInput(0 + ".");
       dispatch(currentUserNum(String(0 + e.target.value)));
-      console.log("th")
+      console.log("th");
     } else {
       setSecondInput((prevState) => [prevState + e.target.value]);
       dispatch(currentUserNum(String(secondInput + e.target.value)));
-      console.log("4")
+      console.log("4");
     }
   }
 
