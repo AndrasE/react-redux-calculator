@@ -32,6 +32,7 @@ export function Counter() {
     }
   }
 
+  
   function handleNumClick(e) {
     if (!firstOperator && e.target.value == ".") {
       setFirstInput("0.");
@@ -58,11 +59,8 @@ export function Counter() {
   }
   function handleBackClick() {
     const state = store.getState();
-    dispatch(currentUserNum(String((state.userInput.value.slice(0,-1)))))
- 
-      setSecondInput(state.userInput.value.slice(0,-1))
-      
-   
+    dispatch(currentUserNum(String(state.userInput.value.slice(0, -1))));
+    setSecondInput(state.userInput.value.slice(0, -1));
   }
 
   function handleEqualClick() {
@@ -134,7 +132,7 @@ export function Counter() {
   return (
     <div style={{ whiteSpace: "pre-wrap" }}>
       {firstInput} {firstOperator}
-      {/* {secondInput} */}
+      {secondInput}
       <h2> {userInput}</h2>
       <div className={styles.row}>
         <hr />
@@ -142,9 +140,9 @@ export function Counter() {
           {/* 1st row */}
           <div className="row">
             <button>⇋</button>
-            <button
-            value="↤" onClick={handleBackClick}
-            >↤</button>
+            <button value="↤" onClick={handleBackClick}>
+              ↤
+            </button>
             <button value="c" onClick={handleOpClick}>
               c
             </button>
