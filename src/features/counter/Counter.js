@@ -22,77 +22,19 @@ export function Counter() {
 
   function handleOpClick(e) {
     if (!firstInput) {
+      console.log(firstInput);
       setFirstInput("0");
       setFirstOperator(e.target.value);
     } else if (firstOperator && !secondInput) {
+      console.log("2");
       setSecondInput("");
       setFirstOperator(e.target.value);
-    } else if (e.target.value === "c") {
-      handleResetClick();
-    } else if (e.target.value === "=") {
-      handleEqualClick();
     } else if (!firstOperator) {
       dispatch(setInitalNumber(Number(firstInput)));
       setFirstOperator(e.target.value);
     } else if (secondInput !== "" || secondInput !== 0) {
       switchOperator(e);
     }
-  }
-
-  function handleNumClick(e) {
-    if (!firstOperator) {
-      setFirstInput((prevState) => (prevState + e.target.value));
-      dispatch(currentUserNum(String(firstInput + e.target.value)));
-    } else {
-      setSecondInput((prevState) => (prevState + e.target.value));
-      dispatch(currentUserNum(String(secondInput + e.target.value)));
-    }
-  }
-
-  function handleResetClick() {
-    if (firstInput) {
-      setFirstInput("");
-      setSecondInput("");
-      setFirstOperator("");
-      // setSecondOperator("");
-      dispatch(setInitalNumber(Number(0)));
-      dispatch(currentUserNum(String(0)));
-    }
-  }
-
-  function handleBackClick() {
-    const state = store.getState();
-    if (firstInput && !secondInput && !firstOperator) {
-      dispatch(currentUserNum(String(state.userInput.value.slice(0, -1))));
-      setFirstInput(state.userInput.value.slice(0, -1));
-    } else if (secondInput !== "") {
-      dispatch(currentUserNum(String(state.userInput.value.slice(0, -1))));
-      setSecondInput(state.userInput.value.slice(0, -1));
-    }
-  }
-
-  function handleDecimalClick(e) {
-    if (!firstInput) {
-      setFirstInput(0 + ".");
-      dispatch(currentUserNum(String(0 + e.target.value)));
-      console.log("first");
-    } else if (firstOperator === "" && firstInput) {
-      setFirstInput((prevState) => [prevState + e.target.value]);
-      dispatch(currentUserNum(String(firstInput + e.target.value)));
-      console.log("2");
-    } else if (firstOperator !== "" && !secondInput) {
-      setSecondInput(0 + ".");
-      dispatch(currentUserNum(String(0 + e.target.value)));
-      console.log("th");
-    } else {
-      setSecondInput((prevState) => [prevState + e.target.value]);
-      dispatch(currentUserNum(String(secondInput + e.target.value)));
-      console.log("4");
-    }
-  }
-
-  function handleEqualClick() {
-    console.log("aslkaslkaslkaskl");
   }
 
   function switchOperator(e) {
@@ -131,15 +73,20 @@ export function Counter() {
         break;
       }
       case "÷": {
-
-        console.log((secondInput));
-        console.log("substract");
-        dispatch(subtraction(Number(secondInput)));
-        const state = store.getState();
-        setFirstInput(state.counter.value);
-        setSecondInput("");
-        dispatch(currentUserNum(Number(state.counter.value)));
-        setFirstOperator(e.target.value);
+        if (secondInput == 0) {
+          setSecondInput("");
+          setFirstOperator(e.target.value);
+          dispatch(currentUserNum(Number(firstInput)));
+          console.log("zero devide!");
+        } else {
+          console.log("substract");
+          dispatch(subtraction(Number(secondInput)));
+          const state = store.getState();
+          setFirstInput(state.counter.value);
+          setSecondInput("");
+          dispatch(currentUserNum(Number(state.counter.value)));
+          setFirstOperator(e.target.value);
+        }
         break;
       }
       case "=": {
@@ -156,6 +103,62 @@ export function Counter() {
       default:
         break;
     }
+  }
+
+  function handleNumClick(e) {
+    if (!firstOperator) {
+      setFirstInput((prevState) => prevState + e.target.value);
+      dispatch(currentUserNum(String(firstInput + e.target.value)));
+    } else {
+      setSecondInput((prevState) => prevState + e.target.value);
+      dispatch(currentUserNum(String(secondInput + e.target.value)));
+    }
+  }
+
+  function handleResetClick() {
+    if (firstInput) {
+      setFirstInput("");
+      setSecondInput("");
+      setFirstOperator("");
+      // setSecondOperator("");
+      dispatch(setInitalNumber(Number(0)));
+      dispatch(currentUserNum(String(0)));
+    }
+  }
+
+  function handleBackClick() {
+    const state = store.getState();
+    if (firstInput && !secondInput && !firstOperator) {
+      dispatch(currentUserNum(String(state.userInput.value.slice(0, -1))));
+      setFirstInput(state.userInput.value.slice(0, -1));
+    } else if (secondInput !== "") {
+      dispatch(currentUserNum(String(state.userInput.value.slice(0, -1))));
+      setSecondInput(state.userInput.value.slice(0, -1));
+    }
+  }
+
+  function handleDecimalClick(e) {
+    if (!firstInput) {
+      setFirstInput(0 + e.target.value);
+      dispatch(currentUserNum(String(0 + e.target.value)));
+      console.log("first");
+    } else if (firstOperator && firstInput) {
+      setFirstInput((prevState) => [prevState + e.target.value]);
+      dispatch(currentUserNum(String(firstInput + e.target.value)));
+      console.log("2");
+    } else if (firstOperator !== "" && !secondInput) {
+      setSecondInput(0 + ".");
+      dispatch(currentUserNum(String(0 + e.target.value)));
+      console.log("th");
+    } else {
+      setSecondInput((prevState) => [prevState + e.target.value]);
+      dispatch(currentUserNum(String(secondInput + e.target.value)));
+      console.log("4");
+    }
+  }
+
+  function handleEqualClick() {
+    console.log("aslkaslkaslkaskl");
   }
 
   return (
