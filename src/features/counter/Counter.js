@@ -39,14 +39,12 @@ export function Counter() {
     }
   }
 
-  
-
   function handleNumClick(e) {
     if (!firstOperator) {
-      setFirstInput((prevState) => [prevState + e.target.value]);
+      setFirstInput((prevState) => (prevState + e.target.value));
       dispatch(currentUserNum(String(firstInput + e.target.value)));
     } else {
-      setSecondInput((prevState) => [prevState + e.target.value]);
+      setSecondInput((prevState) => (prevState + e.target.value));
       dispatch(currentUserNum(String(secondInput + e.target.value)));
     }
   }
@@ -65,14 +63,13 @@ export function Counter() {
   function handleBackClick() {
     const state = store.getState();
     if (firstInput && !secondInput && !firstOperator) {
-        dispatch(currentUserNum(String(state.userInput.value.slice(0, -1))));
-        setFirstInput(state.userInput.value.slice(0, -1));
-      } else if (secondInput !== ""){
-        dispatch(currentUserNum(String(state.userInput.value.slice(0, -1))));
-        setSecondInput(state.userInput.value.slice(0, -1));
-      }
+      dispatch(currentUserNum(String(state.userInput.value.slice(0, -1))));
+      setFirstInput(state.userInput.value.slice(0, -1));
+    } else if (secondInput !== "") {
+      dispatch(currentUserNum(String(state.userInput.value.slice(0, -1))));
+      setSecondInput(state.userInput.value.slice(0, -1));
     }
-  
+  }
 
   function handleDecimalClick(e) {
     if (!firstInput) {
@@ -134,17 +131,15 @@ export function Counter() {
         break;
       }
       case "÷": {
-        console.log(firstInput);
-        console.log(secondInput);
-          console.log("substract");
-          dispatch(subtraction(Number(secondInput)));
-          const state = store.getState();
-          setFirstInput(state.counter.value);
-          setSecondInput("");
-          dispatch(currentUserNum(Number(state.counter.value)));
-          setFirstOperator(e.target.value);
-          // setSecondOperator("");
-        
+
+        console.log((secondInput));
+        console.log("substract");
+        dispatch(subtraction(Number(secondInput)));
+        const state = store.getState();
+        setFirstInput(state.counter.value);
+        setSecondInput("");
+        dispatch(currentUserNum(Number(state.counter.value)));
+        setFirstOperator(e.target.value);
         break;
       }
       case "=": {
