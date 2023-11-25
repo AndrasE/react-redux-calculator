@@ -18,6 +18,7 @@ export function Counter() {
   const [secondInput, setSecondInput] = useState("");
   const [firstOperator, setFirstOperator] = useState("");
   // const [secondOperator, setSecondOperator] = useState("");
+  // 0 devide, backclick first input, decima
 
   function handleOpClick(e) {
     if (!firstInput) {
@@ -59,7 +60,7 @@ export function Counter() {
 
   function handleBackClick() {
     const state = store.getState();
-    if (firstInput && !secondInput) {
+    if (firstInput && !secondInput && !firstOperator) {
         dispatch(currentUserNum(String(state.userInput.value.slice(0, -1))));
         setFirstInput(state.userInput.value.slice(0, -1));
         console.log("first");
@@ -72,7 +73,7 @@ export function Counter() {
   
 
   function handleDecimalClick(e) {
-    if (!firstInput) {
+    if (!firstInput && !firstInput.includes(".")) {
       console.log("1");
       setFirstInput(0 + ".");
       dispatch(currentUserNum(String(0 + e.target.value)));
