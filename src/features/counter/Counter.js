@@ -22,8 +22,8 @@ export function Counter() {
     if (!firstInput) {
       setFirstInput("0");
       setOperator(e.target.value);
-    } else if (firstInput == 0 && !operator && !secondInput) { 
-      setFirstInput(0)
+    } else if (firstInput == 0 && !operator && !secondInput) {
+      setFirstInput(0);
       dispatch(currentUserNum(String(0)));
       setOperator(e.target.value);
     } else if (operator && !secondInput) {
