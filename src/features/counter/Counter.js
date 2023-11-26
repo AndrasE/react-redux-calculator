@@ -20,19 +20,24 @@ export function Counter() {
 
   function handleOpClick(e) {
     if (!firstInput) {
+      // console.log("0")
       setFirstInput("0");
       setOperator(e.target.value);
     } else if (firstInput == 0 && !operator && !secondInput) {
-      setFirstInput(0);
+      // console.log("1")
+      setFirstInput("0");
       dispatch(currentUserNum(String(0)));
       setOperator(e.target.value);
     } else if (operator && !secondInput) {
+      // console.log("2")
       setSecondInput("");
       setOperator(e.target.value);
     } else if (!operator) {
+      // console.log("3")
       dispatch(setInitalNumber(Number(firstInput)));
       setOperator(e.target.value);
-    } else if (secondInput !== "" || secondInput !== 0) {
+    } else {
+      // console.log("4")
       switchOperator(e);
     }
   }
@@ -102,14 +107,18 @@ export function Counter() {
   }
 
   function handleNumClick(e) {
-    if (!operator) {
-      setFirstInput((prevState) => prevState + e.target.value);
-      dispatch(currentUserNum(String(firstInput + e.target.value)));
-    } else {
-      setSecondInput((prevState) => prevState + e.target.value);
-      dispatch(currentUserNum(String(secondInput + e.target.value)));
+    // if (firstInput !== "0" && firstInput.length < 2 && !operator) {
+    // } else if (firstInput !== "0" && firstInput.length < 2 && !operator) {
+    // } else {
+      if (!operator) {
+        setFirstInput((prevState) => prevState + e.target.value);
+        dispatch(currentUserNum(String(firstInput + e.target.value)));
+      } else {
+        setSecondInput((prevState) => prevState + e.target.value);
+        dispatch(currentUserNum(String(secondInput + e.target.value)));
+      }
     }
-  }
+  // }
 
   function handleResetClick() {
     if (firstInput) {
@@ -131,24 +140,40 @@ export function Counter() {
       setSecondInput(state.userInput.value.slice(0, -1));
     }
   }
-
+  // if (!firstInput && !operator) {
+  //   setFirstInput(0 + e.target.value);
+  //   dispatch(currentUserNum(String(0 + e.target.value)));
+  //   console.log("1");
+  // } else
+  // } else if (firstInput && operator && !secondInput ) {
+  //   setSecondInput(0 + e.target.value);
+  //   dispatch(currentUserNum(String(0 + e.target.value)));
+  //   console.log("3");
+  // } else if (operator !== "" && !secondInput) {
+  //   setSecondInput(0 + ".");
+  //   dispatch(currentUserNum(String(0 + e.target.value)));
+  //   console.log("th");
+  // } else {
+  //   setSecondInput((prevState) => [prevState + e.target.value]);
+  //   dispatch(currentUserNum(String(secondInput + e.target.value)));
+  //   console.log("4");
   function handleDecimalClick(e) {
-    if (!operator && !firstInput) {
+    if (!firstInput && !operator) {
       setFirstInput(0 + e.target.value);
       dispatch(currentUserNum(String(0 + e.target.value)));
-      console.log("first");
-    } else if (operator && !secondInput) {
+      console.log("1");
+    } else if (firstInput && !operator && !firstInput.includes(".")) {
+      setFirstInput((prevState) => prevState + e.target.value);
+      dispatch(currentUserNum(String(firstInput + e.target.value)));
+      console.log("2");
+    } else if (!secondInput && operator) {
       setSecondInput(0 + e.target.value);
       dispatch(currentUserNum(String(0 + e.target.value)));
       console.log("2");
-    } else if (operator !== "" && !secondInput) {
-      setSecondInput(0 + ".");
-      dispatch(currentUserNum(String(0 + e.target.value)));
-      console.log("th");
-    } else {
-      setSecondInput((prevState) => [prevState + e.target.value]);
+    } else if (secondInput && operator && !secondInput.includes(".")) {
+      setSecondInput((prevState) => prevState + e.target.value);
       dispatch(currentUserNum(String(secondInput + e.target.value)));
-      console.log("4");
+      console.log("3");
     }
   }
 
