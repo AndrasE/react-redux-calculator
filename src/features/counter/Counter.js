@@ -19,25 +19,31 @@ export function Counter() {
   const [operator, setOperator] = useState("");
 
   function handleOpClick(e) {
+    console.log(firstInput);
+    console.log(secondInput);
     if (!firstInput) {
-      // console.log("0")
+      //is user right away click operation w/ input first it sets firstInput to 0
+      console.log("0")
       setFirstInput("0");
       setOperator(e.target.value);
-    } else if (firstInput == 0 && !operator && !secondInput) {
-      // console.log("1")
-      setFirstInput("0");
-      dispatch(currentUserNum(String(0)));
-      setOperator(e.target.value);
+    // } else if (firstInput.slice(-1) === ".") {
+    //   console.log("1")
+    //   setFirstInput("0");
+    //   dispatch(currentUserNum(String(0)));
+    //   setOperator(e.target.value);
     } else if (operator && !secondInput) {
-      // console.log("2")
+      //is user chose operator but want to chose other one, leaving secondinput empty as ""
+      console.log("2")
       setSecondInput("");
       setOperator(e.target.value);
     } else if (!operator) {
-      // console.log("3")
+      //user setting firstinput as no operator exists yet 
+      console.log("3")
       dispatch(setInitalNumber(Number(firstInput)));
       setOperator(e.target.value);
     } else {
-      // console.log("4")
+      //calling calcultion pass to switch (second operation takes the first`s place after)
+      console.log("4")
       switchOperator(e);
     }
   }
@@ -75,7 +81,7 @@ export function Counter() {
         break;
       }
       case "÷": {
-        if (secondInput == 0) {
+        if (secondInput === 0) {
           setSecondInput("");
           setOperator(e.target.value);
           dispatch(currentUserNum(Number(firstInput)));
@@ -107,17 +113,22 @@ export function Counter() {
   }
 
   function handleNumClick(e) {
-    // if (firstInput !== "0" && firstInput.length < 2 && !operator) {
-    // } else if (firstInput !== "0" && firstInput.length < 2 && !operator) {
-    // } else {
-      if (!operator) {
-        setFirstInput((prevState) => prevState + e.target.value);
-        dispatch(currentUserNum(String(firstInput + e.target.value)));
-      } else {
-        setSecondInput((prevState) => prevState + e.target.value);
-        dispatch(currentUserNum(String(secondInput + e.target.value)));
-      }
+    if (firstInput === "" && e.target.value === "0") {
+      //do nothing prevent 0000005 firstInput
+    } else if (!operator) {
+      setFirstInput((prevState) => prevState + e.target.value);
+      dispatch(currentUserNum(String(firstInput + e.target.value)));
+    } else if (operator && secondInput === "0" && e.target.value === "0") {
+      //do nothing prevent 0000005 secondInput
+    } else if (operator && secondInput === "0" && e.target.value !== "0") {
+      //do swap 0 to 2 so wont do 02 numbers
+      setSecondInput(e.target.value);
+      dispatch(currentUserNum(String(e.target.value)));
+    } else {
+      setSecondInput((prevState) => prevState + e.target.value);
+      dispatch(currentUserNum(String(secondInput + e.target.value)));
     }
+  }
   // }
 
   function handleResetClick() {
@@ -161,19 +172,19 @@ export function Counter() {
     if (!firstInput && !operator) {
       setFirstInput(0 + e.target.value);
       dispatch(currentUserNum(String(0 + e.target.value)));
-      console.log("1");
+      // console.log("1");
     } else if (firstInput && !operator && !firstInput.includes(".")) {
       setFirstInput((prevState) => prevState + e.target.value);
       dispatch(currentUserNum(String(firstInput + e.target.value)));
-      console.log("2");
+      // console.log("2");
     } else if (!secondInput && operator) {
       setSecondInput(0 + e.target.value);
       dispatch(currentUserNum(String(0 + e.target.value)));
-      console.log("2");
+      // console.log("2");
     } else if (secondInput && operator && !secondInput.includes(".")) {
       setSecondInput((prevState) => prevState + e.target.value);
       dispatch(currentUserNum(String(secondInput + e.target.value)));
-      console.log("3");
+      // console.log("3");
     }
   }
 
