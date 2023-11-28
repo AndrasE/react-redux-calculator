@@ -19,31 +19,34 @@ export function Counter() {
   const [operator, setOperator] = useState("");
 
   function handleOpClick(e) {
-    console.log(firstInput);
-    console.log(secondInput);
+    // console.log(secondInput);
     if (!firstInput) {
-      //is user right away click operation w/ input first it sets firstInput to 0
-      console.log("0")
+      //is user first click operation w/ input first it sets firstInput to 0
       setFirstInput("0");
       setOperator(e.target.value);
-    // } else if (firstInput.slice(-1) === ".") {
-    //   console.log("1")
-    //   setFirstInput("0");
-    //   dispatch(currentUserNum(String(0)));
-    //   setOperator(e.target.value);
     } else if (operator && !secondInput) {
       //is user chose operator but want to chose other one, leaving secondinput empty as ""
-      console.log("2")
       setSecondInput("");
       setOperator(e.target.value);
+      console.log("2");
     } else if (!operator) {
-      //user setting firstinput as no operator exists yet 
-      console.log("3")
-      dispatch(setInitalNumber(Number(firstInput)));
-      setOperator(e.target.value);
+      //user setting firstinput as no operator exists yet
+      //but if user leaves number such as 6. will remove the decimalpoint before sending it to switcher
+      if (firstInput.slice(-1) === ".") {
+        const state = store.getState();
+        const removeDecimalPoint = state.userInput.value.slice(0, -1);
+        setFirstInput(removeDecimalPoint);
+
+        dispatch(currentUserNum(String(removeDecimalPoint)));
+        setOperator(e.target.value);
+      } else {
+        console.log("3");
+        dispatch(setInitalNumber(Number(firstInput)));
+        setOperator(e.target.value);
+      }
     } else {
       //calling calcultion pass to switch (second operation takes the first`s place after)
-      console.log("4")
+      console.log("4");
       switchOperator(e);
     }
   }
@@ -92,7 +95,7 @@ export function Counter() {
           const state = store.getState();
           setFirstInput(state.counter.value);
           setSecondInput("");
-          dispatch(currentUserNum(Number(state.counter.value)));
+          dispatch(currentUserNum(String(state.counter.value)));
           setOperator(e.target.value);
         }
         break;
