@@ -73,7 +73,7 @@ export function Counter() {
         setFirstInput(state.counter.value);
         setSecondInput("");
         dispatch(currentUserNum(String(state.counter.value)));
-        setOperator("-");
+        setOperator(e.target.value);
         break;
       }
       case "x": {
@@ -83,7 +83,7 @@ export function Counter() {
         setFirstInput(state.counter.value);
         setSecondInput("");
         dispatch(currentUserNum(String(state.counter.value)));
-        setOperator("x");
+        setOperator(e.target.value);
         break;
       }
       case "÷": {
@@ -99,7 +99,7 @@ export function Counter() {
           setFirstInput(state.counter.value);
           setSecondInput("");
           dispatch(currentUserNum(String(state.counter.value)));
-          setOperator("÷");
+          setOperator(e.target.value);
         }
         break;
       }
@@ -107,6 +107,18 @@ export function Counter() {
         break;
     }
   }
+    function handleEqualClick() {
+    console.log(operator);
+    
+    switchOperator(operator)
+    // const state = store.getState();
+    // state.userInput.value
+    setEqualOp(firstInput + " " + operator + " " + secondInput + " =");
+    setOperator("")
+    // history.push(equalOp + " " + state.userInput.value)
+    // console.log(history)
+  }
+
 
   function handleNumClick(e) {
     if (firstInput === "" && e.target.value === "0") {
@@ -166,15 +178,6 @@ export function Counter() {
     }
   }
 
-  function handleEqualClick() {
-    switchOperator(operator);
-    const state = store.getState();
-    // state.userInput.value
-    setEqualOp(firstInput + " " + operator + " " + secondInput + " =");
-    setOperator("")
-    history.push(equalOp + " " + state.userInput.value)
-    console.log(history)
-  }
 
   return (
     <div style={{ whiteSpace: "pre-wrap" }}>
