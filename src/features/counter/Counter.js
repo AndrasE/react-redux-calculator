@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import store from "../../app/store";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -21,7 +21,7 @@ export function Counter() {
   const history = [];
 
   function handleOpClick(e) {
-    ifEqualOpReset();
+    console.log(firstInput);
     if (!firstInput) {
       setFirstInput("0");
       //is user first click operation w/ input first it sets firstInput to 0
@@ -99,10 +99,12 @@ export function Counter() {
   }
 
   function handleEqualClick() {
-    if (equalOp) {
-      setEqualOp("");
-      const state = store.getState();
-      setFirstInput(state.userInput.value);
+    if (!equalOp && firstInput && !secondInput) {
+      // only firstInput no operation can be called
+     setEqualOp("")
+     setOperator("")
+    } else if (equalOp) {
+      // do nothing done the equal op already
     } else {
       switch (operator) {
         case "+": {
