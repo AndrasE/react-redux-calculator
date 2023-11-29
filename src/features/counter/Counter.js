@@ -100,53 +100,53 @@ export function Counter() {
 
   function handleEqualClick() {
     if (equalOp) {
-      setEqualOp("")
+      setEqualOp("");
       const state = store.getState();
       setFirstInput(state.userInput.value);
-    } else  {
-
-    switch (operator) {
-      case "+": {
-        dispatch(addition(Number(secondInput)));
-        break;
-      }
-      case "-": {
-        dispatch(decrementation(Number(secondInput)));
-        break;
-      }
-      case "x": {
-        dispatch(multiplication(Number(secondInput)));
-        break;
-      }
-      case "÷": {
-        if (secondInput === 0) {
-          setSecondInput("");
-          dispatch(currentUserNum(Number(firstInput)));
-        } else {
-          dispatch(subtraction(Number(secondInput)));
+    } else {
+      switch (operator) {
+        case "+": {
+          dispatch(addition(Number(secondInput)));
+          break;
         }
-        break;
+        case "-": {
+          dispatch(decrementation(Number(secondInput)));
+          break;
+        }
+        case "x": {
+          dispatch(multiplication(Number(secondInput)));
+          break;
+        }
+        case "÷": {
+          if (secondInput === 0) {
+            setSecondInput("");
+            dispatch(currentUserNum(Number(firstInput)));
+          } else {
+            dispatch(subtraction(Number(secondInput)));
+          }
+          break;
+        }
+        default:
+          break;
       }
-      default:
-        break;
+
+      const state = store.getState();
+      setFirstInput(state.counter.value);
+      dispatch(currentUserNum(String(state.counter.value)));
+      setEqualOp(firstInput + " " + operator + " " + secondInput + " =");
+      setOperator("");
+      setFirstInput("");
+      setSecondInput("");
+      dispatch(setInitalNumber(Number(0)));
+
+      // history.push(equalOp + " " + state.userInput.value)
+      // console.log(history)
     }
-    
-    const state = store.getState();
-    setFirstInput(state.counter.value);
-    dispatch(currentUserNum(String(state.counter.value)));
-    setEqualOp(firstInput + " " + operator + " " + secondInput + " =");
-    setOperator("");
-    setFirstInput("");
-    setSecondInput("");
-    dispatch(setInitalNumber(Number(0)));
-    
-    // history.push(equalOp + " " + state.userInput.value)
-    // console.log(history)
-  }}
+  }
 
   function ifEqualOpReset() {
     if (equalOp) {
-      handleResetClick()
+      handleResetClick();
     }
   }
 
@@ -172,17 +172,19 @@ export function Counter() {
   }
 
   function handleResetClick() {
-      setFirstInput("");
-      setSecondInput("");
-      setOperator("");
-      dispatch(setInitalNumber(Number(0)));
-      dispatch(currentUserNum(String("0")));
-      setEqualOp("");
+    setFirstInput("");
+    setSecondInput("");
+    setOperator("");
+    dispatch(setInitalNumber(Number(0)));
+    dispatch(currentUserNum(String("0")));
+    setEqualOp("");
   }
 
   function handleBackClick() {
     const state = store.getState();
-    if (equalOp) { setEqualOp("")}
+    if (equalOp) {
+      setEqualOp("");
+    }
 
     if (firstInput && !secondInput && !operator) {
       dispatch(currentUserNum(String(state.userInput.value.slice(0, -1))));
