@@ -21,35 +21,28 @@ export function Counter() {
   const history = [];
 
   function handleOpClick(e) {
-
-    // console.log(secondInput);
     if (!firstInput) {
       //is user first click operation w/ input first it sets firstInput to 0
-      setFirstInput("1");
       setOperator(e.target.value);
     } else if (operator && !secondInput) {
       //is user chose operator but want to chose other one, leaving secondinput empty as ""
       setSecondInput("");
       setOperator(e.target.value);
-      console.log("2");
     } else if (!operator) {
       //user setting firstinput as no operator exists yet
       //but if user leaves number such as 6. will remove the decimalpoint before sending it to switcher
       if (firstInput.slice(-1) === ".") {
-        console.log("2.5");
         const state = store.getState();
         const removeDecimalPoint = state.userInput.value.slice(0, -1);
         setFirstInput(removeDecimalPoint);
         dispatch(currentUserNum(String(removeDecimalPoint)));
         setOperator(e.target.value);
       } else {
-        console.log("3");
         dispatch(setInitalNumber(Number(firstInput)));
         setOperator(e.target.value);
       }
     } else {
       //calling calcultion pass to switch, second (current) operation takes the first`s place after)
-      console.log("4");
       switchOperator(e);
     }
   }
@@ -57,7 +50,6 @@ export function Counter() {
   function switchOperator(e) {
     switch (operator) {
       case "+": {
-        console.log("plus");
         dispatch(addition(Number(secondInput)));
         const state = store.getState();
         setFirstInput(state.counter.value);
@@ -67,7 +59,6 @@ export function Counter() {
         break;
       }
       case "-": {
-        console.log("minus");
         dispatch(decrementation(Number(secondInput)));
         const state = store.getState();
         setFirstInput(state.counter.value);
@@ -77,7 +68,6 @@ export function Counter() {
         break;
       }
       case "x": {
-        console.log("multiply");
         dispatch(multiplication(Number(secondInput)));
         const state = store.getState();
         setFirstInput(state.counter.value);
@@ -91,9 +81,7 @@ export function Counter() {
           setSecondInput("");
           setOperator(e.target.value);
           dispatch(currentUserNum(Number(firstInput)));
-          console.log("zero devide!");
         } else {
-          console.log("substract");
           dispatch(subtraction(Number(secondInput)));
           const state = store.getState();
           setFirstInput(state.counter.value);
@@ -107,20 +95,44 @@ export function Counter() {
         break;
     }
   }
-    function handleEqualClick() {
-  //   console.log(operator);
-    
-  //   switchOperator(operator)
-  //   // const state = store.getState();
-  //   // state.userInput.value
-  //   setEqualOp(firstInput + " " + operator + " " + secondInput + " =");
-  //   setOperator("")
-  //   setFirstInput("")
-  //   setSecondInput("")
-  //   // history.push(equalOp + " " + state.userInput.value)
-  //   // console.log(history)
-  }
+  function handleEqualClick() {
+    switch (operator) {
+      case "+": {
+        dispatch(addition(Number(secondInput)));
+        break;
+      }
+      case "-": {
+        dispatch(decrementation(Number(secondInput)));
+        break;
+      }
+      case "x": {
+        dispatch(multiplication(Number(secondInput)));
+        break;
+      }
+      case "÷": {
+        if (secondInput === 0) {
+          setSecondInput("");
+          dispatch(currentUserNum(Number(firstInput)));
+        } else {
+          dispatch(subtraction(Number(secondInput)));
+        }
+        break;
+      }
+      default:
+        break;
+    }
 
+    const state = store.getState();
+    setFirstInput(state.counter.value);
+    dispatch(currentUserNum(String(state.counter.value)));
+    setEqualOp(firstInput + " " + operator + " " + secondInput + " =");
+
+    setOperator("");
+    setFirstInput("");
+    setSecondInput("");
+    // history.push(equalOp + " " + state.userInput.value)
+    // console.log(history)
+  }
 
   function handleNumClick(e) {
     if (firstInput === "" && e.target.value === "0") {
@@ -149,7 +161,7 @@ export function Counter() {
       setOperator("");
       dispatch(setInitalNumber(Number(0)));
       dispatch(currentUserNum(String(0)));
-      setEqualOp("")
+      setEqualOp("");
     }
   }
 
@@ -179,7 +191,6 @@ export function Counter() {
       dispatch(currentUserNum(String(secondInput + e.target.value)));
     }
   }
-
 
   return (
     <div style={{ whiteSpace: "pre-wrap" }}>
