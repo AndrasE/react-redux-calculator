@@ -63,7 +63,7 @@ export function Counter() {
         setFirstInput(state.counter.value);
         setSecondInput("");
         dispatch(currentUserNum(String(state.counter.value)));
-        setOperator("+");
+        setOperator(e.target.value);
         break;
       }
       case "-": {
@@ -108,15 +108,17 @@ export function Counter() {
     }
   }
     function handleEqualClick() {
-    console.log(operator);
+  //   console.log(operator);
     
-    switchOperator(operator)
-    // const state = store.getState();
-    // state.userInput.value
-    setEqualOp(firstInput + " " + operator + " " + secondInput + " =");
-    setOperator("")
-    // history.push(equalOp + " " + state.userInput.value)
-    // console.log(history)
+  //   switchOperator(operator)
+  //   // const state = store.getState();
+  //   // state.userInput.value
+  //   setEqualOp(firstInput + " " + operator + " " + secondInput + " =");
+  //   setOperator("")
+  //   setFirstInput("")
+  //   setSecondInput("")
+  //   // history.push(equalOp + " " + state.userInput.value)
+  //   // console.log(history)
   }
 
 
