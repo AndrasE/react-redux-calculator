@@ -23,7 +23,6 @@ export function Counter() {
   function handleOpClick(e) {
     ifEqualOpReset();
     if (!firstInput) {
-      console.log("!");
       setFirstInput("0");
       //is user first click operation w/ input first it sets firstInput to 0
       setOperator(e.target.value);
@@ -98,7 +97,12 @@ export function Counter() {
         break;
     }
   }
+
   function handleEqualClick() {
+    if (equalOp) {
+  
+    } else  {
+
     switch (operator) {
       case "+": {
         dispatch(addition(Number(secondInput)));
@@ -124,23 +128,23 @@ export function Counter() {
       default:
         break;
     }
-
+    
     const state = store.getState();
     setFirstInput(state.counter.value);
     dispatch(currentUserNum(String(state.counter.value)));
     setEqualOp(firstInput + " " + operator + " " + secondInput + " =");
-
     setOperator("");
     setFirstInput("");
     setSecondInput("");
     dispatch(setInitalNumber(Number(0)));
+    
     // history.push(equalOp + " " + state.userInput.value)
     // console.log(history)
-  }
+  }}
 
   function ifEqualOpReset() {
     if (equalOp) {
-      setEqualOp("");
+      handleResetClick()
     }
   }
 
@@ -166,14 +170,12 @@ export function Counter() {
   }
 
   function handleResetClick() {
-    if (firstInput) {
       setFirstInput("");
       setSecondInput("");
       setOperator("");
       dispatch(setInitalNumber(Number(0)));
-      dispatch(currentUserNum(String(0)));
+      dispatch(currentUserNum(String("0")));
       setEqualOp("");
-    }
   }
 
   function handleBackClick() {
@@ -188,6 +190,7 @@ export function Counter() {
   }
 
   function handleDecimalClick(e) {
+    ifEqualOpReset();
     if (!firstInput && !operator) {
       setFirstInput(0 + e.target.value);
       dispatch(currentUserNum(String(0 + e.target.value)));
@@ -205,7 +208,7 @@ export function Counter() {
 
   return (
     <div style={{ whiteSpace: "pre-wrap" }}>
-      {equalOp || firstInput} {operator}
+      {equalOp || firstInput} {!equalOp && operator}
       <h2> {userInput || 0}</h2>
       <div className={styles.row}>
         <hr />
