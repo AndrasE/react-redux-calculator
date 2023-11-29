@@ -100,7 +100,9 @@ export function Counter() {
 
   function handleEqualClick() {
     if (equalOp) {
-  
+      setEqualOp("")
+      const state = store.getState();
+      setFirstInput(state.userInput.value);
     } else  {
 
     switch (operator) {
@@ -180,6 +182,8 @@ export function Counter() {
 
   function handleBackClick() {
     const state = store.getState();
+    if (equalOp) { setEqualOp("")}
+
     if (firstInput && !secondInput && !operator) {
       dispatch(currentUserNum(String(state.userInput.value.slice(0, -1))));
       setFirstInput(state.userInput.value.slice(0, -1));
