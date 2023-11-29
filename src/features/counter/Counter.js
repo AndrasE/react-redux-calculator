@@ -21,7 +21,10 @@ export function Counter() {
   const history = [];
 
   function handleOpClick(e) {
+    ifEqualOpReset();
     if (!firstInput) {
+      console.log("!");
+      setFirstInput("0");
       //is user first click operation w/ input first it sets firstInput to 0
       setOperator(e.target.value);
     } else if (operator && !secondInput) {
@@ -130,11 +133,19 @@ export function Counter() {
     setOperator("");
     setFirstInput("");
     setSecondInput("");
+    dispatch(setInitalNumber(Number(0)));
     // history.push(equalOp + " " + state.userInput.value)
     // console.log(history)
   }
 
+  function ifEqualOpReset() {
+    if (equalOp) {
+      setEqualOp("");
+    }
+  }
+
   function handleNumClick(e) {
+    ifEqualOpReset();
     if (firstInput === "" && e.target.value === "0") {
       //do nothing, prevent 0000005 firstInputs
     } else if (!operator) {
