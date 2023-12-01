@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import store from "../../app/store";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -22,21 +22,24 @@ export function Counter() {
 
   function handleOpClick(e) {
     if (equalOp) {
-      console.log("1")
       setEqualOp("");
+      const state = store.getState();
+      setFirstInput(state.counter.value);
+      dispatch(currentUserNum(String(state.counter.value)));
+      setFirstInput((prevState) =>  state.counter.value);
       setOperator(e.target.value);
     } else if (!firstInput) {
-      console.log("2")
+      console.log("2");
       setFirstInput("0");
       //is user first click operation w/ input first it sets firstInput to 0
       setOperator(e.target.value);
     } else if (operator && !secondInput) {
       //is user chose operator but want to chose other one, leaving secondinput empty as ""
       setSecondInput("");
-      console.log("3")
+      console.log("3");
       setOperator(e.target.value);
     } else if (!operator) {
-      console.log("4")
+      console.log("4");
       //user setting firstinput as no operator exists yet
       //but if user leaves number such as 6. will remove the decimalpoint before sending it to switcher
       // if (firstInput.slice(-1) === ".") {
@@ -48,9 +51,9 @@ export function Counter() {
       //   console.log("xx")
       // //  }else if (secondInput.slice(-1) === ".") {
       // } else {
-        dispatch(setInitalNumber(Number(firstInput)));
-        setOperator(e.target.value);
-        console.log("x1")
+      dispatch(setInitalNumber(Number(firstInput)));
+      setOperator(e.target.value);
+      console.log("x1");
       // }
     } else {
       //calling calcultion pass to switch, second (current) operation takes the first`s place after)
@@ -100,14 +103,12 @@ export function Counter() {
   }
 
   function handleEqualClick() {
-
     if (!equalOp && firstInput && !secondInput) {
       // only firstInput no operation can be called
       setEqualOp("");
       setOperator("");
     } else if (equalOp) {
       // do nothing done the equal op already
-    
     } else {
       switch (operator) {
         case "+": {
@@ -138,7 +139,7 @@ export function Counter() {
       const state = store.getState();
       setFirstInput(state.counter.value);
       dispatch(currentUserNum(String(state.counter.value)));
-      setFirstInput(state.counter.value.toString());
+      setFirstInput("");
       setEqualOp(firstInput + " " + operator + " " + secondInput + " =");
       setOperator("");
       
@@ -149,16 +150,15 @@ export function Counter() {
     }
   }
 
-  function ifEqualOpReset() {
-    if (equalOp) {
-      handleResetClick()
-   
-    }}
-
   function handleNumClick(e) {
     // console.log(firstInput, secondInput, operator, equalOp);
-    // ifEqualOpReset();
-    if (firstInput === "" && e.target.value === "0") {
+    if (equalOp) {
+      setEqualOp("")
+      setFirstInput((prevState) => prevState + e.target.value);
+      setSecondInput("")
+      dispatch(currentUserNum(String(e.target.value)));
+
+  } else if (firstInput === "" && e.target.value === "0") {
       //do nothing, prevent 0000005 firstInputs
     } else if (!operator) {
       // set firstinput and usernum
@@ -175,7 +175,6 @@ export function Counter() {
       setSecondInput((prevState) => prevState + e.target.value);
       dispatch(currentUserNum(String(secondInput + e.target.value)));
     }
-    
   }
 
   function handleResetClick() {
@@ -202,7 +201,6 @@ export function Counter() {
   }
 
   function handleDecimalClick(e) {
-    ifEqualOpReset();
     if (!firstInput && !operator) {
       setFirstInput(0 + e.target.value);
       dispatch(currentUserNum(String(0 + e.target.value)));
