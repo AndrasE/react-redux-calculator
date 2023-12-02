@@ -18,10 +18,39 @@ export function Counter() {
   const [secondInput, setSecondInput] = useState("");
   const [operator, setOperator] = useState("");
   const [equalOp, setEqualOp] = useState("");
-  const history = [];
+  // const history = [];
+
+  function handleNumClick(e) {
+    if (equalOp) {
+      //if last op was equal set firstInput to the new calue and start over everything
+      setEqualOp("");
+      setFirstInput((prevState) => prevState + e.target.value);
+      setSecondInput("");
+      dispatch(currentUserNum(String(e.target.value)));
+    } else if (firstInput === "" && e.target.value === "0") {
+      //if 0 already exist do nothinng, prevent 0000005 firstInputs
+    } else if (!operator) {
+      //as no operator, we are setting firstInput and currentUserNum
+      setFirstInput((prevState) => prevState + e.target.value);
+      dispatch(currentUserNum(String(firstInput + e.target.value)));
+    } else if (operator && secondInput === "0" && e.target.value === "0") {
+      //if 0 already exist do nothinng, prevent 0000005 secondInputs
+    } else if (operator && secondInput === "0" && e.target.value !== "0") {
+      //is secondInput set 0 only add to this additional numbers if its not
+      //zero and change it over 0 -> 5 this to prevent 05 inputs
+      setSecondInput(e.target.value);
+      dispatch(currentUserNum(String(e.target.value)));
+    } else {
+      //setting secondInput and currentUserNum
+      setSecondInput((prevState) => prevState + e.target.value);
+      dispatch(currentUserNum(String(secondInput + e.target.value)));
+    }
+  }
 
   function handleOpClick(e) {
     if (equalOp) {
+      //if last op equal set the outcome of the op to be the firstinput value
+      //this to continuity after equal ops 1 + 3 = 4 ==to==> 4
       setEqualOp("");
       const state = store.getState();
       setFirstInput(state.counter.value);
@@ -29,45 +58,55 @@ export function Counter() {
       setFirstInput(() => state.counter.value);
       setOperator(e.target.value);
     } else if (!firstInput) {
-      console.log("1");
+      //if user clicks first the operation buttons w/ input setting firstInput to be 0
       setFirstInput("0");
-      //is user first click operation w/ input first it sets firstInput to 0
       setOperator(e.target.value);
     } else if (operator && !secondInput) {
-      //is user chose operator but want to chose other one, leaving secondinput empty as ""
+      //if user choose operator but want to chose other one, leaving secondinput empty
+      //this for changing ops such: + ==to==> -
       setSecondInput("");
-      console.log("2");
       setOperator(e.target.value);
     } else if (!operator && firstInput.slice(-1) === ".") {
-      console.log("3");
-        const state = store.getState();
-        const removeDecimalPoint = state.userInput.value.slice(0, -1);
-        setFirstInput(removeDecimalPoint);
-        dispatch(setInitalNumber(Number(removeDecimalPoint)));
-        setOperator(e.target.value);
-      //user setting firstinput as no operator exists yet
-      //but if user leaves number such as 6. will remove the decimalpoint before sending it to switcher
-      // if (firstInput.slice(-1) === ".") {
-      //   const state = store.getState();
-      //   const removeDecimalPoint = state.userInput.value.slice(0, -1);
-      //   setFirstInput(removeDecimalPoint);
-      //   dispatch(currentUserNum(String(removeDecimalPoint)));
-      //   setOperator(e.target.value);
-      //   console.log("xx")
-      // //  }else if (secondInput.slice(-1) === ".") {
-      } else if (!operator) {
+      //user setting firstInput but leaving it to finish with a decimal point this will remove
+      //the decimalpoint before sending it to switcher preventing 5. + changing it to 5 +
+      const state = store.getState();
+      const removeDecimalPoint = state.userInput.value.slice(0, -1);
+      setFirstInput(removeDecimalPoint);
+      dispatch(setInitalNumber(Number(removeDecimalPoint)));
+      dispatch(currentUserNum(Number(removeDecimalPoint)));
+      setOperator(e.target.value);
+      console.log(firstInput);
+    } else if (operator && secondInput.slice(-1) === ".") {
+      //user setting secondInput but leaving it to finish with a decimal point this will remove
+      //the decimalpoint before sending it to switcher preventing 5. + changing it to 5 +
+      const state = store.getState();
+      const removeDecimalPoint = state.userInput.value.slice(0, -1);
+      setSecondInput(removeDecimalPoint);
+      switchOperator(e);
+    } else if (!operator) {
+      //no operator, setting firstInput without conditions
       dispatch(setInitalNumber(Number(firstInput)));
       setOperator(e.target.value);
-      console.log("4");
-      // }
+      // } else if (operator && secondInput.slice(-1) === ".") {
+      //   console.log("333333");
+      //   const state = store.getState();
+      //   const removeDecimalPoint = state.userInput.value.slice(0, -1);
+      //   setSecondInput(removeDecimalPoint);
+      //   dispatch(setInitalNumber(Number(removeDecimalPoint)));
+      //   dispatch(currentUserNum(Number(removeDecimalPoint)));
+      //   setOperator(e.target.value);
+      //   switchOperator(e);
+      //   console.log(secondInput);
     } else {
-      //calling calcultion pass to switch, second (current) operation takes the first`s place after)
-      console.log("5");
+      //calling calculation via switchOperator as both firstInput, operator and secondInput exists
       switchOperator(e);
     }
   }
 
   function switchOperator(e) {
+    //switchOp dispatch actions and calling updateStore function which reseting the secondInput
+    //and making the operation outcome to be the new firstInput and currentNumber as well
+    //capturing the new operator 1+3=4 ==to==? 4 - (or any operator)
     switch (operator) {
       case "+": {
         dispatch(addition(Number(secondInput)));
@@ -98,9 +137,42 @@ export function Counter() {
       default:
         break;
     }
+    console.log(secondInput);
+  }
+
+  function switchOperator2() {
+    //operator without calling on updateStore, as no operator will be set its without capturing + or -
+    //after finishing the operation setting the outcome of the operation to be the new firstInput
+    switch (operator) {
+      case "+": {
+        dispatch(addition(Number(secondInput)));
+        break;
+      }
+      case "-": {
+        dispatch(decrementation(Number(secondInput)));
+        break;
+      }
+      case "x": {
+        dispatch(multiplication(Number(secondInput)));
+        break;
+      }
+      case "÷": {
+        if (secondInput === 0) {
+          setSecondInput("");
+          dispatch(currentUserNum(Number(firstInput)));
+        } else {
+          dispatch(subtraction(Number(secondInput)));
+        }
+        break;
+      }
+      default:
+        break;
+    }
   }
 
   function updateStore(e) {
+    //after finishing calc called by switchOperator, its setting the outcome to be the new firstInput and
+    //capturing the new operator while reseting the secondInput
     const state = store.getState();
     setFirstInput(state.counter.value);
     setSecondInput("");
@@ -110,37 +182,30 @@ export function Counter() {
 
   function handleEqualClick() {
     if (!equalOp && firstInput && !secondInput) {
-      // only firstInput no operation can be called
+      //if equalOp wasnt called before but user not adding second input calling the function, will
+      //do nothing just remove the operator, this to prever 8 = 8, just looks stupido
       setEqualOp("");
       setOperator("");
+    } else if (!equalOp && secondInput.slice(-1) === ".") {
+      //if equalOp called but user leaving secondInput it to finish with a decimal point this will remove
+      //the decimalpoint before sending it to switcher preventing 5. + changing it to 5 +
+      const state = store.getState();
+      const removeDecimalPoint = state.userInput.value.slice(0, -1);
+      setSecondInput(removeDecimalPoint);
+      dispatch(currentUserNum(Number(removeDecimalPoint)));
+      switchOperator2();
+      setFirstInput(state.counter.value);
+      dispatch(currentUserNum(String(state.counter.value)));
+      setFirstInput("");
+      setEqualOp(firstInput + " " + operator + " " + removeDecimalPoint + " =");
+      setOperator("");
+      setSecondInput("");
     } else if (equalOp) {
-      // do nothing done the equal op already
+      //equalOp was called already, prevent silly
     } else {
-      switch (operator) {
-        case "+": {
-          dispatch(addition(Number(secondInput)));
-          break;
-        }
-        case "-": {
-          dispatch(decrementation(Number(secondInput)));
-          break;
-        }
-        case "x": {
-          dispatch(multiplication(Number(secondInput)));
-          break;
-        }
-        case "÷": {
-          if (secondInput === 0) {
-            setSecondInput("");
-            dispatch(currentUserNum(Number(firstInput)));
-          } else {
-            dispatch(subtraction(Number(secondInput)));
-          }
-          break;
-        }
-        default:
-          break;
-      }
+      //both firstInput, operator and secondInput exist, calling on switchOperator to do the changes,
+      //while saving its outcome in setEqualOp and resetinng both the operator and secondInput
+      switchOperator2();
 
       const state = store.getState();
       setFirstInput(state.counter.value);
@@ -148,41 +213,12 @@ export function Counter() {
       setFirstInput("");
       setEqualOp(firstInput + " " + operator + " " + secondInput + " =");
       setOperator("");
-
       setSecondInput("");
-      // dispatch(setInitalNumber(Number(0)));
-      // history.push(equalOp + " " + state.userInput.value)
-      // console.log(history)
-    }
-  }
-
-  function handleNumClick(e) {
-    // console.log(firstInput, secondInput, operator, equalOp);
-    if (equalOp) {
-      setEqualOp("");
-      setFirstInput((prevState) => prevState + e.target.value);
-      setSecondInput("");
-      dispatch(currentUserNum(String(e.target.value)));
-    } else if (firstInput === "" && e.target.value === "0") {
-      //do nothing, prevent 0000005 firstInputs
-    } else if (!operator) {
-      // set firstinput and usernum
-      setFirstInput((prevState) => prevState + e.target.value);
-      dispatch(currentUserNum(String(firstInput + e.target.value)));
-    } else if (operator && secondInput === "0" && e.target.value === "0") {
-      //do nothing prevent, 0000005 secondInputs
-    } else if (operator && secondInput === "0" && e.target.value !== "0") {
-      //is secondInput 0 only add to this additional numbers if its not zero and change it over 0 -> 5
-      setSecondInput(e.target.value);
-      dispatch(currentUserNum(String(e.target.value)));
-    } else {
-      //setting second input and usernum
-      setSecondInput((prevState) => prevState + e.target.value);
-      dispatch(currentUserNum(String(secondInput + e.target.value)));
     }
   }
 
   function handleResetClick() {
+    //reseting everything on C click
     setFirstInput("");
     setSecondInput("");
     setOperator("");
@@ -194,12 +230,14 @@ export function Counter() {
   function handleBackClick() {
     const state = store.getState();
     if (equalOp) {
+      //if equalOp exist reset
       setEqualOp("");
-    }
-    if (firstInput && !secondInput && !operator) {
+    } else if (firstInput && !secondInput && !operator) {
+      //if we are setting firstInput it removing last number on back click
       dispatch(currentUserNum(String(state.userInput.value.slice(0, -1))));
       setFirstInput(state.userInput.value.slice(0, -1));
     } else if (secondInput !== "") {
+      //if we are setting secondInput it removing last number on back click
       dispatch(currentUserNum(String(state.userInput.value.slice(0, -1))));
       setSecondInput(state.userInput.value.slice(0, -1));
     }
@@ -207,15 +245,19 @@ export function Counter() {
 
   function handleDecimalClick(e) {
     if (!firstInput && !operator) {
+      //if no firstInput added but decimal clicked it sets firstInput to be 0 and add decimalpoint 0.
       setFirstInput(0 + e.target.value);
       dispatch(currentUserNum(String(0 + e.target.value)));
     } else if (firstInput && !operator && !firstInput.includes(".")) {
+      //if firstInput added and NO decimal point added yet set it to be 5.
       setFirstInput((prevState) => prevState + e.target.value);
       dispatch(currentUserNum(String(firstInput + e.target.value)));
     } else if (!secondInput && operator) {
+      //if no secondInput added but decimal clicked it sets secondInput to be 0 and add decimalpoint 0.
       setSecondInput(0 + e.target.value);
       dispatch(currentUserNum(String(0 + e.target.value)));
     } else if (secondInput && operator && !secondInput.includes(".")) {
+      //if secondInput added and NO decimal point added yet set it to be 5.
       setSecondInput((prevState) => prevState + e.target.value);
       dispatch(currentUserNum(String(secondInput + e.target.value)));
     }
