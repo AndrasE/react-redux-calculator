@@ -1,12 +1,11 @@
-/* .row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }  */
-/* 
-  .row:not(:last-child) {
-    margin-bottom: 16px;
-  }   */
+:root {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none;
+}
 
 .value {
   font-size: 78px;

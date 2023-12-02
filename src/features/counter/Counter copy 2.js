@@ -20,16 +20,6 @@ export function Counter() {
   const [equalOp, setEqualOp] = useState("");
   // const history = [];
 
-
-  // const createButtons = () => {
-    const buttons = ["⇋", "↤", "c", "÷", "7", "8", "9", "x", "4", "5", "6", "-", "1", "2", "3", "+", "0", ".", "="];
-  //   for (let i=1; i< 19; i++) {
-
-  //   }
-  // }
-
-
-
   function handleNumClick(e) {
     if (equalOp) {
       //if last op was equal set firstInput to the new calue and start over everything
@@ -289,7 +279,6 @@ export function Counter() {
               c
             </button>
             <button
-              aria-label="Subtraction calc"
               value="÷"
               onClick={handleOpClick}
             >
@@ -309,7 +298,6 @@ export function Counter() {
               9
             </button>
             <button
-              aria-label="Multiplication calc"
               value="x"
               onClick={handleOpClick}
             >
@@ -328,7 +316,6 @@ export function Counter() {
               6
             </button>
             <button
-              aria-label="Decrementation calc"
               value="-"
               onClick={handleOpClick}
             >
@@ -347,7 +334,6 @@ export function Counter() {
               3
             </button>
             <button
-              aria-label="Addition calc"
               value="+"
               onClick={handleOpClick}
             >
@@ -371,12 +357,6 @@ export function Counter() {
             </button>
           </div>
         </div>
-      </div>
-      <div>
-        <br></br>
-        {buttons.map((button) => {
-          return <button value={button} onClick={handleNumClick}>{button}</button>
-        })}
       </div>
     </div>
   );
