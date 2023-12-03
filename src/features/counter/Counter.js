@@ -290,11 +290,13 @@ export function Counter() {
   }
 
   return (
-    <div >
-      {equalOp || firstInput} {!equalOp && operator}
+    <div className={styles.calcContainer} >
+      <div className={styles.screensContainer} >
+      <h5>{equalOp || firstInput} {!equalOp && operator}</h5>
       <h2> {userInput || 0}</h2>
+      </div>
       <hr />
-      <div className={styles.buttonsContainer}>
+      <div >
         {buttons.map((button) => {
           if (
             button === "+" ||

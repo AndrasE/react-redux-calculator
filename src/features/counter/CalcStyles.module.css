@@ -7,12 +7,38 @@
   user-select: none;
 }
 
-.buttonsContainer {
+.calcContainer {
+  white-space: pre-wrap;
   margin: auto;
   display: flexbox;
   flex-wrap: wrap;
   flex-direction: row;
-  width: 300px;
+  width: 280px;
+}
+
+.screensContainer {
+  margin: auto;
+  width: 270px;
+  background-color:  rgba(111, 76, 182, 0.027);
+  text-align: end;
+  border: 1px solid rgba(111, 76, 182, 0.24);
+
+}
+
+h5 {
+  margin: 0;
+  font-weight: 100;
+  padding-right: 5px;
+}
+h2 {
+  margin: 0;
+  font-weight: 300;
+  padding-right: 5px;
+} 
+hr {
+  max-width: 270px;
+  border: 1px dashed rgba(111, 76, 182, 0.24);
+  margin-bottom: 6px;
 }
 
 button {
