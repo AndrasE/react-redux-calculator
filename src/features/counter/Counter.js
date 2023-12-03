@@ -9,7 +9,7 @@ import {
   subtraction,
 } from "./counterSlice";
 import { currentUserNum, selectUserInput } from "../userInput/userInputSlice";
-import styles from "./Counter.module.css";
+import styles from "./CalcStyles.module.css";
 
 export function Counter() {
   const userInput = useSelector(selectUserInput);
@@ -20,15 +20,32 @@ export function Counter() {
   const [equalOp, setEqualOp] = useState("");
   // const history = [];
 
-
   // const createButtons = () => {
-    const buttons = ["⇋", "↤", "c", "÷", "7", "8", "9", "x", "4", "5", "6", "-", "1", "2", "3", "+", "0", ".", "="];
+  const buttons = [
+    "⇋",
+    "↤",
+    "c",
+    "÷",
+    "7",
+    "8",
+    "9",
+    "x",
+    "4",
+    "5",
+    "6",
+    "-",
+    "1",
+    "2",
+    "3",
+    "+",
+    "0",
+    ".",
+    "=",
+  ];
   //   for (let i=1; i< 19; i++) {
 
   //   }
   // }
-
-
 
   function handleNumClick(e) {
     if (equalOp) {
@@ -273,109 +290,60 @@ export function Counter() {
   }
 
   return (
-    <div style={{ whiteSpace: "pre-wrap" }}>
+    <div >
       {equalOp || firstInput} {!equalOp && operator}
       <h2> {userInput || 0}</h2>
-      <div className={styles.row}>
-        <hr />
-        <div>
-          {/* 1st row */}
-          <div className="row">
-            <button>⇋</button>
-            <button value="↤" onClick={handleBackClick}>
-              ↤
-            </button>
-            <button value="c" onClick={handleResetClick}>
-              c
-            </button>
-            <button
-              aria-label="Subtraction calc"
-              value="÷"
-              onClick={handleOpClick}
-            >
-              ÷
-            </button>
-          </div>
-          {/* 2nd row  */}
-          <div className="row">
-            <button value="7" onClick={handleNumClick}>
-              7
-            </button>
-
-            <button value="8" onClick={handleNumClick}>
-              8
-            </button>
-            <button value="9" onClick={handleNumClick}>
-              9
-            </button>
-            <button
-              aria-label="Multiplication calc"
-              value="x"
-              onClick={handleOpClick}
-            >
-              x
-            </button>
-          </div>
-          {/* 3rd row */}
-          <div className="row">
-            <button value="4" onClick={handleNumClick}>
-              4
-            </button>
-            <button value="5" onClick={handleNumClick}>
-              5
-            </button>
-            <button value="6" onClick={handleNumClick}>
-              6
-            </button>
-            <button
-              aria-label="Decrementation calc"
-              value="-"
-              onClick={handleOpClick}
-            >
-              -
-            </button>
-          </div>
-          {/* 4th row */}
-          <div className="row">
-            <button value="1" onClick={handleNumClick}>
-              1
-            </button>
-            <button value="2" onClick={handleNumClick}>
-              2
-            </button>
-            <button value="3" onClick={handleNumClick}>
-              3
-            </button>
-            <button
-              aria-label="Addition calc"
-              value="+"
-              onClick={handleOpClick}
-            >
-              +
-            </button>
-          </div>
-          {/* last row */}
-          <div className="row">
-            <button value="0" onClick={handleNumClick}>
-              0
-            </button>
-            <button value={"."} onClick={handleDecimalClick}>
-              .
-            </button>
-            <button
-              className={styles.doublebutton}
-              value="="
-              onClick={handleEqualClick}
-            >
-              =
-            </button>
-          </div>
-        </div>
-      </div>
-      <div>
-        <br></br>
+      <hr />
+      <div className={styles.buttonsContainer}>
         {buttons.map((button) => {
-          return <button value={button} onClick={handleNumClick}>{button}</button>
+          if (
+            button === "+" ||
+            button === "-" ||
+            button === "x" ||
+            button === "-" ||
+            button === "÷"
+          ) {
+            return (
+              <button key={button} value={button} onClick={handleOpClick}>
+                {button}
+              </button>
+            );
+          } else if (button === "=") {
+            return (
+              <button
+                className={styles.doublebutton}
+                key={button}
+                value={button}
+                onClick={handleEqualClick}
+              >
+                {button}
+              </button>
+            );
+          } else if (button === "c") {
+            return (
+              <button key={button} value={button} onClick={handleResetClick}>
+                {button}
+              </button>
+            );
+          } else if (button === "↤") {
+            return (
+              <button key={button} value={button} onClick={handleBackClick}>
+                {button}
+              </button>
+            );
+          } else if (button === ".") {
+            return (
+              <button key={button} value={button} onClick={handleDecimalClick}>
+                {button}
+              </button>
+            );
+          } else {
+            return (
+              <button key={button} value={button} onClick={handleNumClick}>
+                {button}
+              </button>
+            );
+          }
         })}
       </div>
     </div>

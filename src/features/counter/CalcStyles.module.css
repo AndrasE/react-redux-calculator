@@ -1,22 +1,21 @@
 :root {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
-   -khtml-user-select: none; /* Konqueror HTML */
-     -moz-user-select: none; /* Old versions of Firefox */
-      -ms-user-select: none; /* Internet Explorer/Edge */
-          user-select: none;
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
 }
 
-.value {
-  font-size: 78px;
-  padding-left: 16px;
-  padding-right: 16px;
-  margin-top: 2px;
-  font-family: "Courier New", Courier, monospace;
+.buttonsContainer {
+  margin: auto;
+  display: flexbox;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 300px;
 }
 
 button {
-  appearance: none;
   border: none;
   background: none;
   width: 65px;
@@ -27,7 +26,6 @@ button {
   padding-left: 12px;
   padding-right: 12px;
   margin: 2px;
-  outline: none;
   border: 2px solid transparent;
   color: rgb(112, 76, 182);
   padding-bottom: 4px;
@@ -43,17 +41,9 @@ button {
 
 button:hover,
 .button:focus {
-  border: 2px solid rgba(113, 78, 183, 0.4)
+  border: 2px solid rgba(113, 78, 183, 0.4);
 }
 
 button:active {
   background-color: rgba(112, 76, 182, 0.2);
-}
-
-.textbox {
-  font-size: 32px;
-  padding: 2px;
-  width: 64px;
-  text-align: right;
-  margin-right: 8px;
 }
