@@ -1,10 +1,15 @@
-:root {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Old versions of Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none;
+.floatingButtons {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  display: grid;
+}
+.floatingButtons button {
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  padding: 4px;
+  margin: 8px;
 }
 
 .calcContainer {
@@ -19,10 +24,9 @@
 .screensContainer {
   margin: auto;
   width: 270px;
-  background-color:  rgba(111, 76, 182, 0.027);
+  background-color: var(--screen-bg-color);
   text-align: end;
-  border: 1px solid rgba(111, 76, 182, 0.24);
-
+  border: 1px solid var(--screen-hr-border-color);
 }
 
 h5 {
@@ -34,11 +38,11 @@ h2 {
   margin: 0;
   font-weight: 300;
   padding-right: 5px;
-} 
+}
 hr {
   max-width: 270px;
-  border: 1px dashed rgba(111, 76, 182, 0.24);
-  margin-bottom: 6px;
+  border: 1px dashed var(--screen-hr-border-color);
+  margin-bottom: 10px;
 }
 
 button {
@@ -53,10 +57,10 @@ button {
   padding-right: 12px;
   margin: 2px;
   border: 2px solid transparent;
-  color: rgb(112, 76, 182);
+  color: var(--btn-text-color);
   padding-bottom: 4px;
   cursor: pointer;
-  background-color: rgba(112, 76, 182, 0.1);
+  background-color: var(--btn-bg-color);
   border-radius: 2px;
   transition: all 0.15s;
 }
@@ -67,9 +71,9 @@ button {
 
 button:hover,
 .button:focus {
-  border: 2px solid rgba(113, 78, 183, 0.4);
+  border: 2px solid #714eb766;
 }
 
 button:active {
-  background-color: rgba(112, 76, 182, 0.2);
+  background-color: #704cb633;
 }

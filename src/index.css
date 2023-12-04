@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root {
+user-select: none;
+--backgroud-color: #282c34;
+--font-color: #ffff;
+--screen-bg-color:#6f4cb607;
+--screen-hr-border-color: #6f4cb63d;
+--btn-text-color: #704cb6;
+--btn-bg-color:  #704cb61a;
+}
+
+[data-theme="light"] {
+  --backgroud-color: #bbb;
+  --font-color: #6f4cb607;
+  --screen-bg-color:#6f4cb607;
+  --screen-hr-border-color: #6f4cb63d;
+  --btn-text-color: #704cb6;
+  --btn-bg-color:  #704cb61a;
+}

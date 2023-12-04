@@ -11,6 +11,7 @@ import {
 import { currentUserNum, selectUserInput } from "../userInput/userInputSlice";
 import styles from "./CalcStyles.module.css";
 
+
 export function Counter() {
   const userInput = useSelector(selectUserInput);
   const dispatch = useDispatch();
@@ -290,6 +291,12 @@ export function Counter() {
   }
 
   return (
+    <div>
+    <div className={styles.floatingButtons}>
+      <button>☼</button>
+      <button >𐚁</button>
+      <button>ⓘ</button>
+    </div>
     <div className={styles.calcContainer} >
       <div className={styles.screensContainer} >
       <h5>{equalOp || firstInput} {!equalOp && operator}</h5>
@@ -348,6 +355,7 @@ export function Counter() {
           }
         })}
       </div>
+    </div>
     </div>
   );
 }
