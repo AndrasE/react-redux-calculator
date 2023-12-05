@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import store from "../../app/store";
+import store from "../app/store";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setInitalNumber,

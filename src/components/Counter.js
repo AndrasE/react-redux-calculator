@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import store from "../../app/store";
+import store from "../app/store";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setInitalNumber,
@@ -7,12 +7,11 @@ import {
   decrementation,
   multiplication,
   subtraction,
-} from "./counterSlice";
-import { currentUserNum, selectUserInput } from "../userInput/userInputSlice";
-import styles from "./CalcStyles.module.css";
+} from "../features/counterSlice";
+import { currentUserNum, selectUserInput } from "../features/userInputSlice";
+import styles from "../components/styles.module.css"
 
-
-export function Counter() {
+export function Counter(props) {
   const userInput = useSelector(selectUserInput);
   const dispatch = useDispatch();
   const [firstInput, setFirstInput] = useState("");
@@ -292,70 +291,72 @@ export function Counter() {
 
   return (
     <div>
-    <div className={styles.floatingButtons}>
-      <button>☼</button>
-      <button >𐚁</button>
-      <button>ⓘ</button>
-    </div>
-    <div className={styles.calcContainer} >
-      <div className={styles.screensContainer} >
-      <h5>{equalOp || firstInput} {!equalOp && operator}</h5>
-      <h2> {userInput || 0}</h2>
+   
+      <div className={styles.calcContainer}>
+        <div className={styles.screensContainer}>
+          <h5>
+            {equalOp || firstInput} {!equalOp && operator}
+          </h5>
+          <h2> {userInput || 0}</h2>
+        </div>
+        <hr />
+        <div>
+          {buttons.map((button) => {
+            if (
+              button === "+" ||
+              button === "-" ||
+              button === "x" ||
+              button === "-" ||
+              button === "÷"
+            ) {
+              return (
+                <button key={button} value={button} onClick={handleOpClick}>
+                  {button}
+                </button>
+              );
+            } else if (button === "=") {
+              return (
+                <button
+                  className={styles.doublebutton}
+                  key={button}
+                  value={button}
+                  onClick={handleEqualClick}
+                >
+                  {button}
+                </button>
+              );
+            } else if (button === "c") {
+              return (
+                <button key={button} value={button} onClick={handleResetClick}>
+                  {button}
+                </button>
+              );
+            } else if (button === "↤") {
+              return (
+                <button key={button} value={button} onClick={handleBackClick}>
+                  {button}
+                </button>
+              );
+            } else if (button === ".") {
+              return (
+                <button
+                  key={button}
+                  value={button}
+                  onClick={handleDecimalClick}
+                >
+                  {button}
+                </button>
+              );
+            } else {
+              return (
+                <button key={button} value={button} onClick={handleNumClick}>
+                  {button}
+                </button>
+              );
+            }
+          })}
+        </div>
       </div>
-      <hr />
-      <div >
-        {buttons.map((button) => {
-          if (
-            button === "+" ||
-            button === "-" ||
-            button === "x" ||
-            button === "-" ||
-            button === "÷"
-          ) {
-            return (
-              <button key={button} value={button} onClick={handleOpClick}>
-                {button}
-              </button>
-            );
-          } else if (button === "=") {
-            return (
-              <button
-                className={styles.doublebutton}
-                key={button}
-                value={button}
-                onClick={handleEqualClick}
-              >
-                {button}
-              </button>
-            );
-          } else if (button === "c") {
-            return (
-              <button key={button} value={button} onClick={handleResetClick}>
-                {button}
-              </button>
-            );
-          } else if (button === "↤") {
-            return (
-              <button key={button} value={button} onClick={handleBackClick}>
-                {button}
-              </button>
-            );
-          } else if (button === ".") {
-            return (
-              <button key={button} value={button} onClick={handleDecimalClick}>
-                {button}
-              </button>
-            );
-          } else {
-            return (
-              <button key={button} value={button} onClick={handleNumClick}>
-                {button}
-              </button>
-            );
-          }
-        })}
-      </div>
-    </div>
     </div>
   );
 }
