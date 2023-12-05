@@ -7,7 +7,7 @@ import {
   decrementation,
   multiplication,
   subtraction,
-} from "./counterSlice";
+} from "../features/counterSlice";
 import { currentUserNum, selectUserInput } from "../userInput/userInputSlice";
 import styles from "./Counter.module.css";
 
