@@ -6,22 +6,21 @@ import info from "../images/info.svg";
 import moon from "../images/moon.svg";
 
 function Buttons(props) {
-  const [toggleIcon, setToggleIcon] = useState(false);
+  const [toggleIcon, setToggleIcon] = useState("dark");
 
   function handleThemeToggleClick() {
-    setToggleIcon((prevState) => !prevState);
+    setToggleIcon(props.theme);
     props.changeTheme();
-
   }
 
   return (
     <div className={styles.floatingButtons}>
       <button onClick={handleThemeToggleClick}>
         {" "}
-        {toggleIcon ? (
-          <img src={moon} alt="chuck" />
+        {props.theme === "light" ? (
+          <img src={moon} alt="moon" />
         ) : (
-          <img src={sun} alt="moon" />
+          <img src={sun} alt="sun" />
         )}
       </button>
       <button style={{ padding: 1 }}>
@@ -30,7 +29,7 @@ function Buttons(props) {
       </button>
       <button>
         {" "}
-        <img src={info} alt="chuck" />{" "}
+        <img src={info} alt="info" />{" "}
       </button>
     </div>
   );

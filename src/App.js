@@ -7,6 +7,7 @@ import Buttons from "./components/Buttons";
 
 
 function App() {
+  
   const [theme, setTheme] = uselocalStorage("theme" ? "dark" : "light");
 
   const switchTheme = () => {
@@ -17,7 +18,7 @@ function App() {
   return (
     <div className="App" data-theme={theme}>
       {/* <button onClick={switchTheme}></button> */}
-      <Buttons changeTheme={switchTheme} />
+      <Buttons changeTheme={switchTheme} theme={theme}/>
       {/* <button> <img src={logo} className="App-logo" alt="logo" /></button> */}
       <Counter />
     </div>
