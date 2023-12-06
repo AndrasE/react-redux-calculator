@@ -291,16 +291,17 @@ export function Counter(props) {
 
   return (
     <div>
-   
       <div className={styles.calcContainer}>
         <div className={styles.screensContainer}>
           <h5>
             {equalOp || firstInput} {!equalOp && operator}
           </h5>
+
           <h2> {userInput || 0}</h2>
+     
         </div>
         <hr />
-        <div>
+        <div className={styles.buttonsContainer}>
           {buttons.map((button) => {
             if (
               button === "+" ||

@@ -9,8 +9,9 @@ function Buttons(props) {
   const [toggleIcon, setToggleIcon] = useState(false);
 
   function handleThemeToggleClick() {
-    props.changeTheme();
     setToggleIcon((prevState) => !prevState);
+    props.changeTheme();
+
   }
 
   return (
