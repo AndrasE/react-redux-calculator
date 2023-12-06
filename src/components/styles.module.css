@@ -27,13 +27,14 @@
 }
 
 .screensContainer {
-  white-space: pre-wrap;
+  
   padding: 4px;
   margin: auto;
   width: 97%;
   height: 80px;
   background-color: var(--screen-bg-color);
   text-align: end;
+  
   border: 1px solid var(--screen-hr-border-color);
 }
 /* 

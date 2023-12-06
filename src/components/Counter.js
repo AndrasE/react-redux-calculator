@@ -294,9 +294,9 @@ export function Counter(props) {
     <div>
       <div className={styles.calcContainer}>
         <div className={styles.screensContainer}>
-          <div style={{ whiteSpace: 'pre-wrap' }} >
+          <div>
             <Textfit mode="single" max="22">
-              {equalOp || firstInput} {!equalOp && operator}
+              {equalOp || firstInput || ". . ."} {!equalOp && operator} 
             </Textfit>
           </div>
           <div>
