@@ -27,7 +27,6 @@
 }
 
 .screensContainer {
-<<<<<<< Updated upstream
   text-align: right;
   padding: 5px;
   margin: auto;
@@ -46,18 +45,6 @@
   height: 3rem;
   padding-bottom: 1px;
 }
-=======
-  
-  padding: 4px;
-  margin: auto;
-  width: 97%;
-  height: 80px;
-  background-color: var(--screen-bg-color);
-  text-align: end;
-  
-  border: 1px solid var(--screen-hr-border-color);
-}
->>>>>>> Stashed changes
 /* 
 h5 {
   margin: 0;
@@ -73,11 +60,7 @@ h2 {
   padding-right: 5px;
 } */
 hr {
-<<<<<<< Updated upstream
   width: 328px;
-=======
-  min-width: 99%;
->>>>>>> Stashed changes
   border: 1px dashed var(--screen-hr-border-color);
 }
 
