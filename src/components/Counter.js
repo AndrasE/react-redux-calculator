@@ -294,12 +294,12 @@ export function Counter(props) {
     <div>
       <div className={styles.calcContainer}>
         <div className={styles.screensContainer}>
-          <div>
-            <Textfit mode="single" max="22">
+          <div className={styles.screenOne}>
+            <Textfit mode="single" max="24">
               {equalOp || firstInput || ". . ."} {!equalOp && operator} 
             </Textfit>
           </div>
-          <div>
+          <div className={styles.screenTwo}>
             <Textfit mode="single" max="44">
               {userInput || 0}
             </Textfit>
