@@ -294,12 +294,21 @@ export function Counter(props) {
     <div>
       <div className={styles.calcContainer}>
         <div className={styles.screensContainer}>
+<<<<<<< Updated upstream
           <div className={styles.screenOne}>
             <Textfit mode="single" max="24">
               {equalOp || firstInput || ". . ."} {!equalOp && operator} 
             </Textfit>
           </div>
           <div className={styles.screenTwo}>
+=======
+          <div>
+            <Textfit mode="single" max="22">
+              {equalOp || firstInput || ". . ."} {!equalOp && operator} 
+            </Textfit>
+          </div>
+          <div>
+>>>>>>> Stashed changes
             <Textfit mode="single" max="44">
               {userInput || 0}
             </Textfit>
