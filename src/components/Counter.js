@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import store from "../app/store";
 import { useSelector, useDispatch } from "react-redux";
+import { Textfit } from "react-textfit";
 import {
   setInitalNumber,
   addition,
@@ -9,7 +10,7 @@ import {
   subtraction,
 } from "../features/counterSlice";
 import { currentUserNum, selectUserInput } from "../features/userInputSlice";
-import styles from "../components/styles.module.css"
+import styles from "../components/styles.module.css";
 
 export function Counter(props) {
   const userInput = useSelector(selectUserInput);
@@ -291,16 +292,21 @@ export function Counter(props) {
 
   return (
     <div>
-   
       <div className={styles.calcContainer}>
         <div className={styles.screensContainer}>
-          <h5>
-            {equalOp || firstInput} {!equalOp && operator}
-          </h5>
-          <h2> {userInput || 0}</h2>
+          <div>
+            <Textfit mode="single" max="22">
+              {equalOp || firstInput || ". . ."} {!equalOp && operator} 
+            </Textfit>
+          </div>
+          <div>
+            <Textfit mode="single" max="44">
+              {userInput || 0}
+            </Textfit>
+          </div>
         </div>
         <hr />
-        <div>
+        <div className={styles.buttonsContainer}>
           {buttons.map((button) => {
             if (
               button === "+" ||

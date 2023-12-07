@@ -18,29 +18,29 @@
   display: inline-block;
   vertical-align: top;
   padding: 1.5px;
-
 }
 
 .calcContainer {
+  width:332px;
   margin: auto;
-  display: flexbox;
-  flex-wrap: wrap;
-  flex-direction: row;
-  width: 280px;
+  gap: 0.2rem;
 }
 
 .screensContainer {
-  white-space: pre-wrap;
+  
+  padding: 4px;
   margin: auto;
-  width: 270px;
+  width: 97%;
   height: 80px;
   background-color: var(--screen-bg-color);
   text-align: end;
+  
   border: 1px solid var(--screen-hr-border-color);
 }
-
+/* 
 h5 {
   margin: 0;
+  max-width: 100%;
   font-size: 1.4rem;
   font-weight: 100;
   padding-right: 5px;
@@ -50,27 +50,23 @@ h2 {
   font-size: 2.5rem;
   font-weight: 300;
   padding-right: 5px;
-}
+} */
 hr {
-  max-width: 270px;
+  min-width: 99%;
   border: 1px dashed var(--screen-hr-border-color);
-  margin-bottom: 10px;
 }
 
 button {
   border: none;
   background: none;
-  width: 65px;
-  height: 65px;
+  width: 80px;
+  height: 80px;
   font-size: 25px;
   line-height: 0;
-  padding-top: 5px;
-  padding-left: 12px;
-  padding-right: 12px;
-  margin: 2px;
+  padding: 5px 12px 4px 12px;
+  margin: 1.5px;
   border: 2px solid transparent;
   color: var(--btn-text-color);
-  padding-bottom: 4px;
   cursor: pointer;
   background-color: var(--btn-bg-color);
   border-radius: 2px;
@@ -78,7 +74,7 @@ button {
 }
 
 .doublebutton {
-  width: 134px;
+  width: 163px;
 }
 
 button:hover,
@@ -88,4 +84,11 @@ button:hover,
 
 button:active {
   background-color: #704cb633;
+}
+
+
+@media screen and (max-width:600px) {
+  .floatingButtons {
+    display: flex;
+  }
 }
