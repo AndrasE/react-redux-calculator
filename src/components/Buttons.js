@@ -6,10 +6,7 @@ import info from "../images/info.svg";
 import moon from "../images/moon.svg";
 
 function Buttons(props) {
-  const [toggleIcon, setToggleIcon] = useState("dark");
-
   function handleThemeToggleClick() {
-    setToggleIcon(props.theme);
     props.changeTheme();
   }
 
