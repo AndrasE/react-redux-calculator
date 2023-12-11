@@ -32,23 +32,19 @@
   width: 318px;
   background-color: var(--screen-bg-color);
   text-align: end;
-  
   border: 1px solid var(--screen-hr-border-color);
 }
-/* 
-h5 {
-  margin: 0;
-  max-width: 100%;
-  font-size: 1.4rem;
-  font-weight: 100;
-  padding-right: 5px;
+
+.screenOne{
+  flex: 1;
+ align-items: center;
+  height: 32px;
 }
-h2 {
-  margin: 0;
-  font-size: 2.5rem;
-  font-weight: 300;
-  padding-right: 5px;
-} */
+
+.screenTwo{
+  height: 50px;
+}
+
 hr {
   width: 328px;
   border: 1px dashed var(--screen-hr-border-color);
