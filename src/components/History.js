@@ -2,10 +2,15 @@ import React from "react";
 import styles from "../components/styles.module.css";
 
 const History = ({ showHistory, toggleShowHistory }) => {
-  if (!showHistory) return (null);
+  if (!showHistory) return null;
   return (
-    <div className={styles.overlay}>
-      <div className={styles.modalContainer}>
+    <div className={styles.overlay} onClick={() => toggleShowHistory()}>
+      <div
+        className={styles.modalContainer}
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
         <button
           className={styles.modalCloseBtn}
           onClick={() => toggleShowHistory()}

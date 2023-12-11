@@ -35,13 +35,13 @@
   border: 1px solid var(--screen-hr-border-color);
 }
 
-.screenOne{
+.screenOne {
   flex: 1;
- align-items: center;
+  align-items: center;
   height: 32px;
 }
 
-.screenTwo{
+.screenTwo {
   height: 50px;
 }
 

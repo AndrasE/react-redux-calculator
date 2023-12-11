@@ -6,10 +6,9 @@ import info from "../images/info.svg";
 import moon from "../images/moon.svg";
 
 function Buttons(props) {
-
   return (
     <div className={styles.floatingButtons}>
-      <button onClick={()=> props.changeTheme()}>
+      <button onClick={() => props.changeTheme()}>
         {" "}
         {props.theme === "light" ? (
           <img src={moon} alt="moon" />

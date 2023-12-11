@@ -342,10 +342,7 @@ export function Counter(props) {
               );
             } else if (button === "⇋") {
               return (
-                <button
-                  key={button}
-                  onClick={() => props.toggleShowHistory()}
-                >
+                <button key={button} onClick={() => props.toggleShowHistory()}>
                   {button}
                 </button>
               );
