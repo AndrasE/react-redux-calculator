@@ -43,10 +43,6 @@ export function Counter(props) {
     ".",
     "=",
   ];
-  //   for (let i=1; i< 19; i++) {
-
-  //   }
-  // }
 
   function handleNumClick(e) {
     if (equalOp) {
@@ -340,6 +336,15 @@ export function Counter(props) {
             } else if (button === "↤") {
               return (
                 <button key={button} value={button} onClick={handleBackClick}>
+                  {button}
+                </button>
+              );
+            } else if (button === "⇋") {
+              return (
+                <button
+                  key={button}
+                  onClick={() => props.toggleShowHistory()}
+                >
                   {button}
                 </button>
               );

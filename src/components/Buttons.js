@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "../components/styles.module.css";
 import chuck from "../images/chuck.svg";
 import sun from "../images/sun.svg";
@@ -6,16 +6,10 @@ import info from "../images/info.svg";
 import moon from "../images/moon.svg";
 
 function Buttons(props) {
-  const [toggleIcon, setToggleIcon] = useState("dark");
-
-  function handleThemeToggleClick() {
-    setToggleIcon(props.theme);
-    props.changeTheme();
-  }
 
   return (
     <div className={styles.floatingButtons}>
-      <button onClick={handleThemeToggleClick}>
+      <button onClick={()=> props.changeTheme()}>
         {" "}
         {props.theme === "light" ? (
           <img src={moon} alt="moon" />

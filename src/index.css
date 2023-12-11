@@ -6,6 +6,7 @@
   --screen-hr-border-color: #6f4cb63d;
   --btn-text-color: #704cb6;
   --btn-bg-color: #704cb61a;
+  --modal-bg-color: #282c34;
 }
 
 [data-theme="light"] {
@@ -15,6 +16,7 @@
   --screen-hr-border-color: #6f4cb63d;
   --btn-text-color: #704cb6;
   --btn-bg-color: #885ae423;
+  --modal-bg-color: #d4d4d4;
 }
 
 body {
@@ -35,4 +37,3 @@ body {
   font-size: calc(10px + 2vmin);
   color: var(--font-color);
 }
-
