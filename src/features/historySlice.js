@@ -3,11 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 export const historySlice = createSlice({
   name: "history",
   initialState: {
-    value: ["asdasd"],
+    value: [],
   },
   reducers: {
     updateHistory: (state, action) => {
-      state.value = action.payload;
+      state.value.push(action.payload);
     },
   },
 });

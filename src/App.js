@@ -16,7 +16,6 @@ function App() {
 
   function toggleShowHistory() {
     setShowHistory((prevState) => !prevState);
-    console.log("sda");
   }
 
   return (
