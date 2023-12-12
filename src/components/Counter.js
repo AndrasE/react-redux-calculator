@@ -10,6 +10,7 @@ import {
   subtraction,
 } from "../features/counterSlice";
 import { currentUserNum, selectUserInput } from "../features/userInputSlice";
+import { updateHistory } from "../features/historySlice";
 import styles from "../components/styles.module.css";
 
 export function Counter(props) {
@@ -133,6 +134,7 @@ export function Counter(props) {
     //capturing the new operator 1+3=4 ==to==? 4 - (or any operator)
     switch (operator) {
       case "+": {
+        dispatch(updateHistory(String("232323")))
         dispatch(addition(Number(secondInput)));
         updateStore(e);
         break;

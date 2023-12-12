@@ -7,13 +7,12 @@ export const userInputSlice = createSlice({
   },
   reducers: {
     currentUserNum: (state, action) => {
-        state.value = action.payload;
+      state.value = action.payload;
     },
   },
 });
 
-export const { currentUserNum } =
-  userInputSlice.actions;
+export const { currentUserNum } = userInputSlice.actions;
 
 export const selectUserInput = (state) => state.userInput.value;
 
