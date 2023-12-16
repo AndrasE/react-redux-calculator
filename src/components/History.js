@@ -23,13 +23,10 @@ const History = ({ showHistory, toggleShowHistory }) => {
           x
         </button>
         <h5>History</h5>
-        {history}
-        <div className="modalContent">
-          <p>asdas</p>
-          <p>asdas</p>
-          <p>asdas</p>
-          <p>asdas</p>
-        </div>
+        {history.map((entry) => {
+          return <p key={entry}>{entry}</p>;
+        })}
+        <div className="modalContent"></div>
       </div>
     </div>
   );

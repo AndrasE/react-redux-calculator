@@ -10,7 +10,7 @@ import {
   subtraction,
 } from "../features/counterSlice";
 import { currentUserNum, selectUserInput } from "../features/userInputSlice";
-import { updateHistory } from "../features/historySlice";
+import { newHistoryEntry, updateHistoryEntry } from "../features/historySlice";
 import styles from "../components/styles.module.css";
 
 export function Counter(props) {
@@ -134,19 +134,19 @@ export function Counter(props) {
     //capturing the new operator 1+3=4 ==to==? 4 - (or any operator)
     switch (operator) {
       case "+": {
-        dispatch(updateHistory(String(firstInput +" + "+ secondInput)))
+        dispatch(newHistoryEntry(String(firstInput + " + " + secondInput)));
         dispatch(addition(Number(secondInput)));
         updateStore(e);
         break;
       }
       case "-": {
-        dispatch(updateHistory(String(firstInput +" - "+ secondInput)))
+        dispatch(newHistoryEntry(String(firstInput + " - " + secondInput)));
         dispatch(decrementation(Number(secondInput)));
         updateStore(e);
         break;
       }
       case "x": {
-        dispatch(updateHistory(String(firstInput +" x "+ secondInput)))
+        dispatch(newHistoryEntry(String(firstInput + " x " + secondInput)));
         dispatch(multiplication(Number(secondInput)));
         updateStore(e);
         break;
@@ -157,7 +157,7 @@ export function Counter(props) {
           setOperator(e.target.value);
           dispatch(currentUserNum(Number(firstInput)));
         } else {
-          dispatch(updateHistory(String(firstInput +" ÷ "+ secondInput)))
+          dispatch(newHistoryEntry(String(firstInput + " ÷ " + secondInput)));
           dispatch(subtraction(Number(secondInput)));
           updateStore(e);
         }
@@ -202,13 +202,13 @@ export function Counter(props) {
     //after finishing calc called by switchOperator, its setting the outcome to be the new firstInput and
     //capturing the new operator while reseting the secondInput
     const state = store.getState();
-    
+
     setFirstInput(state.counter.value);
     setSecondInput("");
-    dispatch(updateHistory(String(" = " + state.counter.value)))
+    dispatch(updateHistoryEntry(String(" = " + state.counter.value)));
     dispatch(currentUserNum(String(state.counter.value)));
     setOperator(e.target.value);
-    console.log(state.history.value)
+    console.log(state.history.value);
   }
 
   function handleEqualClick() {
