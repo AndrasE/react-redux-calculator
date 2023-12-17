@@ -116,13 +116,13 @@ button:active {
 }
 h5 {
   margin: 10px 10px 15px;
+  font-size: 1.5rem;
   text-decoration: underline 1px dashed;
 }
 p {
   margin: 5px;
   font-size: 15px;
 }
-
 @media screen and (max-width: 630px) {
   .floatingButtons {
     display: flex;

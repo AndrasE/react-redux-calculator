@@ -22,11 +22,10 @@ const History = ({ showHistory, toggleShowHistory }) => {
           x
         </button>
         <h5>History</h5>
-        <div className="modalContent">
-        {history.map((entry, index) => {
-          return <p key={index}>{entry} </p>
+
+        {history.slice(Math.max(history.length - 16, 0)).map((entry, index) => {
+          return <p key={index}>{entry} </p>;
         })}
-        </div>
       </div>
     </div>
   );
