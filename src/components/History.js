@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { selectHistory } from "../features/historySlice";
+import chuck_modal from "../images/chuck_modal.png";
 import styles from "../components/styles.module.css";
 
 const History = ({ showHistory, toggleShowHistory }) => {
@@ -22,16 +23,31 @@ const History = ({ showHistory, toggleShowHistory }) => {
           x
         </button>
         <h5>History</h5>
-        {(history.length) ? 
-       history.slice(Math.max(history.length - 16, 0)).map((entry, index) => {
-        return <p key={index}>{entry} </p>
-      })
-        :    
-        <div>
-        <p>Your history will appear here</p>
-        <p>Chuck says go calculate📱 son!</p>
-        </div>
-    }
+        {history.length ? (
+          history
+            .slice(Math.max(history.length - 16, 0))
+            .map((entry, index) => {
+              return <p key={index}>{entry} </p>;
+            })
+        ) : (
+          <div>
+            <h6>your history will appear here</h6>
+            <hr
+              className={styles.modalHr}
+            />
+            <div className={styles.modalContent}>
+              <h5 style={{ textDecoration: "none" }}>Chuck says </h5>
+              <h6>
+                Go calculate🖥 <br /> son!
+              </h6>
+              <img
+                src={chuck_modal}
+                style={{ width: 200 }}
+                alt="chuck-modal"
+              ></img>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

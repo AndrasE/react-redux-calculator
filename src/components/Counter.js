@@ -327,7 +327,7 @@ export function Counter(props) {
             </Textfit>
           </div>
         </div>
-        <hr />
+        <hr className={styles.calcHr}/>
         <div className={styles.buttonsContainer}>
           {buttons.map((button) => {
             if (

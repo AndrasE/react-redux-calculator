@@ -45,7 +45,7 @@
   height: 50px;
 }
 
-hr {
+.calcHr {
   width: 328px;
   border: 1px dashed var(--screen-hr-border-color);
 }
@@ -101,9 +101,15 @@ button:active {
   border-radius: 3px;
   text-align: center;
   display: inline;
-  padding-bottom: 10px;
+  padding: 10px;
+  overflow: hidden;
 }
-
+.modalContent {
+  display: grid;
+  grid-column: auto;
+  justify-content: center;
+  text-align: center;
+}
 .modalCloseBtn {
   width: 25px;
   height: 25px;
@@ -114,10 +120,30 @@ button:active {
   top: 6px;
   right: 5px;
 }
+.modalHr {
+  border: none;
+  margin-top: 25px;
+  border-top: 1px dashed;
+  width: 35px;
+  text-align: center;
+  height: 5px;
+}
+
 h5 {
-  margin: 10px 10px 15px;
   font-size: 1.5rem;
   text-decoration: underline 1px dashed;
+  padding-bottom: 15px;
+  font-weight: 300;
+}
+h6 {
+  font-size: 1.1rem;
+  margin: auto;
+  font-weight: 300;
+}
+h5,
+h4,
+h3 {
+  margin: auto;
 }
 p {
   margin: 5px;
