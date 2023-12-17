@@ -22,10 +22,16 @@ const History = ({ showHistory, toggleShowHistory }) => {
           x
         </button>
         <h5>History</h5>
-
-        {history.slice(Math.max(history.length - 16, 0)).map((entry, index) => {
-          return <p key={index}>{entry} </p>;
-        })}
+        {(history.length) ? 
+       history.slice(Math.max(history.length - 16, 0)).map((entry, index) => {
+        return <p key={index}>{entry} </p>
+      })
+        :    
+        <div>
+        <p>Your history will appear here</p>
+        <p>Chuck says go calculate📱 son!</p>
+        </div>
+    }
       </div>
     </div>
   );
