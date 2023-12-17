@@ -1,5 +1,4 @@
 import React from "react";
-import store from "../app/store";
 import { useSelector } from "react-redux";
 import { selectHistory } from "../features/historySlice";
 import styles from "../components/styles.module.css";
@@ -23,10 +22,11 @@ const History = ({ showHistory, toggleShowHistory }) => {
           x
         </button>
         <h5>History</h5>
-        {history.map((entry) => {
-          return <p key={entry}>{entry}</p>;
+        <div className="modalContent">
+        {history.map((entry, index) => {
+          return <p key={index}>{entry} </p>
         })}
-        <div className="modalContent"></div>
+        </div>
       </div>
     </div>
   );

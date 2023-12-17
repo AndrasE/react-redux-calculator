@@ -10,7 +10,11 @@ import {
   subtraction,
 } from "../features/counterSlice";
 import { currentUserNum, selectUserInput } from "../features/userInputSlice";
-import { newHistoryEntry, updateHistoryEntry } from "../features/historySlice";
+import {
+  newHistoryEntry,
+  updateHistoryEntry,
+  eraseHistoryEntries,
+} from "../features/historySlice";
 import styles from "../components/styles.module.css";
 
 export function Counter(props) {
@@ -173,23 +177,33 @@ export function Counter(props) {
     //after finishing the operation setting the outcome of the operation to be the new firstInput
     switch (operator) {
       case "+": {
+        dispatch(newHistoryEntry(String(firstInput + " + " + secondInput)));
         dispatch(addition(Number(secondInput)));
+        updateLastHistoryEntry();
         break;
       }
       case "-": {
+        dispatch(newHistoryEntry(String(firstInput + " - " + secondInput)));
         dispatch(decrementation(Number(secondInput)));
+        updateLastHistoryEntry();
         break;
       }
       case "x": {
+        dispatch(newHistoryEntry(String(firstInput + " x " + secondInput)));
         dispatch(multiplication(Number(secondInput)));
+        updateLastHistoryEntry();
         break;
       }
       case "÷": {
         if (secondInput === 0) {
-          setSecondInput("");
+          dispatch(newHistoryEntry(String(firstInput + " ÷ " + secondInput)));
           dispatch(currentUserNum(Number(firstInput)));
+          setSecondInput("");
+          updateLastHistoryEntry();
         } else {
+          dispatch(newHistoryEntry(String(firstInput + " + " + secondInput)));
           dispatch(subtraction(Number(secondInput)));
+          updateLastHistoryEntry();
         }
         break;
       }
@@ -198,17 +212,20 @@ export function Counter(props) {
     }
   }
 
+  function updateLastHistoryEntry() {
+    const state = store.getState();
+    dispatch(updateHistoryEntry(String(" = " + state.counter.value)));
+  }
+
   function updateStore(e) {
     //after finishing calc called by switchOperator, its setting the outcome to be the new firstInput and
     //capturing the new operator while reseting the secondInput
     const state = store.getState();
-
     setFirstInput(state.counter.value);
     setSecondInput("");
     dispatch(updateHistoryEntry(String(" = " + state.counter.value)));
     dispatch(currentUserNum(String(state.counter.value)));
     setOperator(e.target.value);
-    console.log(state.history.value);
   }
 
   function handleEqualClick() {
@@ -255,6 +272,7 @@ export function Counter(props) {
     dispatch(setInitalNumber(Number(0)));
     dispatch(currentUserNum(String("0")));
     setEqualOp("");
+    dispatch(eraseHistoryEntries());
   }
 
   function handleBackClick() {
