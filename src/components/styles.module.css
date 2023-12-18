@@ -122,11 +122,10 @@ button:active {
 }
 .modalHr {
   border: none;
-  margin-top: 25px;
+  margin-top: 20px;
   border-top: 1px dashed;
   width: 35px;
   text-align: center;
-  height: 5px;
 }
 
 h5 {

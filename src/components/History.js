@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { selectHistory } from "../features/historySlice";
 import chuck_modal from "../images/chuck_modal.png";
+import chuck_kick from "../images/chuckkick.png"
 import styles from "../components/styles.module.css";
 
 const History = ({ showHistory, toggleShowHistory }) => {
@@ -24,12 +25,18 @@ const History = ({ showHistory, toggleShowHistory }) => {
         </button>
         <h5>History</h5>
         {history.length ? (
-          <h6>Chuck says, do more! 👊</h6>
+          <div style={{display: "inline-grid"}}>
+          <h6>Chuck says</h6>
+          <img
+              src={chuck_kick}
+              style={{ width: 80 }}
+              alt="chuck-modal"
+            ></img>         
+                <h6>Do more! </h6> </div>
         ) : (
-          <h6>your history will appear here</h6>
+          <h6>Your history will appear here.</h6>
         )}
         <hr className={styles.modalHr} />
-
         {history.length ? (
           history
             .slice(Math.max(history.length - 10, 0))
