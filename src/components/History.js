@@ -83,8 +83,8 @@ const History = ({ showHistory, toggleShowHistory }) => {
             </span>{" "}
             <h6>Delete history?</h6>
             <button
-              onClick={() => dispatch(eraseHistoryEntries())}
               className={styles.modalBtn}
+              onClick={() => dispatch(eraseHistoryEntries())}
             >
               C
             </button>{" "}
