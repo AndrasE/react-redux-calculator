@@ -42,7 +42,7 @@ const Chuck = ({ showChuck, toggleShowChuck }) => {
         <div>
           {chuck.loading && (
             <div>
-              <h6>Loading...</h6>
+              <h6>...loading</h6>
             </div>
           )}
           {!chuck.loading && chuck.error ? (

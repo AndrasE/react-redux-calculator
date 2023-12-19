@@ -5,13 +5,11 @@
   display: grid;
 }
 .floatingButtons button {
-  width: 30px;
-  height: 30px;
   font-size: 20px;
   padding: 0;
   margin: 8px;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
 }
 
 .floatingButtons img {
@@ -152,9 +150,9 @@ p {
 .modalBtn {
   margin-top: 10px;
   padding: 0 0 0 1px;
-  height: 36px;
-  width: 36px;
-  font-size: 18px;
+  height: 40px;
+  width: 40px;
+  font-size: 22x;
 }
 @media screen and (max-width: 630px) {
   .floatingButtons {
