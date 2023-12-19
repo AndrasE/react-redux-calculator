@@ -10,13 +10,13 @@
 }
 
 [data-theme="light"] {
-  --backgroud-color: #2b2a2a34;
-  --font-color: #0f0d0dad;
-  --screen-bg-color: #5425b321;
+  --backgroud-color: #b7b6b6;
+  --font-color: #363030fb;
+  --screen-bg-color: #5425b30c;
   --screen-hr-border-color: #6f4cb63d;
   --btn-text-color: #704cb6;
   --btn-bg-color: #885ae423;
-  --modal-bg-color: #d4d4d4;
+  --modal-bg-color: #b7b6b6;
 }
 
 body {
