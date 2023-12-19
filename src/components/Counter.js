@@ -24,9 +24,7 @@ export function Counter(props) {
   const [secondInput, setSecondInput] = useState("");
   const [operator, setOperator] = useState("");
   const [equalOp, setEqualOp] = useState("");
-  // const history = [];
 
-  // const createButtons = () => {
   const buttons = [
     "⇋",
     "↤",

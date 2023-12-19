@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import chuck_modal from "../images/chuck_modal.png";
+import chuck_uzi from "../images/chuck_uzi.png";
 import styles from "../components/styles.module.css";
 import { fetchChuck } from "../features/chuckSlice";
 
@@ -41,7 +41,7 @@ const Chuck = ({ showChuck, toggleShowChuck }) => {
               <h6 key={chuck.id}>{chuck.value}</h6>
             </ul>
           ) : null}
-          <img src={chuck_modal} style={{ width: 200 }} alt="chuck-modal"></img>
+          <img src={chuck_uzi} style={{ width: 200 }} alt="chuck-modal"></img>
         </div>
       </div>
     </div>

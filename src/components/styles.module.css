@@ -122,9 +122,9 @@ button:active {
 }
 .modalHr {
   border: none;
-  margin-top: 20px;
+  margin-top: 15px;
   border-top: 1px dashed;
-  width: 35px;
+  width: 45px;
   text-align: center;
 }
 
@@ -147,6 +147,14 @@ h3 {
 p {
   margin: 5px;
   font-size: 15px;
+}
+
+.modalBtn {
+  margin-top: 10px;
+  padding: 0 0 0 1px;
+  height: 36px;
+  width: 36px;
+  font-size: 18px;
 }
 @media screen and (max-width: 630px) {
   .floatingButtons {

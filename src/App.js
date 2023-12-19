@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import uselocalStorage from "use-local-storage";
 import { Counter } from "./components/Counter";
-import "./index.css";
 import Buttons from "./components/Buttons";
 import History from "./components/History";
 import Chuck from "./components/Chuck";
+import "./index.css";
+
 
 function App() {
   const [theme, setTheme] = uselocalStorage("theme" ? "dark" : "light");
