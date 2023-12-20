@@ -58,16 +58,16 @@ const History = ({ showHistory, toggleShowHistory }) => {
             </h6>
           </div>
         )}
-        {history.length <= 5 && history.length != 0 ? (
+        {history.length <= 5 && history.length !== 0 ? (
           <div>
             <hr className={styles.modalHr} />
             <h6>
               Chuck says<span></span>
             </h6>
             <img
-              src={chuck_pissed}
               style={{ width: 80, marginTop: 9 }}
-              alt="chuck-modal"
+              src={chuck_pissed}
+              alt="chuck_pissed"
             ></img>
             <h6>Do more! </h6>
           </div>
@@ -79,6 +79,7 @@ const History = ({ showHistory, toggleShowHistory }) => {
               <img
                 style={{ position: "relative", height: 60 }}
                 src={chuck_gif}
+                alt="chuck_gif"
               ></img>
             </span>{" "}
             <h6>Delete history?</h6>

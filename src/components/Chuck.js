@@ -1,8 +1,46 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import chuck_uzi from "../images/chuck_uzi.png";
 import styles from "../components/styles.module.css";
 import { fetchChuck } from "../features/chuckSlice";
+import chuck1 from "../images/chuck1.jpg";
+import chuck2 from "../images/chuck2.jpg";
+import chuck3 from "../images/chuck3.jpg";
+import chuck4 from "../images/chuck4.jpg";
+import chuck5 from "../images/chuck5.png";
+import { Fade } from "react-slideshow-image";
+import "react-slideshow-image/dist/styles.css";
+
+const fadeImages = [
+  {
+    url: chuck1,
+  },
+  {
+    url: chuck2,
+  },
+  {
+    url: chuck3,
+  },
+  {
+    url: chuck4,
+  },
+  {
+    url: chuck5,
+  },
+];
+
+const Slideshow = () => {
+  return (
+    <div className="slide-container">
+      <Fade>
+        {fadeImages.map((fadeImage, index) => (
+          <div key={index}>
+            <img style={{ width: 150 }} src={fadeImage.url} alt="slideshow" />
+          </div>
+        ))}
+      </Fade>
+    </div>
+  );
+};
 
 const Chuck = ({ showChuck, toggleShowChuck }) => {
   const chuck = useSelector((state) => state.chuck);
@@ -33,6 +71,7 @@ const Chuck = ({ showChuck, toggleShowChuck }) => {
             style={{ color: "inherit" }}
             href="https://api.chucknorris.io/"
             target="_blank"
+            rel="noopener noreferrer"
           >
             chucknorris.io
           </a>
@@ -51,19 +90,25 @@ const Chuck = ({ showChuck, toggleShowChuck }) => {
           {!chuck.loading && chuck.value.length ? (
             <h6 key={chuck.id}>{chuck.value}</h6>
           ) : null}
-          <img
+          {/* <img
             style={{ position: "relative", width: 150, top: 5 }}
-            src={chuck_uzi}
+            src={chuck5}
             alt="chuck-modal"
-          ></img>
+          ></img> */}
           <hr className={styles.modalHr} />
-          <h6>Hit me up with a new one!</h6>
-          <button
-            className={styles.modalBtn}
-            onClick={() => dispatch(fetchChuck())}
-          >
-            💣
-          </button>{" "}
+
+          <div>
+            <div className="slide-container">
+              <Slideshow />
+            </div>
+            <h6>Hit me up with a new one!</h6>
+            <button
+              className={styles.modalBtn}
+              onClick={() => dispatch(fetchChuck())}
+            >
+              💣
+            </button>{" "}
+          </div>
         </div>
       </div>
     </div>
