@@ -31,7 +31,7 @@ const fadeImages = [
 const Slideshow = () => {
   return (
     <div className="slide-container">
-      <Fade>
+      <Fade autoplay={true} arrows={false} transitionDuration={500}>
         {fadeImages.map((fadeImage, index) => (
           <div key={index}>
             <img style={{ width: 150 }} src={fadeImage.url} alt="slideshow" />
