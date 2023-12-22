@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "../components/styles.module.css";
 import { fetchChuck } from "../features/chuckSlice";
@@ -7,8 +7,8 @@ import chuck2 from "../images/chuck2.jpg";
 import chuck3 from "../images/chuck3.jpg";
 import chuck4 from "../images/chuck4.jpg";
 import chuck5 from "../images/chuck5.png";
-import { Fade } from "react-slideshow-image";
-import "react-slideshow-image/dist/styles.css";
+// import { Fade } from "react-slideshow-image";
+// import "react-slideshow-image/dist/styles.css";
 
 const fadeImages = [
   {
@@ -28,26 +28,28 @@ const fadeImages = [
   },
 ];
 
-const Slideshow = () => {
-  return (
-    <div className="slide-container">
-      <Fade autoplay={true} arrows={false} transitionDuration={1500} duration={3000}>
-        {fadeImages.map((fadeImage, index) => (
-          <div key={index}>
-            <img style={{ width: 150 }} src={fadeImage.url} alt="slideshow" />
-          </div>
-        ))}
-      </Fade>
-    </div>
-  );
-};
+
+
+
 
 const Chuck = ({ showChuck, toggleShowChuck }) => {
   const chuck = useSelector((state) => state.chuck);
+  const [imageIndex, setImageIndex] = useState(0)
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchChuck());
   }, []);
+
+function handleClick(){
+  dispatch(fetchChuck())
+  if (imageIndex == 4) {
+    setImageIndex(0)
+  } else {
+
+  setImageIndex((prevValue)=> prevValue + 1)
+}}
+
 
   if (!showChuck) return null;
   return (
@@ -98,16 +100,34 @@ const Chuck = ({ showChuck, toggleShowChuck }) => {
           <hr className={styles.modalHr} />
 
           <div>
+            
             <div className="slide-container">
-              <Slideshow />
-            </div>
+
+
+        {/* {fadeImages.map((fadeImage, index) => ( */}
+          <div >
+            <img style={{ width: 150 }} src={fadeImages[imageIndex].url} alt="slideshow" />
+          </div>
+        {/* // ))}
+   */}
+
+      <button
+              className={styles.modalBtn}
+              onClick={handleClick}
+            >
+              💣
+            </button>{" "}
+    </div>
+
+      
+
             <h6>Hit me up with a new one!</h6>
-            <button
+            {/* <button
               className={styles.modalBtn}
               onClick={() => dispatch(fetchChuck())}
             >
               💣
-            </button>{" "}
+            </button>{" "} */}
           </div>
         </div>
       </div>
