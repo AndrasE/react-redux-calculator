@@ -318,14 +318,13 @@ export function Counter(props) {
               {equalOp || firstInput || ". . ."} {!equalOp && operator}
             </Textfit>
           </div>
-
           <div className={styles.screenTwo}>
             <Textfit mode="single" max={44}>
               {userInput || 0}
             </Textfit>
           </div>
         </div>
-        <hr className={styles.calcHr}/>
+        <hr className={styles.calcHr} />
         <div className={styles.buttonsContainer}>
           {buttons.map((button) => {
             if (

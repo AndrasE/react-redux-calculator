@@ -7,6 +7,78 @@ import chuck_pissed from "../images/chuck_pissed.png";
 import chuck_gif from "../images/chuck_gif.gif";
 import styles from "../components/styles.module.css";
 
+function HistoryGoCalculate() {
+  return (
+    <div>
+      <h2>Chuck says </h2>
+      <img
+        src={chuck_uzi}
+        style={{
+          width: 150,
+          marginTop: -10,
+        }}
+        alt="chuck-uzi"
+      ></img>
+      <h2>
+        Go calculate
+        <br />
+        son!
+      </h2>
+    </div>
+  );
+}
+
+function HistoryMap(props) {
+  return (
+    <div className={styles.history}>
+      {props.history
+        .slice(Math.max(props.history.length - 8, 0))
+        .map((entry, index) => {
+          return <p key={index}>{entry} </p>;
+        })}
+    </div>
+  );
+}
+
+function HistoryDoMore() {
+  return (
+    <div>
+      <h2>Chuck says</h2>
+      <img
+        style={{
+          width: 80,
+          marginTop: 9,
+        }}
+        src={chuck_pissed}
+        alt="chuck_pissed"
+      ></img>
+      <h2>Do more! </h2>
+    </div>
+  );
+}
+
+function HistoryErase(props) {
+  return (
+    <div>
+      <img
+        style={{
+          position: "relative",
+          height: 60,
+        }}
+        src={chuck_gif}
+        alt="chuck_gif"
+      ></img>
+      <h2>Delete history?</h2>
+      <button
+        className={styles.modalBtn}
+        onClick={() => props.dispatch(eraseHistoryEntries())}
+      >
+        C
+      </button>{" "}
+    </div>
+  );
+}
+
 const History = ({ showHistory, toggleShowHistory }) => {
   const history = useSelector(selectHistory);
   const dispatch = useDispatch();
@@ -14,7 +86,7 @@ const History = ({ showHistory, toggleShowHistory }) => {
   if (!showHistory) return null;
 
   return (
-    <div className={styles.overlay} onClick={() => toggleShowHistory()}>
+    <div className={styles.modalOverlay} onClick={() => toggleShowHistory()}>
       <div
         className={styles.modalContainer}
         onClick={(e) => {
@@ -28,69 +100,21 @@ const History = ({ showHistory, toggleShowHistory }) => {
           x
         </button>
 
-        <h5>History</h5>
+        <h1>History</h1>
         {history.length ? (
-          <div>
-            <h6 style={{ marginBottom: 10 }}>Your history so far:</h6>
-          </div>
+          <h2>Your history so far:</h2>
         ) : (
-          <h6>Your history will appear here.</h6>
+          <div className={styles.history}>
+            <h2>Your history will appear here.</h2>
+          </div>
         )}
         {history.length ? (
-          history
-            .slice(Math.max(history.length - 10, 0))
-            .map((entry, index) => {
-              return <p key={index}>{entry} </p>;
-            })
+          <HistoryMap history={history}></HistoryMap>
         ) : (
-          <div className={styles.modalContent}>
-            <hr className={styles.modalHr} />
-            <h6 style={{ marginBottom: 5 }}>Chuck says </h6>
-            <img
-              src={chuck_uzi}
-              style={{ width: 150, marginTop: -10 }}
-              alt="chuck-uzi"
-            ></img>
-            <h6>
-              Go calculate
-              <br />
-              son!
-            </h6>
-          </div>
+          <HistoryGoCalculate />
         )}
-        {history.length <= 5 && history.length !== 0 ? (
-          <div>
-            <hr className={styles.modalHr} />
-            <h6>
-              Chuck says<span></span>
-            </h6>
-            <img
-              style={{ width: 80, marginTop: 9 }}
-              src={chuck_pissed}
-              alt="chuck_pissed"
-            ></img>
-            <h6>Do more! </h6>
-          </div>
-        ) : null}
-        {history.length > 5 ? (
-          <div>
-            <hr className={styles.modalHr} />
-            <span style={{ height: 10 }}>
-              <img
-                style={{ position: "relative", height: 60 }}
-                src={chuck_gif}
-                alt="chuck_gif"
-              ></img>
-            </span>{" "}
-            <h6>Delete history?</h6>
-            <button
-              className={styles.modalBtn}
-              onClick={() => dispatch(eraseHistoryEntries())}
-            >
-              C
-            </button>{" "}
-          </div>
-        ) : null}
+        {history.length <= 5 && history.length !== 0 ? <HistoryDoMore /> : null}
+        {history.length > 5 ? <HistoryErase dispatch={dispatch} /> : null}
       </div>
     </div>
   );

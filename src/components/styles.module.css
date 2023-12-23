@@ -1,51 +1,23 @@
-.floatingButtons {
-  position: fixed;
-  right: 10px;
-  top: 10px;
-  display: grid;
-}
-.floatingButtons button {
-  font-size: 20px;
-  padding: 0;
-  margin: 8px;
-  width: 45px;
-  height: 45px;
-}
-
-.floatingButtons img {
-  display: inline-block;
-  vertical-align: top;
-  padding: 1.5px;
-}
-
-.calcContainer {
-  width: 332px;
+h1 {
+  font-size: 1.5rem;
+  text-decoration: underline 1px dashed;
+  padding-bottom: 15px;
+  font-weight: 400;
   margin: auto;
-  gap: 0.2rem;
 }
-
-.screensContainer {
-  padding: 4px;
+h2 {
+  font-size: 1.1rem;
   margin: auto;
-  width: 318px;
-  background-color: var(--screen-bg-color);
-  text-align: end;
-  border: 1px solid var(--screen-hr-border-color);
+  font-weight: 400;
 }
 
-.screenOne {
-  flex: 1;
-  align-items: center;
-  height: 32px;
-}
-
-.screenTwo {
-  height: 50px;
-}
-
-.calcHr {
-  width: 328px;
-  border: 1px dashed var(--screen-hr-border-color);
+/* h3 {
+  margin: auto;
+  font-weight: 400;
+} */
+p {
+  margin: 5px;
+  font-size: 15px;
 }
 
 button {
@@ -78,7 +50,58 @@ button:active {
   background-color: #704cb633;
 }
 
-.overlay {
+/* nav and theme buttons */
+.floatingButtons {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  display: grid;
+}
+.floatingButtons button {
+  font-size: 20px;
+  padding: 0;
+  margin: 8px;
+  width: 45px;
+  height: 45px;
+}
+
+.floatingButtons img {
+  display: inline-block;
+  vertical-align: top;
+  padding: 1.5px;
+}
+
+/* calculator styles */
+.calcContainer {
+  width: 332px;
+  margin: auto;
+  gap: 0.2rem;
+}
+
+.screensContainer {
+  padding: 4px;
+  margin: auto;
+  width: 318px;
+  background-color: var(--screen-bg-color);
+  text-align: end;
+  border: 1px solid var(--screen-hr-border-color);
+}
+
+.screenOne {
+  height: 32px;
+}
+
+.screenTwo {
+  height: 50px;
+}
+
+.calcHr {
+  width: 328px;
+  border: 1px dashed var(--screen-hr-border-color);
+}
+
+/* modal styling */
+.modalOverlay {
   background-color: rgba(0, 0, 0, 0.2);
   color: var(--);
   position: fixed;
@@ -102,12 +125,7 @@ button:active {
   padding: 10px;
   overflow: hidden;
 }
-.modalContent {
-  display: grid;
-  grid-column: auto;
-  justify-content: center;
-  text-align: center;
-}
+
 .modalCloseBtn {
   width: 25px;
   height: 25px;
@@ -118,34 +136,6 @@ button:active {
   top: 6px;
   right: 5px;
 }
-.modalHr {
-  border: none;
-  margin-top: 15px;
-  border-top: 1px dashed;
-  width: 45px;
-  text-align: center;
-}
-
-h5 {
-  font-size: 1.5rem;
-  text-decoration: underline 1px dashed;
-  padding-bottom: 15px;
-  font-weight: 300;
-}
-h6 {
-  font-size: 1.1rem;
-  margin: auto;
-  font-weight: 300;
-}
-h5,
-h4,
-h3 {
-  margin: auto;
-}
-p {
-  margin: 5px;
-  font-size: 15px;
-}
 
 .modalBtn {
   margin-top: 10px;
@@ -154,6 +144,32 @@ p {
   width: 40px;
   font-size: 22x;
 }
+
+.history {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: max-content;
+  background-color: var(--screen-bg-color);
+  border: 1px solid var(--screen-hr-border-color);
+  margin: 10px 0 30px;
+  padding: 0 10px;
+  min-height: 60px;
+}
+
+.chuckApiContainer {
+  display: inline-flex;
+  min-height: 90px;
+  text-align: center;
+  align-items: center;
+  background-color: var(--screen-bg-color);
+  border: 1px solid var(--screen-hr-border-color);
+  padding: 0 8px;
+  margin: 20px 0;
+}
+
 @media screen and (max-width: 630px) {
   .floatingButtons {
     display: flex;
