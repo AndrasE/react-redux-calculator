@@ -7,7 +7,6 @@ const initialState = {
   error: "",
 };
 
-// Generates pending, fulfilled and rejected action types
 export const fetchChuck = createAsyncThunk("chuck/fetchChuck", () => {
   return axios
     .get("https://api.chucknorris.io/jokes/random")

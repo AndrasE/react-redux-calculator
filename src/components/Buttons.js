@@ -22,7 +22,7 @@ function Buttons(props) {
         <img src={chuck} alt="chuck" />{" "}
       </button>
 
-      <button>
+      <button onClick={() => props.toggleShowAbout()} style={{ padding: 1 }}>
         {" "}
         <img src={info} alt="info" />{" "}
       </button>

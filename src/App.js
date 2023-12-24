@@ -4,13 +4,14 @@ import { Counter } from "./components/Counter";
 import Buttons from "./components/Buttons";
 import History from "./components/History";
 import Chuck from "./components/Chuck";
+import About from "./components/About";
 import "./index.css";
-
 
 function App() {
   const [theme, setTheme] = uselocalStorage("theme" ? "dark" : "light");
   const [showHistory, setShowHistory] = useState(false);
   const [showChuck, setShowChuck] = useState(false);
+  const [showAbout, setShowAbout] = useState(false);
 
   const switchTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
@@ -25,21 +26,25 @@ function App() {
     setShowChuck((prevState) => !prevState);
   }
 
+  function toggleShowAbout() {
+    setShowAbout((prevState) => !prevState);
+  }
+
   return (
     <div className="App" data-theme={theme}>
-      {/* <button onClick={switchTheme}></button> */}
       <Buttons
         changeTheme={switchTheme}
         theme={theme}
         toggleShowChuck={toggleShowChuck}
+        toggleShowAbout={toggleShowAbout}
       />
-      {/* <button> <img src={logo} className="App-logo" alt="logo" /></button> */}
+      <Counter toggleShowHistory={toggleShowHistory} />
       <History
         showHistory={showHistory}
         toggleShowHistory={toggleShowHistory}
       />
       <Chuck showChuck={showChuck} toggleShowChuck={toggleShowChuck} />
-      <Counter toggleShowHistory={toggleShowHistory} />
+      <About showAbout={showAbout} toggleShowAbout={toggleShowAbout} />
     </div>
   );
 }
