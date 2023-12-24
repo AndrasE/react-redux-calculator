@@ -15,7 +15,6 @@ function HistoryGoCalculate() {
         src={chuck_uzi}
         style={{
           width: 150,
-          marginTop: -10,
         }}
         alt="chuck-uzi"
       ></img>

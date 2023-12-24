@@ -165,13 +165,18 @@ button:active {
   padding: 5px 8px;
   margin: 20px 0;
 }
-/* 
-.aboutHeader {
+
+.logosContainer {
+  position: relative;
+  right: 9px;
+  bottom: 3px;
   display: inline-flex;
-} */
+  animation: pulse 1.3s;
+  animation-iteration-count: 1;
+}
 
 .reactLogo {
-  height: 39px;
+  height: 43px;
   position: relative;
   bottom: 5px;
 }
@@ -179,15 +184,30 @@ button:active {
 .axiosLogo {
   height: 35px;
   position: relative;
-  bottom: 7px;
-  right: 4px;
+  bottom: 3px;
+  right: 6px;
 }
 
 .reduxLogo {
   height: 30px;
-  position: relative;
-  bottom: 10px
- 
+}
+
+.aboutContainer {
+  text-align: justify;
+}
+.aboutContainer p {
+  padding-top: 3px;
+  letter-spacing: 1px;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.4;
+  }
 }
 
 @media screen and (max-width: 630px) {
