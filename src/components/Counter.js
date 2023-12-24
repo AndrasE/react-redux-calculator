@@ -81,8 +81,8 @@ export function Counter(props) {
       setEqualOp("");
       const state = store.getState();
       setFirstInput(state.counter.value);
-      dispatch(currentUserNum(String(state.counter.value)));
-      setFirstInput(() => state.counter.value);
+      dispatch(currentUserNum(parseFloat(String(state.counter.value.toFixed(5)))));
+      setFirstInput(() => parseFloat(String(state.counter.value.toFixed(5))));
       setOperator(e.target.value);
     } else if (!firstInput) {
       //if user clicks first the operation buttons w/ input setting firstInput to be 0
@@ -114,16 +114,6 @@ export function Counter(props) {
       //no operator, setting firstInput without conditions
       dispatch(setInitalNumber(Number(firstInput)));
       setOperator(e.target.value);
-      // } else if (operator && secondInput.slice(-1) === ".") {
-      //   console.log("333333");
-      //   const state = store.getState();
-      //   const removeDecimalPoint = state.userInput.value.slice(0, -1);
-      //   setSecondInput(removeDecimalPoint);
-      //   dispatch(setInitalNumber(Number(removeDecimalPoint)));
-      //   dispatch(currentUserNum(Number(removeDecimalPoint)));
-      //   setOperator(e.target.value);
-      //   switchOperatorOnOpClick(e);
-      //   console.log(secondInput);
     } else {
       //calling calculation via switchOperator as both firstInput, operator and secondInput exists
       switchOperatorOnOpClick(e);
@@ -212,17 +202,17 @@ export function Counter(props) {
 
   function updateLastHistoryEntry() {
     const state = store.getState();
-    dispatch(updateHistoryEntry(String(" = " + state.counter.value)));
+    dispatch(updateHistoryEntry(String(" = " + parseFloat(state.counter.value.toFixed(5)))));
   }
 
   function updateStore(e) {
     //after finishing calc called by switchOperator, its setting the outcome to be the new firstInput and
     //capturing the new operator while reseting the secondInput
     const state = store.getState();
-    setFirstInput(state.counter.value);
+    setFirstInput(parseFloat(state.counter.value.toFixed(5)));
     setSecondInput("");
-    dispatch(updateHistoryEntry(String(" = " + state.counter.value)));
-    dispatch(currentUserNum(String(state.counter.value)));
+    dispatch(updateHistoryEntry(String(" = " + parseFloat(state.counter.value.toFixed(5)))));
+    dispatch(currentUserNum(parseFloat(String(state.counter.value.toFixed(5)))));
     setOperator(e.target.value);
   }
 
@@ -254,7 +244,7 @@ export function Counter(props) {
       switchOperatorEqualClick();
       const state = store.getState();
       setFirstInput(state.counter.value);
-      dispatch(currentUserNum(String(state.counter.value)));
+      dispatch(currentUserNum(parseFloat(String(state.counter.value.toFixed(5)))));
       setFirstInput("");
       setEqualOp(firstInput + " " + operator + " " + secondInput + " =");
       setOperator("");

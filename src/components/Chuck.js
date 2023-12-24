@@ -73,7 +73,7 @@ const Chuck = ({ showChuck, toggleShowChuck }) => {
         </div>
         <div>
           <img
-            className={styles.imgStyles}
+            className={styles.chuckImgStyles}
             src={fadeImages[imageIndex].url}
             alt="slideshow"
           />
