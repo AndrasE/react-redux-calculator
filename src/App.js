@@ -5,6 +5,7 @@ import Buttons from "./components/Buttons";
 import History from "./components/History";
 import Chuck from "./components/Chuck";
 import About from "./components/About";
+import MoreAbout from "./components/MoreAbout";
 import "./index.css";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
   const [showHistory, setShowHistory] = useState(false);
   const [showChuck, setShowChuck] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
+  const [showMoreAbout, setShowMoreAbout] = useState(false);
 
   const switchTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
@@ -30,6 +32,10 @@ function App() {
     setShowAbout((prevState) => !prevState);
   }
 
+  function toggleShowMoreAbout() {
+    setShowMoreAbout((prevState) => !prevState);
+  }
+
   return (
     <div className="App" data-theme={theme}>
       <Buttons
@@ -44,7 +50,15 @@ function App() {
         toggleShowHistory={toggleShowHistory}
       />
       <Chuck showChuck={showChuck} toggleShowChuck={toggleShowChuck} />
-      <About showAbout={showAbout} toggleShowAbout={toggleShowAbout} />
+      <About
+        showAbout={showAbout}
+        toggleShowAbout={toggleShowAbout}
+        toggleShowMoreAbout={toggleShowMoreAbout}
+      />
+      <MoreAbout
+        showMoreAbout={showMoreAbout}
+        toggleShowMoreAbout={toggleShowMoreAbout}
+      />
     </div>
   );
 }

@@ -37,7 +37,66 @@ function AboutHeader() {
   );
 }
 
-const About = ({ showAbout, toggleShowAbout }) => {
+function Introduction(props) {
+  return (
+    <div className={styles.aboutContainer}>
+      <p>Hi there, I hope you enjoyed my app.</p>
+      <p>
+        I was studying{" "}
+        <a
+          style={{
+            color: "inherit",
+          }}
+          href="https://youtube.com/playlist?list=PLC3y8-rFHvwheJHvseC3I0HuYI2f46oAK&si=F0V2dM2lwyUVwM1U"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Redux
+        </a>{" "}
+        and{" "}
+        <a
+          style={{
+            color: "inherit",
+          }}
+          href="https://youtube.com/playlist?list=PLC3y8-rFHvwiaOAuTtVXittwybYIorRB3&si=Rir29ExiR0a76yqz"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ReduxToolKit
+        </a>{" "}
+        on YT and decided to create my own project.
+      </p>
+      <p>
+        {" "}
+        At first me idea was to have a basic calculator that uses a bit of Redux
+        with React, but after some time I decided to recreate the Windows
+        calculator logic and display the numbers in a more dynamic way. This has
+        taken some time, but I have succeded recreating/mimicing the algorithm
+        and I`m fairly proud for this as I had no help, but my own imagination.{" "}
+      </p>
+      <p>
+        If you would like to read more about this project{" "}
+        <span
+          style={{
+            textDecoration: "underline",
+            cursor: "pointer",
+          }}
+          onClick={() => toggleAboutPages(props)}
+        >
+          click here
+        </span>
+        .
+      </p>
+    </div>
+  );
+}
+
+function toggleAboutPages(props){
+props.toggleShowAbout()
+ props.toggleShowMoreAbout()
+}
+
+const About = ({ showAbout, toggleShowAbout, toggleShowMoreAbout }) => {
   if (!showAbout) return null;
 
   return (
@@ -55,24 +114,7 @@ const About = ({ showAbout, toggleShowAbout }) => {
           x
         </button>
         <AboutHeader />
-        <div className={styles.aboutContainer}>
-          <p>Hi there, I hope you enjoyed my app.</p>
-          <p>
-            I was studying Redux and ReduxToolKit on YT and decided to create my
-            own project.
-          </p>
-          <p>
-            {" "}
-            At first me idea was to have a basic calculator that uses a bit of
-            Redux with React, but after some time I decided to recreate the
-            Windows calculator logic and display the numbers in a more dynamic
-            way. This has taken some time, but I have succeded recreating the
-            algorithm and I`m fairly proud for this as I had no help, but my own
-            imagination.{" "}
-          </p>
-
-          <p>If you would like to read more about this project click here.</p>
-        </div>
+        <Introduction toggleShowAbout={toggleShowAbout} toggleShowMoreAbout={toggleShowMoreAbout}/>
       </div>
     </div>
   );
