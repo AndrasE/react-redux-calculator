@@ -85,7 +85,6 @@ button:active {
   width: 332px;
   margin: auto;
   gap: 0.2rem;
-  overflow: hidden;
 }
 
 .screensContainer {
@@ -97,13 +96,13 @@ button:active {
   border: 1px solid var(--screen-hr-border-color);
 }
 
-.screenOne {
+/* .screenOne {
   height: 32px;
 }
 
 .screenTwo {
   height: 50px;
-}
+} */
 
 .calcHr {
   width: 328px;
