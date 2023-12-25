@@ -28,11 +28,10 @@ function HistoryGoCalculate() {
 }
 
 function HistoryMap(props) {
+  var reverseHistory = props.history.slice().reverse();
   return (
     <div className={styles.history}>
-
-      {props.history
-
+      {reverseHistory
         .map((entry, index) => {
           return <p key={index}>{entry} </p>;
         })}
