@@ -30,8 +30,9 @@ function HistoryGoCalculate() {
 function HistoryMap(props) {
   return (
     <div className={styles.history}>
+
       {props.history
-        .slice(Math.max(props.history.length - 8, 0))
+
         .map((entry, index) => {
           return <p key={index}>{entry} </p>;
         })}

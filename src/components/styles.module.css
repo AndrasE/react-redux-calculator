@@ -1,3 +1,16 @@
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--screen-hr-border-color);
+  border-radius: 20px;
+  border: transparent;
+}
+
+
 h1 {
   font-size: 1.5rem;
   text-decoration: underline 1px dashed;
@@ -143,16 +156,20 @@ button:active {
 
 .history {
   display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: column-reverse;
+  justify-content: safe center;
   text-align: center;
-  align-items: center;
+  align-items: safe center;
   width: max-content;
+  max-height: 180px;
   background-color: var(--screen-bg-color);
   border: 1px solid var(--screen-hr-border-color);
-  margin: 10px 0 30px;
-  padding: 0 10px;
+  margin: 10px 0 22px;
+  padding: 0 7px;
   min-height: 60px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 .chuckApiContainer {
