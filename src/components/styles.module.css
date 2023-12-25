@@ -262,6 +262,23 @@ button:active {
 }
 
 @media screen and (max-width: 630px) {
+  
+  .floatingButtons {
+    display: flex;
+  }
+
+
+  @media screen and (max-height: 670px) {
+
+    .calcContainer
+     {
+      padding-top: 50px;
+    }
+   
+  }  }
+
+
+@media screen and (max-width: 630px) {
   .floatingButtons {
     display: flex;
   }
