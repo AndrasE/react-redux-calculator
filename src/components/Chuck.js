@@ -21,6 +21,7 @@ const Chuck = ({ showChuck, toggleShowChuck }) => {
   const [imageIndex, setImageIndex] = useState(0);
 
   const dispatch = useDispatch();
+  
   useEffect(() => {
     dispatch(fetchChuck());
   }, []);

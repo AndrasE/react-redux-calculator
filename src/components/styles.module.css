@@ -85,6 +85,7 @@ button:active {
   width: 332px;
   margin: auto;
   gap: 0.2rem;
+  overflow: hidden;
 }
 
 .screensContainer {
