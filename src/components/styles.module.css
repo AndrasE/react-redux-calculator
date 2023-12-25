@@ -160,7 +160,7 @@ button:active {
   justify-content: safe center;
   text-align: center;
   align-items: safe center;
-  width: max-content;
+  width: auto;
   max-height: 180px;
   background-color: var(--screen-bg-color);
   border: 1px solid var(--screen-hr-border-color);
