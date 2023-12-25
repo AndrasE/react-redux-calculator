@@ -165,7 +165,7 @@ button:active {
   background-color: var(--screen-bg-color);
   border: 1px solid var(--screen-hr-border-color);
   margin: 10px 0 22px;
-  padding: 0 7px;
+  padding: 0 4px 0 7px;
   min-height: 60px;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -238,7 +238,7 @@ button:active {
   border-radius: 3px;
   text-align: center;
   display: inline;
-  padding: 10px;
+  padding: 10px 7px 10px 10px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
