@@ -183,11 +183,17 @@ button:active {
   margin: 20px 0;
 }
 
+.chuckImgContainer {
+  margin: auto;
+  width: 150px;
+  height: 150px;
+  border: 3px solid var(--screen-hr-border-color);
+  box-shadow: 0 0 20px 3px var(--screen-hr-border-color);
+  background-color: var(--screen-bg-color);}
+
 .chuckImgStyles {
   width: 150px;
   margin-bottom: 10px;
-  border: 3px solid var(--screen-hr-border-color);
-  box-shadow: 0 0 20px 3px var(--screen-hr-border-color);
 }
 
 .logosContainer {

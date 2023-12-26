@@ -8,7 +8,7 @@ import chuck4 from "../images/chuck4.jpg";
 import chuck5 from "../images/chuck5.png";
 import styles from "../components/styles.module.css";
 
-const fadeImages = [
+const chuckImages = [
   { url: chuck1 },
   { url: chuck2 },
   { url: chuck3 },
@@ -72,10 +72,11 @@ const Chuck = ({ showChuck, toggleShowChuck }) => {
             <h2 key={chuck.id}>{chuck.value}</h2>
           ) : null}
         </div>
-        <div>
+        <div className={styles.chuckImgContainer}>
           <img
+          rel="preload" 
             className={styles.chuckImgStyles}
-            src={fadeImages[imageIndex].url}
+            src={chuckImages[imageIndex].url}
             alt="slideshow"
           />
         </div>
