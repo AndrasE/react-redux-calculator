@@ -251,12 +251,25 @@ button:active {
   overflow-x: hidden;
 }
 .moreAboutContainer {
+  padding-top: 15px;
   max-width: 100% !important;
   text-align: justify;
 }
+
+.moreAboutitle  {
+  letter-spacing: 1px;
+  margin: 10px 5px 0;
+  font-weight: 500;
+}
+
 .moreAboutContainer p {
   padding-top: 3px;
   letter-spacing: 1px;
+}
+
+.moreAboutImg {
+  margin: auto;
+  display: block; max-width: 100%
 }
 
 @keyframes pulse {
