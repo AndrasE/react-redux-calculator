@@ -21,7 +21,7 @@ const Chuck = ({ showChuck, toggleShowChuck }) => {
   const [imageIndex, setImageIndex] = useState(0);
 
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     dispatch(fetchChuck());
   }, []);
@@ -74,10 +74,9 @@ const Chuck = ({ showChuck, toggleShowChuck }) => {
         </div>
         <div className={styles.chuckImgContainer}>
           <img
-          rel="preload" 
             className={styles.chuckImgStyles}
             src={chuckImages[imageIndex].url}
-            alt="slideshow"
+            alt="OurChuckWeTrust"
           />
         </div>
         <h2>Hit me up with a new one!</h2>
