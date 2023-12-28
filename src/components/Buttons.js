@@ -4,9 +4,8 @@ import chuck from "../images/chuck.svg";
 import sun from "../images/sun.svg";
 import info from "../images/info.svg";
 import moon from "../images/moon.svg";
-import sound_normal from "../images/sound_normal.svg"
-import sound_silent from "../images/sound_silent.svg"
-
+import sound_normal from "../images/sound_normal.svg";
+import sound_silent from "../images/sound_silent.svg";
 
 function Buttons(props) {
   function handleChangeThemeClick() {
@@ -15,10 +14,9 @@ function Buttons(props) {
   }
 
   function handleChangeSoundClick() {
-    props.changeSound();
+    props.changeSoundIcon();
     props.playSound();
   }
-
 
   function handleToggleShowChuckClick() {
     props.toggleShowChuck();
@@ -42,7 +40,7 @@ function Buttons(props) {
       </button>
       <button onClick={handleChangeSoundClick}>
         {" "}
-        {props.sound === "normal" ? (
+        {props.soundIcon === "normal" ? (
           <img src={sound_silent} alt="sound_silent}" />
         ) : (
           <img src={sound_normal} alt="sound_normal" />

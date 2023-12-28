@@ -10,7 +10,6 @@
   border: transparent;
 }
 
-
 h1 {
   font-size: 1.5rem;
   text-decoration: underline 1px dashed;
@@ -256,11 +255,11 @@ button:active {
   text-align: justify;
 }
 
-.moreAboutTitle  {
+.moreAboutTitle {
   letter-spacing: 1px;
   margin: 15px 5px 0;
   font-weight: 500;
-  text-decoration: underline 1.5px var(--btn-text-color)
+  text-decoration: underline 1.5px var(--btn-text-color);
 }
 
 .moreAboutContainer p {
@@ -270,7 +269,8 @@ button:active {
 
 .moreAboutImg {
   margin: auto;
-  display: block; max-width: 100%
+  display: block;
+  max-width: 100%;
 }
 
 @keyframes pulse {
@@ -284,21 +284,17 @@ button:active {
 }
 
 @media screen and (max-width: 630px) {
-  
   .floatingButtons {
     display: flex;
+    right: auto;
   }
 
-
   @media screen and (max-height: 670px) {
-
-    .calcContainer
-     {
+    .calcContainer {
       padding-top: 50px;
     }
-   
-  }  }
-
+  }
+}
 
 @media screen and (max-width: 630px) {
   .floatingButtons {
