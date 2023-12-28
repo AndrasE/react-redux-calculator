@@ -16,10 +16,18 @@ function App() {
   const [showChuck, setShowChuck] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
   const [showMoreAbout, setShowMoreAbout] = useState(false);
+  const [sound, setSound] = uselocalStorage("sound" ? "normal" : "silent");
 
   const switchTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
     setTheme(newTheme);
+  };
+
+  const [playSound] = useSound(click, { volume: 0.8 });
+
+  const switchSound = () => {
+    const newSound = sound === "normal" ? "silent" : "normal";
+    setSound(newSound);
   };
 
   function toggleShowHistory() {
@@ -38,8 +46,6 @@ function App() {
     setShowMoreAbout((prevState) => !prevState);
   }
 
-  const [playSound] = useSound(click);
-
   return (
     <div className="App" data-theme={theme}>
       <Buttons
@@ -47,6 +53,8 @@ function App() {
         theme={theme}
         toggleShowChuck={toggleShowChuck}
         toggleShowAbout={toggleShowAbout}
+        changeSound={switchSound}
+        sound={sound}
         playSound={playSound}
       />
       <Counter toggleShowHistory={toggleShowHistory} playSound={playSound} />
