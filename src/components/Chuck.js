@@ -16,7 +16,7 @@ const chuckImages = [
   { url: chuck5 },
 ];
 
-const Chuck = ({ showChuck, toggleShowChuck }) => {
+const Chuck = ({ showChuck, toggleShowChuck, playSound }) => {
   const chuck = useSelector((state) => state.chuck);
   const [imageIndex, setImageIndex] = useState(0);
 
@@ -26,7 +26,14 @@ const Chuck = ({ showChuck, toggleShowChuck }) => {
     dispatch(fetchChuck());
   }, []);
 
-  function handleClick() {
+  function handleCloseModalClick() {
+    toggleShowChuck();
+    playSound();
+  }
+
+  function handleGetNewClick() {
+    playSound();
+
     dispatch(fetchChuck());
     if (imageIndex === 4) {
       setImageIndex(0);
@@ -37,7 +44,7 @@ const Chuck = ({ showChuck, toggleShowChuck }) => {
 
   if (!showChuck) return null;
   return (
-    <div className={styles.modalOverlay} onClick={() => toggleShowChuck()}>
+    <div className={styles.modalOverlay} onClick={handleCloseModalClick}>
       <div
         className={styles.modalContainer}
         onClick={(e) => {
@@ -46,7 +53,7 @@ const Chuck = ({ showChuck, toggleShowChuck }) => {
       >
         <button
           className={styles.modalCloseBtn}
-          onClick={() => toggleShowChuck()}
+          onClick={handleCloseModalClick}
         >
           x
         </button>
@@ -80,7 +87,7 @@ const Chuck = ({ showChuck, toggleShowChuck }) => {
           />
         </div>
         <h2>Hit me up with a new one!</h2>
-        <button className={styles.modalBtn} onClick={handleClick}>
+        <button className={styles.modalBtn} onClick={handleGetNewClick}>
           💣
         </button>{" "}
       </div>

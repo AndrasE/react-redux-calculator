@@ -48,6 +48,8 @@ export function Counter(props) {
   ];
 
   function handleNumClick(e) {
+    props.playSound()
+
     if (equalOp) {
       //if last op was equal set firstInput to the new calue and start over everything
       setEqualOp("");
@@ -75,6 +77,8 @@ export function Counter(props) {
   }
 
   function handleOpClick(e) {
+    props.playSound()
+
     if (equalOp) {
       //if last op equal set the outcome of the op to be the firstinput value
       //this to continuity after equal ops 1 + 3 = 4 ==to==> 4
@@ -217,6 +221,8 @@ export function Counter(props) {
   }
 
   function handleEqualClick() {
+    props.playSound()
+
     if (!equalOp && firstInput && !secondInput) {
       //if equalOp wasnt called before but user not adding second input calling the function, will
       //do nothing just remove the operator, this to prever 8 = 8, just looks stupido
@@ -253,6 +259,8 @@ export function Counter(props) {
   }
 
   function handleResetClick() {
+    props.playSound()
+
     //reseting everything on C click
     setFirstInput("");
     setSecondInput("");
@@ -264,6 +272,8 @@ export function Counter(props) {
   }
 
   function handleBackClick() {
+    props.playSound()
+
     const state = store.getState();
     if (equalOp) {
       //if equalOp exist reset
@@ -280,6 +290,8 @@ export function Counter(props) {
   }
 
   function handleDecimalClick(e) {
+    props.playSound()
+
     if (!firstInput && !operator) {
       //if no firstInput added but decimal clicked it sets firstInput to be 0 and add decimalpoint 0.
       setFirstInput(0 + e.target.value);
@@ -297,6 +309,11 @@ export function Counter(props) {
       setSecondInput((prevState) => prevState + e.target.value);
       dispatch(currentUserNum(String(secondInput + e.target.value)));
     }
+  }
+
+  function handleHistoryClick(){
+    props.toggleShowHistory();    
+    props.playSound()
   }
 
   return (
@@ -354,7 +371,7 @@ export function Counter(props) {
               );
             } else if (button === "⇋") {
               return (
-                <button key={button} onClick={() => props.toggleShowHistory()}>
+                <button key={button} onClick={handleHistoryClick}>
                   {button}
                 </button>
               );

@@ -113,11 +113,16 @@ function Introduction() {
   );
 }
 
-const MoreAbout = ({ showMoreAbout, toggleShowMoreAbout }) => {
+const MoreAbout = ({ showMoreAbout, toggleShowMoreAbout, playSound }) => {
+  function handleCloseModalClick() {
+    toggleShowMoreAbout();
+    playSound();
+  }
+
   if (!showMoreAbout) return null;
 
   return (
-    <div className={styles.modalOverlay} onClick={() => toggleShowMoreAbout()}>
+    <div className={styles.modalOverlay} onClick={handleCloseModalClick}>
       <div
         className={styles.modalMoreAboutContainer}
         onClick={(e) => {
@@ -126,7 +131,7 @@ const MoreAbout = ({ showMoreAbout, toggleShowMoreAbout }) => {
       >
         <button
           className={styles.modalCloseBtn}
-          onClick={() => toggleShowMoreAbout()}
+          onClick={handleCloseModalClick}
         >
           x
         </button>

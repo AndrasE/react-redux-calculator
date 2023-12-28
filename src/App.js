@@ -6,6 +6,8 @@ import History from "./components/History";
 import Chuck from "./components/Chuck";
 import About from "./components/About";
 import MoreAbout from "./components/MoreAbout";
+import useSound from "use-sound";
+import click from "./sounds/click.wav";
 import "./index.css";
 
 function App() {
@@ -36,6 +38,8 @@ function App() {
     setShowMoreAbout((prevState) => !prevState);
   }
 
+  const [playSound] = useSound(click);
+
   return (
     <div className="App" data-theme={theme}>
       <Buttons
@@ -43,21 +47,29 @@ function App() {
         theme={theme}
         toggleShowChuck={toggleShowChuck}
         toggleShowAbout={toggleShowAbout}
+        playSound={playSound}
       />
-      <Counter toggleShowHistory={toggleShowHistory} />
+      <Counter toggleShowHistory={toggleShowHistory} playSound={playSound} />
       <History
         showHistory={showHistory}
         toggleShowHistory={toggleShowHistory}
+        playSound={playSound}
       />
-      <Chuck showChuck={showChuck} toggleShowChuck={toggleShowChuck} />
+      <Chuck
+        showChuck={showChuck}
+        toggleShowChuck={toggleShowChuck}
+        playSound={playSound}
+      />
       <About
         showAbout={showAbout}
         toggleShowAbout={toggleShowAbout}
         toggleShowMoreAbout={toggleShowMoreAbout}
+        playSound={playSound}
       />
       <MoreAbout
         showMoreAbout={showMoreAbout}
         toggleShowMoreAbout={toggleShowMoreAbout}
+        playSound={playSound}
       />
     </div>
   );

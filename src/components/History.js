@@ -31,10 +31,9 @@ function HistoryMap(props) {
   var reverseHistory = props.history.slice().reverse();
   return (
     <div className={styles.history}>
-      {reverseHistory
-        .map((entry, index) => {
-          return <p key={index}>{entry} </p>;
-        })}
+      {reverseHistory.map((entry, index) => {
+        return <p key={index}>{entry} </p>;
+      })}
     </div>
   );
 }
@@ -57,6 +56,11 @@ function HistoryDoMore() {
 }
 
 function HistoryErase(props) {
+  function handleEraseClick() {
+    props.dispatch(eraseHistoryEntries());
+    props.playSound();
+  }
+
   return (
     <div>
       <img
@@ -68,17 +72,14 @@ function HistoryErase(props) {
         alt="chuck_gif"
       ></img>
       <h2>Delete history?</h2>
-      <button
-        className={styles.modalBtn}
-        onClick={() => props.dispatch(eraseHistoryEntries())}
-      >
+      <button className={styles.modalBtn} onClick={handleEraseClick}>
         C
       </button>{" "}
     </div>
   );
 }
 
-const History = ({ showHistory, toggleShowHistory }) => {
+const History = ({ showHistory, toggleShowHistory, playSound }) => {
   const history = useSelector(selectHistory);
   const dispatch = useDispatch();
 
@@ -113,7 +114,9 @@ const History = ({ showHistory, toggleShowHistory }) => {
           <HistoryGoCalculate />
         )}
         {history.length <= 5 && history.length !== 0 ? <HistoryDoMore /> : null}
-        {history.length > 5 ? <HistoryErase dispatch={dispatch} /> : null}
+        {history.length > 5 ? (
+          <HistoryErase dispatch={dispatch} playSound={playSound} />
+        ) : null}
       </div>
     </div>
   );

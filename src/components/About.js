@@ -38,7 +38,6 @@ function AboutHeader() {
 }
 
 function Introduction(props) {
-
   return (
     <div className={styles.aboutContainer}>
       <p>Hi there, I hope you enjoyed my app.</p>
@@ -92,16 +91,27 @@ function Introduction(props) {
   );
 }
 
-function toggleAboutPages(props){
-props.toggleShowAbout()
- props.toggleShowMoreAbout()
+function toggleAboutPages(props) {
+  props.toggleShowAbout();
+  props.toggleShowMoreAbout();
+  props.playSound();
 }
 
-const About = ({ showAbout, toggleShowAbout, toggleShowMoreAbout }) => {
+const About = ({
+  showAbout,
+  toggleShowAbout,
+  toggleShowMoreAbout,
+  playSound,
+}) => {
+  function handleCloseModalClick() {
+    toggleShowAbout();
+    playSound();
+  }
+
   if (!showAbout) return null;
 
   return (
-    <div className={styles.modalOverlay} onClick={() => toggleShowAbout()}>
+    <div className={styles.modalOverlay} onClick={handleCloseModalClick}>
       <div
         className={styles.modalContainer}
         onClick={(e) => {
@@ -110,12 +120,16 @@ const About = ({ showAbout, toggleShowAbout, toggleShowMoreAbout }) => {
       >
         <button
           className={styles.modalCloseBtn}
-          onClick={() => toggleShowAbout()}
+          onClick={handleCloseModalClick}
         >
           x
         </button>
         <AboutHeader />
-        <Introduction toggleShowAbout={toggleShowAbout} toggleShowMoreAbout={toggleShowMoreAbout}/>
+        <Introduction
+          toggleShowAbout={toggleShowAbout}
+          toggleShowMoreAbout={toggleShowMoreAbout}
+          playSound={playSound}
+        />
       </div>
     </div>
   );
