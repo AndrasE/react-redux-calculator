@@ -38,6 +38,7 @@ function AboutHeader() {
 }
 
 function Introduction(props) {
+
   return (
     <div className={styles.aboutContainer}>
       <p>Hi there, I hope you enjoyed my app.</p>
