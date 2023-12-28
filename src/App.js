@@ -7,7 +7,7 @@ import Chuck from "./components/Chuck";
 import About from "./components/About";
 import MoreAbout from "./components/MoreAbout";
 import useSound from "use-sound";
-import click from "./sounds/click.wav";
+import click from "./sounds/click.mp3";
 import "./index.css";
 
 function App() {
