@@ -86,6 +86,7 @@ const History = ({ showHistory, toggleShowHistory, playSound }) => {
   if (!showHistory) return null;
 
   return (
+    // modal container and handleing close button or click outside of the container
     <div className={styles.modalOverlay} onClick={() => toggleShowHistory()}>
       <div
         className={styles.modalContainer}
@@ -101,6 +102,9 @@ const History = ({ showHistory, toggleShowHistory, playSound }) => {
         </button>
 
         <h1>History</h1>
+        {/* conditional rendering according to the history if 0 show
+        your history appear here, if more then 0 but less then 5 
+        show do more, if more then 5 should reset?  */}
         {history.length ? (
           <h2>Your history so far:</h2>
         ) : (

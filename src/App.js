@@ -11,44 +11,45 @@ import click from "./sounds/click.mp3";
 import "./index.css";
 
 function App() {
+  // localstorage states, leaving the theme and sound setting saved
   const [theme, setTheme] = uselocalStorage("theme" ? "dark" : "light");
-  const [soundIcon, setSoundIcon] = uselocalStorage("soundIcon" ? "normal" : "silent");
-  const [soundVolume, setSoundVolume] = uselocalStorage(0.8 ? 0 : 0.8)
-
+  const [soundIcon, setSoundIcon] = uselocalStorage(
+    "soundIcon" ? "normal" : "silent"
+  );
+  const [soundVolume, setSoundVolume] = uselocalStorage(0.8 ? 0 : 0.8);
+  // states of the popup modal screens
   const [showHistory, setShowHistory] = useState(false);
   const [showChuck, setShowChuck] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
   const [showMoreAbout, setShowMoreAbout] = useState(false);
- 
-  
 
+  //theme state toggle
   const switchTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
     setTheme(newTheme);
   };
 
-  
-  const [playSound] = useSound(click, { volume: soundVolume});
+  // pacckadge useSound passed on volume 0.8 or 0
+  const [playSound] = useSound(click, { volume: soundVolume });
 
+  // sound icon and volume state toggle
   const switchSoundIcon = () => {
     const newSoundIcon = soundIcon === "normal" ? "silent" : "normal";
     setSoundIcon(newSoundIcon);
     const newSoundVolume = soundVolume === 0.8 ? 0 : 0.8;
-    setSoundVolume(newSoundVolume)
+    setSoundVolume(newSoundVolume);
   };
 
+  // toggle pop up modal screens
   function toggleShowHistory() {
     setShowHistory((prevState) => !prevState);
   }
-
   function toggleShowChuck() {
     setShowChuck((prevState) => !prevState);
   }
-
   function toggleShowAbout() {
     setShowAbout((prevState) => !prevState);
   }
-
   function toggleShowMoreAbout() {
     setShowMoreAbout((prevState) => !prevState);
   }
