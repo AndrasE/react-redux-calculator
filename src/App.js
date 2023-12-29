@@ -12,12 +12,15 @@ import "./index.css";
 
 function App() {
   const [theme, setTheme] = uselocalStorage("theme" ? "dark" : "light");
+  const [soundIcon, setSoundIcon] = uselocalStorage("soundIcon" ? "normal" : "silent");
+  const [soundVolume, setSoundVolume] = uselocalStorage(0.8 ? 0 : 0.8)
+
   const [showHistory, setShowHistory] = useState(false);
   const [showChuck, setShowChuck] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
   const [showMoreAbout, setShowMoreAbout] = useState(false);
-  const [soundIcon, setSoundIcon] = uselocalStorage("soundIcon" ? "normal" : "silent");
-  const [soundVolume, setSoundVolume] = useState(0.8)
+ 
+  
 
   const switchTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
