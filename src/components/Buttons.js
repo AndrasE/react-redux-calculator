@@ -33,9 +33,9 @@ function Buttons(props) {
       <button onClick={handleChangeThemeClick}>
         {" "}
         {props.theme === "light" ? (
-          <img src={moon} alt="moon" />
-        ) : (
           <img src={sun} alt="sun" />
+        ) : (
+          <img src={moon} alt="moon" />
         )}
       </button>
       <button onClick={handleChangeSoundClick}>
