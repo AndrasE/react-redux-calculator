@@ -111,6 +111,7 @@ const About = ({
   if (!showAbout) return null;
 
   return (
+    // modal container and handleing close button or click outside of the container
     <div className={styles.modalOverlay} onClick={handleCloseModalClick}>
       <div
         className={styles.modalContainer}
