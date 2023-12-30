@@ -41,9 +41,9 @@ function Buttons(props) {
       <button onClick={handleChangeSoundClick}>
         {" "}
         {props.soundIcon === "normal" ? (
-          <img src={sound_silent} alt="sound_silent}" />
-        ) : (
           <img src={sound_normal} alt="sound_normal" />
+        ) : (
+          <img src={sound_silent} alt="sound_silent}" />
         )}
       </button>
 
