@@ -112,25 +112,119 @@ function MoreAboutContent() {
       <p className={styles.moreAboutTitle}>Exceptions</p>
       <p>
         {" "}
-        When I started to write the logic I never realised how many expection I will
-        need to prepare to if you want a the calculator not just functional, but also 
-        be good looking. Here are a few examples:   </p>
-        <p>
-        -User not input any nunber but click operator, example +, revert to 0 + <br/>
-        -User press operator or operators multiple times, example 4 - + revert to 4 + <br/>
-        -User hit decimal button first before input number, revert to  0. <br/>
-        -User send number ending to decimal place, example 3. which revert to 3 <br/>
-        -User try to press zeros before anything else, example 00006, prevent 0 or 6 <br/>
-        </p>
-        <p>
-        I could mention many more.. I think I included the most important ones that help
-        the calculator to mimic the windows calculator. I left out some and changed
-        others, but it is not that obvious. Due to all this, my code just grow bigger
-        and got more and more hard to follow as there are a lot of: <br/>
-        if this, but that not, but if else, something then check and if 🥹
-        </p>
-
-    
+        When I started to write the logic I never realised how many expection I
+        will need to prepare to if you want a the calculator not just
+        functional, but also be good looking. Here are a few examples:{" "}
+      </p>
+      <p>
+        -User not input any nunber but click operator, example +, revert to 0 +{" "}
+        <br />
+        -User press operator or operators multiple times, example 4 - + revert
+        to 4 + <br />
+        -User hit decimal button first before input number, revert to 0. <br />
+        -User send number ending to decimal place, example 3. which revert to 3{" "}
+        <br />
+        -User try to press zeros before anything else, example 00006, prevent 0
+        or 6 <br />
+      </p>
+      <p>
+        I could mention many more.. I think I included the most important ones
+        that help the calculator to mimic the windows calculator. I left out
+        some and changed others, but it is not that obvious. Due to all this, my
+        code just grow bigger and got more and more hard to follow as there are
+        a lot of: <br />
+        if this, but that not, but if else, something then check and if..🥹
+      </p>
+      <p className={styles.moreAboutTitle}>Packadges</p>
+      <p>
+        I have used several packadges via npm (apart from{" "}
+        <a
+          style={{
+            color: "inherit",
+          }}
+          href="https://www.npmjs.com/package/@reduxjs/toolkit"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Redux-Rtk
+        </a>{" "}
+        obviously). <br />
+        <a
+          style={{
+            color: "inherit",
+          }}
+          href="https://www.npmjs.com/package/use-local-storage"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Use-local-storage
+        </a>{" "}
+        for keeping theme and sound settings stored locally. If you reopen the
+        app on the same device it will load up with your last configuration.{" "}
+        <br />
+        <a
+          style={{
+            color: "inherit",
+          }}
+          href="https://www.npmjs.com/package/react-textfit"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          React-textfit
+        </a>{" "}
+        in the displaying the numbers in the calculator screen. It will adjust
+        the fontsize according to how many digits added on as input and what is
+        the output of the calculation. <br />
+        <a
+          style={{
+            color: "inherit",
+          }}
+          href="https://www.npmjs.com/package/axios"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Axios
+        </a>{" "}
+        to make simple http requests for Chuck api. <br />
+        <a
+          style={{
+            color: "inherit",
+          }}
+          href="https://www.joshwcomeau.com/react/announcing-use-sound-react-hook/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Use-sound
+        </a>{" "}
+        to not just, but to hear the calculator. I felt that especially on
+        mobile, it was a bit strange to not having any feedback (apart for the
+        screen) using the calculator. <br />
+      </p>
+      <p className={styles.moreAboutTitle}>Working-mechanish</p>
+      <p>
+        Referring back to the picture above. I have a few states managed by
+        react, which are dispatched time and time again to the 3 of the reducers
+        I have. As soon as a user adds a number, it will get saved in the
+        firstInput state and also dispatched to the store as userInput. I had to
+        do this as the useState hook behaves async-like. If I add a new digit
+        this will get carried out again. When operator get pressed, that will be
+        saved in the operator state via React and setting the counter reducers
+        initial state to that number. When the second number is added it will be
+        added on as secondInput and also will be dispatched to the redux store
+        as userInput. From here the user can either press equal or another
+        operator. When that's happen it will be dispatching the firstInput, the
+        secondInput and the operator to counter reducer via a switch statement
+        in react and also will dispatch it in the history reducer. First it
+        saves the firstInput, secondInput and operator and once the calculation
+        taken place it updates the history of the outcome. According to the
+        users next move this number gets reused and set and the firstInput and
+        dispatched to be the userInput, or most of the states will reset and the
+        new input will be set. I'm pretty certain there is a way to do all this
+        logic in a more simplified way, but as I couldn`t find any source so I
+        went with things I knew and achieved the outcome I wanted. I will show
+        here the working mechanism both React and Redux end I hope it will make
+        more sense.
+      </p>
     </div>
   );
 }
