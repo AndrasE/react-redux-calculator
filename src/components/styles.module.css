@@ -314,8 +314,7 @@ button:active {
     height: 250px 
   }
   .modalMoreAboutContainer {
-    padding-bottom: 45px;
-    height: 93%;
+overflow-y: scroll;
   }
   
 
