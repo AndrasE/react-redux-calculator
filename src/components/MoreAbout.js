@@ -225,6 +225,15 @@ function MoreAboutContent() {
         here the working mechanism both React and Redux end I hope it will make
         more sense.
       </p>
+      <div style={{ textAlign: "center" }}>
+        <iframe
+          src="https://www.youtube.com/embed/E7wJTI-1dvQ"
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+          title="video"
+        />
+      </div>
     </div>
   );
 }
