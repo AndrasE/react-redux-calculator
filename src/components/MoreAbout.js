@@ -235,6 +235,24 @@ function MoreAboutContent() {
           title="video"
         />
       </div>
+      <p className={styles.moreAboutTitle}>Takeaway</p>
+      <p>
+        Although this project absolutely is not required to be built with redux,
+        I can see that it could help a lot in a bigger project. Previously I
+        used contextApi and it was very useful for the things I needed it for,
+        but Redux with{" "}
+        <a
+          style={{
+            color: "inherit",
+          }}
+          href="https://chromewebstore.google.com/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?pli=1"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Redux DevTools
+        </a>{" "}
+        just makes it easy to manage and track the states of the application.
+      </p>
     </div>
   );
 }
