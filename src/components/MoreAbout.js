@@ -112,25 +112,33 @@ function MoreAboutContent() {
       <p className={styles.moreAboutTitle}>Exceptions</p>
       <p>
         {" "}
-        When I started to write the logic I never realised how many expection I will
-        need to prepare to if you want a the calculator not just functional, but also 
-        be good looking. Here are a few examples:   </p>
-        <p>
-        -User not input any nunber but click operator, example +, revert to 0 + <br/>
-        -User press operator or operators multiple times, example 4 - + revert to 4 + <br/>
-        -User hit decimal button first before input number, revert to  0. <br/>
-        -User send number ending to decimal place, example 3. which revert to 3 <br/>
-        -User try to press zeros before anything else, example 00006, prevent 0 or 6 <br/>
-        </p>
-        <p>
-        I could mention many more.. I think I included the most important ones that help
-        the calculator to mimic the windows calculator. I left out some and changed
-        others, but it is not that obvious. Due to all this, my code just grow bigger
-        and got more and more hard to follow as there are a lot of: <br/>
-        if this, but that not, but if else, something then check and if 🥹
-        </p>
-
-    
+        When I started to write the logic I never realised how many expection I
+        will need to prepare to if you want a the calculator not just
+        functional, but also be good looking. Here are a few examples:{" "}
+      </p>
+      <p>
+        -User not input any nunber but click operator, example +, revert to 0 +{" "}
+        <br />
+        -User press operator or operators multiple times, example 4 - + revert
+        to 4 + <br />
+        -User hit decimal button first before input number, revert to 0. <br />
+        -User send number ending to decimal place, example 3. which revert to 3{" "}
+        <br />
+        -User try to press zeros before anything else, example 00006, prevent 0
+        or 6 <br />
+      </p>
+      <p>
+        I could mention many more.. I think I included the most important ones
+        that help the calculator to mimic the windows calculator. I left out
+        some and changed others, but it is not obvious. Due to all this, my code
+        just grow bigger and got more and more hard to follow as there are a lot
+        of: if this, but that not, but if else, something then check ... 🙄{" "}
+        <br />
+        Although I'm really proud of what I achieved and with this app I do wish
+        my code would be a bit more straightforward . I`m certain that a lot
+        could have been achieved with hooks that I'm not complitely familiar
+        with.
+      </p>
     </div>
   );
 }
