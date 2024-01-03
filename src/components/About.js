@@ -44,9 +44,6 @@ function Introduction(props) {
       <p>
         I was studying{" "}
         <a
-          style={{
-            color: "inherit",
-          }}
           href="https://youtube.com/playlist?list=PLC3y8-rFHvwheJHvseC3I0HuYI2f46oAK&si=F0V2dM2lwyUVwM1U"
           target="_blank"
           rel="noopener noreferrer"
@@ -55,9 +52,6 @@ function Introduction(props) {
         </a>{" "}
         and{" "}
         <a
-          style={{
-            color: "inherit",
-          }}
           href="https://youtube.com/playlist?list=PLC3y8-rFHvwiaOAuTtVXittwybYIorRB3&si=Rir29ExiR0a76yqz"
           target="_blank"
           rel="noopener noreferrer"
@@ -74,18 +68,15 @@ function Introduction(props) {
         taken some time, but I have succeded recreating/mimicing the algorithm
         and I`m fairly proud for this as I had no help, but my own imagination.{" "}
       </p>
-      <p>
-        If you would like to read more about this project{" "}
-        <span
-          style={{
-            textDecoration: "underline",
-            cursor: "pointer",
-          }}
+      <p style={{ textAlign: "center", marginTop:10}}>
+        If you would like to read more <br /> about this project click below.{" "}
+        <br />
+        <button
           onClick={() => toggleAboutPages(props)}
+          className={styles.moreBtn}
         >
-          click here
-        </span>
-        .
+          more
+        </button>
       </p>
     </div>
   );
