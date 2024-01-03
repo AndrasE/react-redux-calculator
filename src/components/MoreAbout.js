@@ -227,7 +227,8 @@ function MoreAboutContent() {
       </p>
       <div style={{ textAlign: "center" }}>
         <iframe
-          src="https://www.youtube.com/embed/E7wJTI-1dvQ"
+          className={styles.moreAboutIframe}
+          src="https://www.youtube.com/embed/4-bm9e4mO9Q"
           frameborder="0"
           allow="autoplay; encrypted-media"
           allowfullscreen
