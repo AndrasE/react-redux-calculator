@@ -314,8 +314,8 @@ button:active {
     height: 250px 
   }
   .modalMoreAboutContainer {
-overflow-y: scroll;
-  }
+    height: 90svh;
+    }
   
 
   @media screen and (max-height: 670px) {
