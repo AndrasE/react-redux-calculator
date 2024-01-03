@@ -246,7 +246,7 @@ function MoreAboutContent() {
         alt="pusheen"
       ></img>
       <p style={{ textAlign: "center" }}>
-        with love{" "}
+        with 💖{"  "}
         <a
           href="https://andrasegyed.netlify.app/"
           target="_blank"
