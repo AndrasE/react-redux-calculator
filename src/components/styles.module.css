@@ -86,10 +86,10 @@ button:active {
 
 .moreBtn {
   margin-top: 10px;
- font-size: 25px;
- height: 27px;
- width: 68px;
- padding: 5px 5px 9px;
+  font-size: 25px;
+  height: 27px;
+  width: 68px;
+  padding: 5px 5px 9px;
 }
 
 /* calculator styles */
@@ -291,8 +291,6 @@ button:active {
   height: 281px;
 }
 
-
-
 @keyframes pulse {
   0% {
     opacity: 0;
@@ -308,16 +306,15 @@ button:active {
     display: flex;
     right: auto;
   }
-  
+
   .moreAboutIframe {
     width: 100%;
-    height: 250px 
+    height: 250px;
   }
   .modalMoreAboutContainer {
-    height: 90%;
-    padding-bottom:    35px;
-    }
-  
+    height: 92%;
+    padding-bottom: 38px;
+  }
 
   @media screen and (max-height: 670px) {
     .calcContainer {
