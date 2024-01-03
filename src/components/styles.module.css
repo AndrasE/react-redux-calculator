@@ -314,8 +314,8 @@ button:active {
     height: 250px 
   }
   .modalMoreAboutContainer {
-    padding-bottom: 25px;
-    margin-bottom: 15px;
+    
+    height: 100vh;
   }
   
 
