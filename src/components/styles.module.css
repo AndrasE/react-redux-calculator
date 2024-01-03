@@ -312,8 +312,8 @@ button:active {
     height: 250px;
   }
   .modalMoreAboutContainer {
-    height: 92%;
-    padding-bottom: 38px;
+    height: 90%;
+    padding-bottom: 45px;
   }
 
   @media screen and (max-height: 670px) {
