@@ -13,43 +13,41 @@
 
 ## Hello there 👋
 
-This project was part of my self-study. If you go to the webapp and click on the logo you will find further details of this project, including challenges and particular solutions, tutorials and references; or just read the About.jsx in the repo. I hope you like it and it will offer you some help with your own project.
+After some study in the realm of Redux I deicided to create my own project. Its
+using a combination of React useStates and Redux-Rtk for statemanagment. To spice things 
+up I followed the windows calculator working logic and added theme and sound settings and
+simple api calls to this projects hero, Chuck Norris. 
 
 <li><a
 href="https://www.npmjs.com/package/use-local-storage"
 target="_blank"
 rel="noopener noreferrer"
->Use-local-storage</a>
-for keeping theme and sound settings stored locally. If you reopen the
+>Use-local-storage</a>for keeping theme and sound settings stored locally. If you reopen the
 app on the same device it will load with your last configuration. </li>
 <li><a
 href="https://www.joshwcomeau.com/react/announcing-use-sound-react-hook/"
 target="_blank"
 rel="noopener noreferrer"
 >
-Use-sound</a>
-to not just see, but hear the calculator. I felt that especially on
+Use-sound</a> to not just see, but hear the calculator. I felt that especially on
 mobile, it was a bit strange to not having that as a feedback. </li>
 <li><a
  href="https://www.npmjs.com/package/axios"
 target="_blank"
 rel="noopener noreferrer"
->Axios</a>
-to make simple api requests to
+>Axios</a>to make simple api requests to
 <a
  href="https://api.chucknorris.io/"
 target="_blank"
 rel="noopener noreferrer"
->chucknorris.io</a>
-. How does it related to the calculator you may ask? 
+>chucknorris.io</a>. How does it related to the calculator you may ask? 
 I don`t know, regardless its fun!😉
 </li>
 <li><a
 href="https://www.npmjs.com/package/react-textfit"
 target="_blank"
 rel="noopener noreferrer"
->React-textfit</a>
-in the displaying the numbers in the calculator screen. It will adjust fonstize 
+>React-textfit</a>in the displaying the numbers in the calculator screen. It will adjust fonstize 
 according to the input and the output of the calculation. </li>
 
 
