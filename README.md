@@ -19,6 +19,10 @@ up I tried to recreate the windows calculators logic including having access to 
 I also added theme & sound settings and able to dispatch simple api calls to this projects hero, Chuck Norris.🤠
 
 <br/>
+<div align="center">
+    <img src="github.com/AndrasE/raw-readme/blob/main/caclFront.png?raw=true"</img> 
+</div> 
+
 
 Packadges used:
 <li><a
