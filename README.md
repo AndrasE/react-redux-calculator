@@ -54,8 +54,8 @@ rel="noopener noreferrer"
 according to the input and the output of the calculation. </li>
 
 <br/>
-
-Take care, code safe!   <img src="https://github.com/AndrasE/raw-readme/blob/main/calcfavicon.png?raw=true" width="18">
+There are more information shared about this project at the Apps about and moreabout section if you are interested. 
+Take care, calc safe!   <img src="https://github.com/AndrasE/raw-readme/blob/main/calcfavicon.png?raw=true" width="18">
 
 <br/>
 
