@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://crud-auth.netlify.app/" target="_blank" rel="noopener noreferrer">
+  <a href="https://react-rtk-calculator.netlify.app/" target="_blank" rel="noopener noreferrer">
   <img src="https://github.com/AndrasE/raw-readme/blob/main/calculator.png?raw=true" width="300">
   </a>
 </p>
@@ -13,7 +13,6 @@
 
 ## Hello there 👋
 
-I think the title is self-explanatory.
 This project was part of my self-study. If you go to the webapp and click on the logo you will find further details of this project, including challenges and particular solutions, tutorials and references; or just read the About.jsx in the repo. I hope you like it and it will offer you some help with your own project.
 
 <li><a
