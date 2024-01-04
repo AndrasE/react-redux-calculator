@@ -22,7 +22,11 @@ I also added theme & sound settings and able to dispatch simple api calls to thi
 <div align="center">
     <img src="github.com/AndrasE/raw-readme/blob/main/calcFront.png?raw=true"</img> 
 </div> 
-
+<p align="center">
+  <a href="https://react-rtk-calculator.netlify.app/" target="_blank" rel="noopener noreferrer">
+  <img src="github.com/AndrasE/raw-readme/blob/main/calcFront.png?raw=true" width="300">
+  </a>
+</p>
 
 Packadges used:
 <li><a
