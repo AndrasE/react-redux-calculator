@@ -195,11 +195,11 @@ function MoreAboutContent() {
         initial state to that number. When the second number is added it will be
         added on as secondInput and also will be dispatched to the redux store
         as userInput. From here the user can either press equal or another
-        operator. When that's happen it will be dispatching the firstInput, the
+        operator. When that happens it will be dispatching the firstInput, the
         secondInput and the operator to counter reducer via a switch statement
         in react and also will dispatch it in the history reducer. First it
         saves the firstInput, secondInput and operator and once the calculation
-        taken place it updates the history of the outcome. According to the
+        takes place it updates the history of the outcome. According to the
         users next move this number gets reused and set and the firstInput and
         dispatched to be the userInput, or most of the states will reset and the
         new input will be set. I'm pretty certain there is a way to do all this
@@ -232,11 +232,11 @@ function MoreAboutContent() {
           Redux DevTools
         </a>{" "}
         just makes it easy to manage and track the states of the application. I
-        defiinitely be using it again.
+        definitely be using it again.
       </p>
       <br />
       <p style={{ textAlign: "center" }}>
-        Thank you for visiting, <br /> if you read this all the way throough,{" "}
+        Thank you for visiting, <br /> if you read this all the way through,{" "}
         <br /> here is your reward:
       </p>
       <img
