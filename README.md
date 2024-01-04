@@ -19,14 +19,9 @@ up I tried to recreate the windows calculators logic including having access to 
 I also added theme & sound settings and able to dispatch simple api calls to this projects hero, Chuck Norris.🤠
 
 <br/>
-<div align="center">
-    <img src="github.com/AndrasE/raw-readme/blob/main/calcFront.png?raw=true"</img> 
-</div> 
-<p align="center">
-  <a href="https://react-rtk-calculator.netlify.app/" target="_blank" rel="noopener noreferrer">
-  <img src="github.com/AndrasE/raw-readme/blob/main/calcFront.png?raw=true" width="300">
-  </a>
-</p>
+![calcFront](https://github.com/AndrasE/React-redux-calculator/assets/75881631/8dedc741-8f52-43d7-bb28-bae4c91e4861)
+![calcHistory](https://github.com/AndrasE/React-redux-calculator/assets/75881631/ebb190c8-d440-4d13-8177-96a08deaf8ad)
+![calcChuck](https://github.com/AndrasE/React-redux-calculator/assets/75881631/5b27381c-f39f-4164-8e73-5ed9ef0d3c9c)
 
 Packadges used:
 <li><a
