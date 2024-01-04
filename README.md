@@ -20,8 +20,7 @@ This project was part of my self-study. If you go to the webapp and click on the
 href="https://www.npmjs.com/package/use-local-storage"
 target="_blank"
 rel="noopener noreferrer"
->Use-local-storage
-</a>
+>Use-local-storage</a>
 for keeping theme and sound settings stored locally. If you reopen the
 app on the same device it will load with your last configuration. </li>
 <li><a
@@ -53,6 +52,8 @@ rel="noopener noreferrer"
 >React-textfit</a>
 in the displaying the numbers in the calculator screen. It will adjust fonstize 
 according to the input and the output of the calculation. </li>
+
+
 
 Take care, code safe! 💻
 
