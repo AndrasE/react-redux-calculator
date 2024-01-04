@@ -16,7 +16,43 @@
 
 I think the title is self-explanatory. 
 This project was part of my self-study. If you go to the webapp and click on the logo you will find further details of this project, including challenges and particular solutions, tutorials and references; or just read the About.jsx in the repo. I hope you like it and it will offer you some help with your own project. 
-  
+
+  Use-local-storage
+        </a>{" "}
+        for keeping theme and sound settings stored locally. If you reopen the
+        app on the same device it will load up with your last configuration.{" "}
+        <br />
+        <a
+          href="https://www.npmjs.com/package/react-textfit"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          React-textfit
+        </a>{" "}
+        in the displaying the numbers in the calculator screen. It will adjust
+        the fontsize according to how many digits added on as input and what is
+        the output of the calculation. <br />
+        <a
+          href="https://www.npmjs.com/package/axios"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Axios
+        </a>{" "}
+        to make simple http requests for Chuck api. <br />
+        <a
+          href="https://www.joshwcomeau.com/react/announcing-use-sound-react-hook/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Use-sound
+        </a>{" "}
+        to not just, but to hear the calculator. I felt that especially on
+        mobile, it was a bit strange to not having any feedback (apart for the
+        screen) using the calculator. <br />
+      </p>
+
+
 Take care, code safe! 💻
 
 <br>
