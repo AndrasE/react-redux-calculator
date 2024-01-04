@@ -23,31 +23,7 @@ rel="noopener noreferrer"
 >Use-local-storage
 </a>
 for keeping theme and sound settings stored locally. If you reopen the
-app on the same device it will load up with your last configuration. </li>
-<li><a
-href="https://www.npmjs.com/package/use-local-storage"
-target="_blank"
-rel="noopener noreferrer"
->Use-local-storage
-</a>
-for keeping theme and sound settings stored locally. If you reopen the
-app on the same device it will load up with your last configuration. </li>
-<li><a
-href="https://www.npmjs.com/package/react-textfit"
-target="_blank"
-rel="noopener noreferrer"
->React-textfit
-</a>
-in the displaying the numbers in the calculator screen. It will adjust
-the output of the calculation. </li>
-<li><a
- href="https://www.npmjs.com/package/axios"
-target="_blank"
-rel="noopener noreferrer"
->         
-Axios
-</a>
-to make simple http requests for Chuck api. </li>
+app on the same device it will load with your last configuration. </li>
 <li><a
 href="https://www.joshwcomeau.com/react/announcing-use-sound-react-hook/"
 target="_blank"
@@ -55,9 +31,35 @@ rel="noopener noreferrer"
 >
 Use-sound
 </a>
-to not just, but to hear the calculator. I felt that especially on
-mobile, it was a bit strange to not having any feedback (apart for the
-screen) using the calculator. </li>
+to not just see, but hear the calculator. I felt that especially on
+mobile, it was a bit strange to not having that as a feedback. </li>
+<li><a
+ href="https://www.npmjs.com/package/axios"
+target="_blank"
+rel="noopener noreferrer"
+>         
+Axios
+</a>
+to make simple api requests to
+<a
+ href="https://api.chucknorris.io/"
+target="_blank"
+rel="noopener noreferrer"
+>
+chucknorris.io. How does it related to the calculator you may ask? 
+I don`t know, regardless its fun!😉
+</a>
+</li>
+<li><a
+href="https://www.npmjs.com/package/react-textfit"
+target="_blank"
+rel="noopener noreferrer"
+>React-textfit
+</a>
+in the displaying the numbers in the calculator screen. It will adjust fonstize 
+according to the input and the output of the calculation. </li>
+
+
 
 Take care, code safe! 💻
 

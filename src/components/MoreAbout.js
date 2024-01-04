@@ -161,7 +161,7 @@ function MoreAboutContent() {
         >
           React-textfit
         </a>{" "}
-        in the displaying the numbers in the calculator screen. It will adjust
+        in the displaying the numbers on the calculator screen. It will adjust
         the fontsize according to how many digits added on as input and what is
         the output of the calculation. <br />
         <a
@@ -179,7 +179,7 @@ function MoreAboutContent() {
         >
           Use-sound
         </a>{" "}
-        to not just, but to hear the calculator. I felt that especially on
+        to not just see, but to hear the calculator. I felt that especially on
         mobile, it was a bit strange to not having any feedback (apart for the
         screen) using the calculator. <br />
       </p>
