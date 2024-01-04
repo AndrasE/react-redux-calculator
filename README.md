@@ -72,19 +72,12 @@ $ cd PROJECTNAME
 ```
 
 To install and set up the library, run:
-
 ```sh
 $ npm install -S myLib
 ```
-
-````
 Serving the app:
 ```sh
 $ npm start
-````
-
-Building a distribution version:
-
-```sh
-$ npm run build
 ```
+
+
