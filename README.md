@@ -5,9 +5,9 @@
   </a>
 </p>
 <h3 align="center">
-  Full stack crud application using ReactJs with Firestore database & 
+  Calculator that built with React and Redux-Rtk mimicing
   <br>
-  Firebase/OAuth options with Protected Routes
+  the windows calculators dynamic flow.
 </h3>
 
 <br>
@@ -27,12 +27,12 @@ These instructions will get you a copy of the project up and running on your loc
 Start with cloning this repo on your local machine via cli or github-desktop:
 
 ```sh
-$ git clone https://github.com/AndrasE/crud-auth-and-fire
+$ git clone https://github.com/AndrasE/React-redux-calculator
 $ cd PROJECTNAME
 ```
 To install and set up the library, run:
 ```sh
-$ npm install -S myLib
+$ npm install -S myLib 
 ```
 
 Or if you prefer using Yarn:
@@ -40,19 +40,12 @@ Or if you prefer using Yarn:
 $ yarn add --dev myLib
 ```
 
-Add your own credentials:
-```sh
-edit firebase-config.js or add own .env
-setup own google and facebook Apis
 ```
 Serving the app:
 ```sh
 $ npm start
 ```
-Running the tests:
-```sh
-$ npm test
-```
+
 Building a distribution version:
 ```sh
 $ npm run build
