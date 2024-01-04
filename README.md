@@ -15,9 +15,10 @@
 
 After some study in the realm of Redux I deicided to create my own project. Its
 using a combination of React useStates and Redux-Rtk for statemanagment. To spice things 
-up I tried to recreate the windows calculator`s logic. On top I added theme & sound settings 
-and able to dispatch simple api calls to this projects hero, Chuck Norris.🔫
-
+up I tried to recreate the windows calculators logic. I also added theme & sound settings 
+and able to dispatch simple api calls to this projects hero, Chuck Norris.🤠
+<br/>
+Packadges used:
 <li><a
 href="https://www.npmjs.com/package/use-local-storage"
 target="_blank"
