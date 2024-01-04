@@ -17,13 +17,13 @@ After some study in the realm of Redux I deicided to create my own project. Its
 using a combination of React useStates and Redux-Rtk for statemanagment. To spice things 
 up I tried to recreate the windows calculators logic including having access to  calculation history. 
 I also added theme & sound settings and able to dispatch simple api calls to this projects hero, Chuck Norris.🤠
-
 <br/>
 <div align="center">
-<img src="https://github.com/AndrasE/React-redux-calculator/assets/75881631/8dedc741-8f52-43d7-bb28-bae4c91e4861" width="250">
-<img src="https://github.com/AndrasE/React-redux-calculator/assets/75881631/ebb190c8-d440-4d13-8177-96a08deaf8ad" width="250">
-<img src="https://github.com/AndrasE/React-redux-calculator/assets/75881631/5b27381c-f39f-4164-8e73-5ed9ef0d3c9c" width="250">
+<img src="https://github.com/AndrasE/React-redux-calculator/assets/75881631/8dedc741-8f52-43d7-bb28-bae4c91e4861" width="280">
+<img src="https://github.com/AndrasE/React-redux-calculator/assets/75881631/ebb190c8-d440-4d13-8177-96a08deaf8ad" width="280">
+<img src="https://github.com/AndrasE/React-redux-calculator/assets/75881631/5b27381c-f39f-4164-8e73-5ed9ef0d3c9c" width="280">
 </div>
+<br/>
 Packadges used:
 <li><a
 href="https://www.npmjs.com/package/use-local-storage"
