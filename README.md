@@ -77,12 +77,6 @@ To install and set up the library, run:
 $ npm install -S myLib
 ```
 
-Or if you prefer using Yarn:
-
-```sh
-$ yarn add --dev myLib
-```
-
 ````
 Serving the app:
 ```sh
