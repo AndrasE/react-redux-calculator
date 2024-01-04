@@ -56,7 +56,7 @@ according to the input and the output of the calculation. </li>
 <br/>
 There are more information shared about this project at the Apps about and moreabout section if you are interested. 
 <br/>
-Take care, calc safe!<img src="https://github.com/AndrasE/raw-readme/blob/main/calcfavicon.png?raw=true" width="18">
+Take care, calc safe!🧮
 
 <br/>
 
