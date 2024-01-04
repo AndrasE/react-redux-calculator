@@ -17,10 +17,14 @@
 I think the title is self-explanatory. 
 This project was part of my self-study. If you go to the webapp and click on the logo you will find further details of this project, including challenges and particular solutions, tutorials and references; or just read the About.jsx in the repo. I hope you like it and it will offer you some help with your own project. 
 
-  Use-local-storage
-        </a>{" "}
-        for keeping theme and sound settings stored locally. If you reopen the
-        app on the same device it will load up with your last configuration.{" "}
+<li><a
+href="https://www.npmjs.com/package/use-local-storage"
+target="_blank"
+rel="noopener noreferrer"
+> Use-local-storage
+</a>
+for keeping theme and sound settings stored locally. If you reopen the
+app on the same device it will load up with your last configuration. </li>
         <br />
         <a
           href="https://www.npmjs.com/package/react-textfit"
