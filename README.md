@@ -55,7 +55,7 @@ according to the input and the output of the calculation. </li>
 
 <br/>
 
-Take care, code safe!   <img src="https://github.com/AndrasE/raw-readme/blob/main/calcfavicon.png?raw=true" width="15">
+Take care, code safe!   <img src="https://github.com/AndrasE/raw-readme/blob/main/calcfavicon.png?raw=true" width="18">
 
 <br/>
 
