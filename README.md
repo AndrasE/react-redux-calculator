@@ -21,21 +21,26 @@ This project was part of my self-study. If you go to the webapp and click on the
 href="https://www.npmjs.com/package/use-local-storage"
 target="_blank"
 rel="noopener noreferrer"
-> Use-local-storage
+>Use-local-storage
 </a>
 for keeping theme and sound settings stored locally. If you reopen the
 app on the same device it will load up with your last configuration. </li>
-        <br />
-        <a
-          href="https://www.npmjs.com/package/react-textfit"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          React-textfit
-        </a>{" "}
-        in the displaying the numbers in the calculator screen. It will adjust
-        the fontsize according to how many digits added on as input and what is
-        the output of the calculation. <br />
+<li><a
+href="https://www.npmjs.com/package/use-local-storage"
+target="_blank"
+rel="noopener noreferrer"
+>Use-local-storage
+</a>
+for keeping theme and sound settings stored locally. If you reopen the
+app on the same device it will load up with your last configuration. </li>
+<li><a
+href="https://www.npmjs.com/package/react-textfit"
+target="_blank"
+rel="noopener noreferrer"
+>React-textfit
+</a>
+in the displaying the numbers in the calculator screen. It will adjust
+the output of the calculation. </li>
         <a
           href="https://www.npmjs.com/package/axios"
           target="_blank"
