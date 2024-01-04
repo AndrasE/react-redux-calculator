@@ -9,7 +9,7 @@
   the Windows calculators dynamic flow and other caveats.
 </h3>
 
-<br>
+<br/>
 
 ## Hello there 👋
 
@@ -53,11 +53,11 @@ rel="noopener noreferrer"
 >React-textfit</a> in the displaying the numbers in the calculator screen. It will adjust fonstize 
 according to the input and the output of the calculation. </li>
 
-<br>
+<br/>
 
-Take care, code safe! 💻
+Take care, code safe!   <img src="https://github.com/AndrasE/raw-readme/blob/main/calcfavicon.png?raw=true" width="30">
 
-<br>
+<br/>
 
 ## Run 🚀
 
