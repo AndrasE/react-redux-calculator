@@ -15,8 +15,8 @@
 
 After some study in the realm of Redux I deicided to create my own project. Its
 using a combination of React useStates and Redux-Rtk for statemanagment. To spice things 
-up I tried to recreate the windows calculators logic. I also added theme & sound settings 
-and able to dispatch simple api calls to this projects hero, Chuck Norris.🤠
+up I tried to recreate the windows calculators logic including having access to  calculation history. 
+I also added theme & sound settings and able to dispatch simple api calls to this projects hero, Chuck Norris.🤠
 
 <br/>
 
