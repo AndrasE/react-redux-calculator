@@ -22,6 +22,7 @@ I also added theme & sound settings and able to dispatch simple api calls to thi
 <img src="https://github.com/AndrasE/React-redux-calculator/assets/75881631/8dedc741-8f52-43d7-bb28-bae4c91e4861" width="280">
 <img src="https://github.com/AndrasE/React-redux-calculator/assets/75881631/ebb190c8-d440-4d13-8177-96a08deaf8ad" width="280">
 <img src="https://github.com/AndrasE/React-redux-calculator/assets/75881631/5b27381c-f39f-4164-8e73-5ed9ef0d3c9c" width="280">
+<img src="https://github.com/AndrasE/React-redux-calculator/assets/75881631/5b27381c-f39f-4164-8e73-5ed9ef0d3c9c" width="280"> 
 </div>
 <br/>
 Packadges used:
