@@ -4,7 +4,7 @@
   </a>
 </p>
 <h3 align="center">
-  Calculator that built with React with Redux-Rtk mimicing
+  Calculator that built with React with Redux-Rtk mimicking
   <br>
   the Windows calculators dynamic flow and other caveats.
 </h3>
@@ -26,7 +26,7 @@ I also added theme & sound settings and able to dispatch simple api calls to thi
 </div>
 
 <br/>
-Packadges used:
+Packages used:
 <li><a
 href="https://www.npmjs.com/package/use-local-storage"
 target="_blank"
