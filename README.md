@@ -13,10 +13,9 @@
 
 ## Hello there 👋
 
-After some study in the realm of Redux I deicided to create my own project. Its
-using a combination of React useStates and Redux-Rtk for statemanagment. To spice things 
-up I tried to recreate the windows calculators logic including having access to  calculation history. 
-I also added theme & sound settings and able to dispatch simple api calls to this projects hero, Chuck Norris.🤠
+<p>Building upon my knowledge of Redux and Redux Toolkit (RTK), I embarked on the creation of a feature-rich calculator application. This project leverages a combination of React's useState hook and Redux-RTK for robust state management.</p>
+<p>To elevate the user experience, I meticulously replicated the logic of the Windows calculator, encompassing functionalities such as calculation history and dynamic ongoing calculations. Moreover, the application boasts a range of customization options, including theme and sound settings.</p>
+<p>For a distinctive touch, I designed a unique theme and visual style for the calculator. Additionally, I incorporated sound effects to enhance user interaction and integrated an API to display motivating action hero images featuring the legendary Chuck Norris, adding a touch of humor to the experience.</p>
 <br/>
 <div align="center">
 <img src="https://github.com/AndrasE/React-redux-calculator/assets/75881631/8dedc741-8f52-43d7-bb28-bae4c91e4861" width="280">
@@ -26,45 +25,16 @@ I also added theme & sound settings and able to dispatch simple api calls to thi
 </div>
 
 <br/>
-Packages used:
-<li><a
-href="https://www.npmjs.com/package/use-local-storage"
-target="_blank"
-rel="noopener noreferrer"
->Use-local-storage</a> for keeping theme and sound settings stored locally. If you reopen the
-app on the same device it will load with your last configuration. </li>
-<li><a
-href="https://www.joshwcomeau.com/react/announcing-use-sound-react-hook/"
-target="_blank"
-rel="noopener noreferrer"
->
-Use-sound</a> to not just see, but hear the calculator. I felt that especially on
-mobile, it was a bit strange to not having that as a feedback. </li>
-<li><a
- href="https://www.npmjs.com/package/axios"
-target="_blank"
-rel="noopener noreferrer"
->Axios</a> to make simple api requests to
-<a
- href="https://api.chucknorris.io/"
-target="_blank"
-rel="noopener noreferrer"
->chucknorris.io</a>. How does it related to the calculator you may ask? 
-I don`t know, regardless its fun!😉
-</li>
-<li><a
-href="https://www.npmjs.com/package/react-textfit"
-target="_blank"
-rel="noopener noreferrer"
->React-textfit</a> in the displaying the numbers in the calculator screen. It will adjust fonstize 
-according to the input and the output of the calculation. </li>
+<p> Packages used: 
+<li><a href="https://redux-toolkit.js.org/" target="_blank" rel="noopener noreferrer"> Redux-RTK</a> - Efficient state management for complex calculations. </li> 
+<li><a href="https://www.npmjs.com/package/use-local-storage" target="_blank" rel="noopener noreferrer">Use-local-storage</a> - Persists theme and sound settings for a personalized user experience across sessions. </li> 
+<li><a href="https://www.joshwcomeau.com/react/announcing-use-sound-react-hook/" target="_blank" rel="noopener noreferrer"> Use-sound</a> - Adds a nostalgic tapping sound effect to enrich user interaction. </li> 
+<li><a href="https://www.npmjs.com/package/axios" target="_blank" rel="noopener noreferrer">Axios</a> - Communication with the chucknorris.io API for fetching Chuck Norris-themed images (a fun addition!). </li> 
+<li><a href="https://www.npmjs.com/package/react-textfit" target="_blank" rel="noopener noreferrer">React-textfit</a> - Dynamically adjusts font size based on the length of the calculation, ensuring optimal display on the calculator screen. </li> </p>
 
-<br/>
+<p>
 There are more information shared about this project at the Apps about and moreabout section if you are interested. 
-<br/>
-Take care, calc safe!🧮
-
-<br/>
+</p>
 
 ## Run 🚀
 
@@ -78,12 +48,13 @@ $ cd PROJECTNAME
 ```
 
 To install and set up the library, run:
+
 ```sh
 $ npm install -S myLib
 ```
+
 Serving the app:
+
 ```sh
 $ npm start
 ```
-
-
