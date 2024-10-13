@@ -26,11 +26,11 @@
 
 <br/>
 <p> Packages used: 
-<li><a href="https://redux-toolkit.js.org/" target="_blank" rel="noopener noreferrer"> Redux-RTK</a> - Efficient state management for complex calculations. </li> 
-<li><a href="https://www.npmjs.com/package/use-local-storage" target="_blank" rel="noopener noreferrer">Use-local-storage</a> - Persists theme and sound settings for a personalized user experience across sessions. </li> 
-<li><a href="https://www.joshwcomeau.com/react/announcing-use-sound-react-hook/" target="_blank" rel="noopener noreferrer"> Use-sound</a> - Adds a nostalgic tapping sound effect to enrich user interaction. </li> 
-<li><a href="https://www.npmjs.com/package/axios" target="_blank" rel="noopener noreferrer">Axios</a> - Communication with the chucknorris.io API for fetching Chuck Norris-themed images (a fun addition!). </li> 
-<li><a href="https://www.npmjs.com/package/react-textfit" target="_blank" rel="noopener noreferrer">React-textfit</a> - Dynamically adjusts font size based on the length of the calculation, ensuring optimal display on the calculator screen. </li> </p>
+<li><a href="https://redux-toolkit.js.org/" target="_blank" rel="noopener noreferrer">redux-toolkit</a> - Efficient state management for complex calculations. </li> 
+<li><a href="https://www.npmjs.com/package/use-local-storage" target="_blank" rel="noopener noreferrer">use-local-storage</a> - Persists theme and sound settings for a personalized user experience across sessions. </li> 
+<li><a href="https://www.joshwcomeau.com/react/announcing-use-sound-react-hook/" target="_blank" rel="noopener noreferrer"> use-sound</a> - Adds a nostalgic tapping sound effect to enrich user interaction. </li> 
+<li><a href="https://www.npmjs.com/package/axios" target="_blank" rel="noopener noreferrer">axios</a> - Communication with the chucknorris.io API for fetching Chuck Norris-themed images (a fun addition!). </li> 
+<li><a href="https://www.npmjs.com/package/react-textfit" target="_blank" rel="noopener noreferrer">react-textfit</a> - Dynamically adjusts font size based on the length of the calculation, ensuring optimal display on the calculator screen. </li> </p>
 
 <p>
 There are more information shared about this project at the Apps about and moreabout section if you are interested. 
