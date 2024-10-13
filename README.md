@@ -6,7 +6,7 @@
 <h3 align="center">
   Calculator that built with React with Redux-Rtk mimicking
   <br>
-  the Windows calculators dynamic flow and other quirks.
+  the Windows calculators dynamic flow and other quirks
 </h3>
 
 <br/>
