@@ -33,7 +33,7 @@
 <li><a href="https://www.npmjs.com/package/react-textfit" target="_blank" rel="noopener noreferrer">react-textfit</a> - Dynamically adjusts font size based on the length of the calculation, ensuring optimal display on the calculator screen. </li> </p>
 
 <p>
-There are more information shared about this project at the Apps about and moreabout section if you are interested. 
+If you're interested in learning more about this project, check out the 'Apps about' and 'moreabout' sections.
 </p>
 
 ## Run 🚀
