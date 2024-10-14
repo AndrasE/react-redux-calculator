@@ -4,7 +4,9 @@
   </a>
 </p>
 <h3 align="center">
-  React - Redux-Rtk calculator mimicing the Windows calculators dynamic flow and more
+  React - Redux-Rtk calculator 
+  <br> 
+  mimicing the Windows calculators dynamic flow and more
 </h3>
 
 <br/>
