@@ -4,9 +4,7 @@
   </a>
 </p>
 <h3 align="center">
-  Calculator that built with React with Redux-Rtk mimicking
-  <br>
-  the Windows calculators dynamic flow and other quirks
+  React - Redux-Rtk calculator mimicing the Windows calculators dynamic flow and more
 </h3>
 
 <br/>
