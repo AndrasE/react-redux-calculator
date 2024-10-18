@@ -19,9 +19,9 @@ For a distinctive touch, I designed a unique theme and visual style for the calc
 To learn more about this project, be sure to explore the 'Apps About' and 'Moreabout' sections.
 
 <div align="center">
-<img src="https://github.com/AndrasE/React-redux-calculator/assets/75881631/8dedc741-8f52-43d7-bb28-bae4c91e4861" width="200">
-<img src="https://github.com/AndrasE/React-redux-calculator/assets/75881631/ebb190c8-d440-4d13-8177-96a08deaf8ad" width="200">
-<img src="https://github.com/AndrasE/React-redux-calculator/assets/75881631/5b27381c-f39f-4164-8e73-5ed9ef0d3c9c" width="200">
+<img src="https://github.com/AndrasE/React-redux-calculator/assets/75881631/8dedc741-8f52-43d7-bb28-bae4c91e4861" width="220">
+<img src="https://github.com/AndrasE/React-redux-calculator/assets/75881631/ebb190c8-d440-4d13-8177-96a08deaf8ad" width="220">
+<img src="https://github.com/AndrasE/React-redux-calculator/assets/75881631/5b27381c-f39f-4164-8e73-5ed9ef0d3c9c" width="220">
 </div>
 
 ### Key Features
