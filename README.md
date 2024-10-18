@@ -3,9 +3,7 @@
   <img src="https://github.com/AndrasE/raw-readme/blob/main/calculator.png?raw=true" width="230">
   </a>
   <br/>
-  React - Redux-Rtk calculator 
-  <br> 
-  mimicing the Windows calculators dynamic flow
+  React - Redux-Rtk calculator mimicing the Windows calculators dynamic flow
 </h3>
 
 ## Hello there 👋
