@@ -1,6 +1,6 @@
 <h3 align="center">
   <a href="https://react-rtk-calculator.netlify.app/" target="_blank" rel="noopener noreferrer">
-  <img src="https://github.com/AndrasE/raw-readme/blob/main/calculator.png?raw=true" width="230">
+  <img src="https://github.com/AndrasE/raw-readme/blob/e0ba0d38fc6f2bb201983bbc4986e59f1ae946f2/logo/react_redux_calculator.png" width="230">
   </a>
   <br/>
   React - Redux-Rtk calculator mimicing the Windows calculators dynamic flow
